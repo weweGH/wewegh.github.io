@@ -13,7 +13,7 @@
     - PAGES/PORTFOLIO 클릭 → `portfolio.html`
     - PAGES/PROJECT DETAILS 클릭 → `portfolio-details.html`
     - PAGES/ELEMENTS 클릭 → `elements.html`
-    - BLOG/BLOG 클릭 → `blog.html`
+    - BLOG/BLOG 클릭 → `https://wewegh.tistory.com`
     - BLOG/BLOG DETAILS 클릭 → `single-blog.html`
     - CONTACT 클릭 → `contact.html`
 
