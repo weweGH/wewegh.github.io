@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Report | RAG System</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --accent-color: #766dff;
+            --dark-navy: #232d39;
+            --soft-bg: #f4f7fa;
+            --border-color: #e9ecef;
+        }
+
+        body { font-family: 'Pretendard', -apple-system, sans-serif; color: #444; line-height: 1.6; }
+
+        /* 배너 슬림화 및 텍스트 좌측 정렬 */
+        .banner_area { min-height: 200px !important; background: var(--dark-navy); }
+        .banner_inner { min-height: 200px !important; }
+        .banner_content h2 { text-align: left !important; font-size: 32px; margin-bottom: 0; }
+
+        /* 메인 컨텐츠 레이아웃 */
+        .report-wrapper { margin-top: -50px; padding-bottom: 80px; }
+        
+        /* 좌측 사이드 정보 카드 */
+        .side-info-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+        .side-info-card h4 { font-weight: 700; color: var(--dark-navy); border-bottom: 2px solid var(--accent-color); display: inline-block; margin-bottom: 25px; }
+        .info-group { margin-bottom: 20px; }
+        .info-label { display: block; font-size: 12px; color: #999; font-weight: 700; text-transform: uppercase; }
+        .info-value { display: block; font-size: 15px; color: var(--dark-navy); font-weight: 600; margin-top: 4px; }
+
+        /* 우측 상세 내용 아티클 형식 */
+        .article-card { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .article-section { margin-bottom: 50px; position: relative; padding-left: 30px; border-left: 2px solid var(--border-color); }
+        .article-section:last-child { margin-bottom: 0; }
+        .article-section::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .section-num { font-family: 'Georgia', serif; font-size: 14px; color: var(--accent-color); font-weight: bold; margin-bottom: 5px; display: block; }
+        .section-title { font-size: 24px; font-weight: 800; color: var(--dark-navy); margin-bottom: 15px; }
+        .section-text { font-size: 16px; color: #555; word-break: keep-all; }
+        .point-box { background: var(--soft-bg); padding: 15px 20px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--accent-color); }
+
+        /* 이미지 그리드 (요청하신대로 유지) */
+        .gallery-container { background: #fff; padding-top: 40px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .gallery-item img:hover { filter: brightness(0.8); }
+
+        @media (max-width: 991px) {
+            .side-info-card { position: static; margin-bottom: 30px; }
+            .report-wrapper { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content">
+                    <h2>Project Case Study</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container report-wrapper">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="side-info-card">
+                    <h4>Overview</h4>
+                    <div class="info-group">
+                        <span class="info-label">Title</span>
+                        <span class="info-value">원료 첨부파일 검색 RAG</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Period</span>
+                        <span class="info-value">2025.04.09 — 2025.11.21</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Tech Stack</span>
+                        <span class="info-value">RAG, Semantic Search, Python</span>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">Core Value</span>
+                        <span class="info-value">R&D 생산성 혁신</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="article-card">
+                    <div class="article-section">
+                        <span class="section-num">01. Background & Challenge</span>
+                        <h3 class="section-title">비효율적인 문서 확인 프로세스</h3>
+                        <p class="section-text">
+                            연구원과 규제 담당자들이 성분 검토 시 수많은 PDF를 개별적으로 열람해야 하는 상황이었습니다. 이는 단순한 불편을 넘어 <strong>의사결정 지연과 중복 검토</strong>라는 심각한 R&D 생산성 저하로 이어지고 있었습니다.
+                        </p>
+                    </div>
+
+                    <div class="article-section">
+                        <span class="section-num">02. User Insight</span>
+                        <h3 class="section-title">사용자는 '맥락'을 원한다</h3>
+                        <p class="section-text">
+                            검색 로그 분석을 통해 결정적인 인사이트를 얻었습니다. 사용자는 '정확한 파일' 그 자체보다 <strong>"이 성분이 우리 규제에 적합한가?"</strong>에 대한 요약된 답변과 맥락을 파악하는 데 훨씬 많은 시간을 쓰고 있었습니다.
+                        </p>
+                    </div>
+
+                    <div class="article-section">
+                        <span class="section-num">03. Solution: RAG System</span>
+                        <h3 class="section-title">지능형 시멘틱 검색 도입</h3>
+                        <p class="section-text">
+                            단순 검색을 넘어, 의사결정에 필요한 정보를 자동 요약·맥락화하는 <strong>RAG(Retrieval-Augmented Generation)</strong> 접근 방식을 선택했습니다.
+                        </p>
+                        <div class="point-box">
+                            <strong>Key Result:</strong> 시멘틱 서치를 통해 사용자의 검색 의도를 파악하고, 최적의 규제 대응 정보를 즉각 제공합니다.
+                        </div>
+                    </div>
+
+                    <div class="article-section" style="border-left-color: transparent;">
+                        <span class="section-num">04. Final Learning</span>
+                        <h3 class="section-title">기술보다 중요한 '사용자 목적'</h3>
+                        <p class="section-text">
+                            이 프로젝트를 통해 중요한 것은 기술적 성능이 아니라 <strong>"사용자가 어떤 결정을 내리기 위해 이 도구를 사용하는가"</strong>를 집요하게 파고드는 태도임을 배웠습니다.
+                        </p>
+                    </div>
+
+                    <div class="gallery-container">
+                        <h4 class="mb-4" style="font-weight: 700;">Project Showcase</h4>
+                        <div class="gallery-grid">
+                            <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt="Screen 1"></div>
+                            <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt="Screen 2"></div>
+                            <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt="Screen 3"></div>
+                            <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt="Screen 4"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer_area p_120">
+        <div class="container">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by Colorlib</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | RAG System</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 250px !important; }
+        .banner_inner { min-height: 250px !important; }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: -60px; /* 배너 위에 걸치게 */
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        .meta-item { border-right: 1px solid #ddd; padding: 0 20px; }
+        .meta-item:last-child { border-right: none; }
+        .meta-label { font-size: 13px; color: var(--primary-color); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+        .meta-value { font-size: 16px; color: var(--text-dark); font-weight: 600; }
+
+        /* 프로젝트 상세 내용 (2열 그리드) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .step-box {
+            padding: 25px;
+            border-bottom: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        .step-box:hover { background: #fcfcff; border-bottom-color: var(--primary-color); }
+        .step-tag {
+            font-size: 12px;
+            font-weight: 800;
+            color: #fff;
+            background: var(--primary-color);
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .step-title { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+        .step-desc { font-size: 15px; color: var(--text-light); line-height: 1.7; word-break: keep-all; }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .details-grid { grid-template-columns: 1fr; }
+            .meta-item { border-right: none; border-bottom: 1px solid #ddd; padding: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;">Project Review</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="meta-container">
+            <div class="row text-center">
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">Project Title</div>
+                    <div class="meta-value">원료 첨부파일 검색 RAG</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">Period</div>
+                    <div class="meta-value">2025.04.09 - 2025.11.21</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">Tech Stack</div>
+                    <div class="meta-value">Semantic Search, RAG, Python</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">Key Outcome</div>
+                    <div class="meta-value">의사결정 프로세스 최적화</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-tag">01</div>
+                <div class="step-title">CONTEXT</div>
+                <p class="step-desc">
+                    연구원 및 규제 담당자들이 특정 성분을 검토할 때, 수많은 <span class="highlight">PDF 문서를 일일이 개별적으로 확인</span>해야 하는 비효율적인 상황이 반복되고 있었습니다.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-tag">02</div>
+                <div class="step-title">DECISION</div>
+                <p class="step-desc">
+                    단순한 검색 불편을 넘어 <span class="highlight">의사결정 지연 및 중복 검토</span>로 인한 R&D 생산성 저하 문제를 발견하였고, 이를 해결하기 위한 기술적 대응이 필수적이라고 판단했습니다.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-tag">03</div>
+                <div class="step-title">FRAMING</div>
+                <p class="step-desc">
+                    문제의 본질을 재정의했습니다. 사용자는 단순히 '문서'를 찾는 것이 아니라, <span class="highlight">"의사결정에 필요한 핵심 맥락"</span>을 즉각적으로 얻고 싶어 한다는 점에 집중했습니다.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-tag">04</div>
+                <div class="step-title">INSIGHT</div>
+                <p class="step-desc">
+                    검색 로그 분석 결과, 사용자는 정확한 문서 매칭보다 <span class="highlight">성분 관련 요약 정보와 규제 맥락</span>을 파악하는 데 전체 검색 시간의 80% 이상을 할애하고 있었습니다.
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-tag">05</div>
+                <div class="step-title">OUTCOME</div>
+                <p class="step-desc">
+                    단순 키워드 매칭이 아닌 <span class="highlight">시멘틱 서치 기반 RAG 시스템</span>을 구축했습니다. 이를 통해 정보를 요약 및 맥락화하여 검색 비용을 획기적으로 절감했습니다.
+                </p>
+            </div>
+
+            <div class="step-box" style="border-bottom-color: var(--primary-color);">
+                <div class="step-tag">06</div>
+                <div class="step-title">LEARNING</div>
+                <p class="step-desc">
+                    기술적 성능보다 중요한 것은 <span class="highlight">'사용자가 어떤 결정을 내리기 위해 이 기술을 사용하는가'</span>를 깊이 이해하는 것임을 확인했습니다.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="image-section">
+        <div class="container">
+            <h3 class="text-center mb-5" style="font-weight: 700; color: #222;">Project Showcase</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer_area p_120">
+        <div class="container">
+            <div class="row footer_inner">
+                <div class="col-lg-5 col-sm-6">
+                    <aside class="f_widget ab_widget">
+                        <div class="f_title"><h3>About Me</h3></div>
+                        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o"></i> by Colorlib</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
