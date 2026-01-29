@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="ko">
 <head>
@@ -23,6 +25,24 @@
         /* 배너 영역 슬림화 */
         .banner_area { min-height: 200px !important; margin-top: 60px; }
         .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
 
         /* 프로젝트 메타 정보 섹션 (상단 가로형) */
         .meta-container {
@@ -119,47 +139,12 @@
 </head>
 <body>
 
-    <!--================Header Menu Area =================-->
-    <header class="header_area">
-        <div class="main_menu" id="mainNav">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container box_1620">
-                    <a class="navbar-brand logo_h" href="index.html">
-                        <img src="img/logo.png" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="services.html">Services</a>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="portfolio-details.html">Project Details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://wewegh.tistory.com" target="_blank" rel="noopener noreferrer">Blog</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <!--================Header Menu Area =================-->
+    {% include header.html menu_class="page_header" %}
 
+    <!--================Home Banner Area =================-->
     <section class="banner_area">
         <div class="banner_inner d-flex align-items-center">
-            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-background=""></div>
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
                     <h2 style="font-size: 40px;">원료 첨부파일 검색 RAG</h2>
