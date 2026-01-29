@@ -1,0 +1,8 @@
+title: "Jeon GaHyun Portfolio"
+description: "Personal portfolio site built with the Ronin theme"
+exclude:
+  - node_modules
+  - vendor/bundle
+  - Gemfile
+  - Gemfile.lock
+  - README.md
