@@ -40,10 +40,10 @@
         .meta-label { font-size: 13px; color: var(--primary-color); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
         .meta-value { font-size: 16px; color: var(--text-dark); font-weight: 600; }
 
-        /* 프로젝트 상세 내용 (2열 그리드) */
+        /* 프로젝트 상세 내용 (1열 그리드) */
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 30px;
             margin-top: 50px;
         }
@@ -83,7 +83,6 @@
         }
 
         @media (max-width: 768px) {
-            .details-grid { grid-template-columns: 1fr; }
             .meta-item { border-right: none; border-bottom: 1px solid #ddd; padding: 10px 0; }
         }
     </style>
