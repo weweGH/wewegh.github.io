@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="ko">
 <head>
@@ -21,8 +23,26 @@
         body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
 
         /* 배너 영역 슬림화 */
-        .banner_area { min-height: 200px !important; }
+        .banner_area { min-height: 200px !important; margin-top: 0; }
         .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
 
         /* 프로젝트 메타 정보 섹션 (상단 가로형) */
         .meta-container {
@@ -119,11 +139,12 @@
 </head>
 <body>
 
-    {% include header.html %}
+    {% include header.html menu_class="page_header" %}
 
+    <!--================Home Banner Area =================-->
     <section class="banner_area">
         <div class="banner_inner d-flex align-items-center">
-            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-background=""></div>
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
                     <h2 style="font-size: 40px;">원료 첨부파일 검색 RAG</h2>
@@ -142,7 +163,7 @@
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">ROLE</div>
-                    <div class="meta-value">검색 파이프라인 설계</div>
+                    <div class="meta-value">검색 파이프라인 설계 및 구현</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">Tech Stack</div>
