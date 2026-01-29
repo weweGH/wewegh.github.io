@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | RAG System</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 200px !important; }
+        .banner_inner { min-height: 200px !important; }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 15px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        .meta-item { border-right: 1px solid #ddd; padding: 0 20px; }
+        .meta-item:last-child { border-right: none; }
+        .meta-label { font-size: 13px; color: var(--primary-color); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+        .meta-value { font-size: 16px; color: var(--text-dark); font-weight: 600; }
+
+        /* 프로젝트 상세 내용 (1열 그리드) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .step-box {
+            padding: 16px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 4px solid rgba(118, 109, 255, 0.2);
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .step-box:hover {
+            background: #faf9ff;
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(118, 109, 255, 0.15);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 56px;
+        }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item { border-right: none; border-bottom: 1px solid #ddd; padding: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;">원료 첨부파일 검색 RAG</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;">2025.4.9 ~ 2025.11.21</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="meta-container">
+            <div class="row text-center">
+                <div class="col-md-6 meta-item">
+                    <div class="meta-label">Snapshot</div>
+                    <div class="meta-value">PDF 중심 검토 흐름을 의사결정 중심 탐색 구조로 전환한 RAG 프로젝트</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">ROLE</div>
+                    <div class="meta-value">검색 파이프라인 설계 및 구현</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">Tech Stack</div>
+                    <div class="meta-value">Semantic Search, RAG</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">CONTEXT</div>
+                </div>
+                <p class="step-desc">
+                    연구원 및 규제 담당자가 성분 정보 확인 시, <span class="highlight">다수의 PDF 문서를 개별적으로 열람해야 하는 구조</span>로 인한 검색 비효율 발생
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">DECISION</div>
+                </div>
+                <p class="step-desc">
+					‣ 성분 검색 비용 증가로 인한 <span class="highlight">의사결정 지연 및 중복 검토 발생</span><br>
+                    ‣ <span class="highlight">R&D 생산성 저하 및 규제 대응 속도 감소</span>로 이어지는 구조적 문제 인식
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">FRAMING</div>
+                </div>
+                <p class="step-desc">
+                    사용자의 핵심 니즈가 ‘정확한 문서 탐색’인지, 혹은 ‘의사결정에 필요한 핵심 정보와 규제 맥락의 빠른 파악’인지에 대한 문제 재정의
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">INSIGHT</div>
+                </div>
+                <p class="step-desc">
+                    검색 로그 및 문서 열람 패턴 분석을 통해, 사용자가 문서 원본보다 성분 요약 정보와 규제 맥락 확인에 더 많은 시간을 사용하는 경향 확인
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc">
+                    ‣ 단순 키워드 검색 개선이 아닌, 의사결정 지원을 위한 정보 요약·맥락화 방향으로 문제 해결 전략 설정<br>
+                    ‣ <span class="highlight">시멘틱 서치 기반 RAG 구조 도입</span>을 통한 검색 경험 개선
+                </p>
+            </div>
+
+            <div class="step-box" style="border-bottom-color: var(--primary-color);">
+                <div class="step-heading">
+                    <div class="step-tag">06</div>
+                    <div class="step-title">LEARNING</div>
+                </div>
+                <p class="step-desc">
+                    검색 문제의 핵심은 기술적 정확도 자체가 아니라, 사용자가 어떤 결정을 위해 검색하고 있는지를 이해하는 문제라는 인식 강화
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="image-section">
+        <div class="container">
+            <h3 class="text-center mb-5" style="font-weight: 700; color: #222;">Project Showcase</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer_area p_120">
+        <div class="container">
+            <div class="row footer_inner">
+                <div class="col-lg-5 col-sm-6">
+                    <aside class="f_widget ab_widget">
+                        <div class="f_title"><h3>About Me</h3></div>
+                        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o"></i> by Colorlib</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
