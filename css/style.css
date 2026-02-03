@@ -416,6 +416,9 @@ button:focus {
 /*----------------------------------------------------*/
 /* Latest Blog Area css
 ============================================================================================ */
+.latest_blog_area {
+  background: #f9f9ff;
+}
 .l_blog_item .l_blog_text .date {
   margin-top: 24px;
   margin-bottom: 15px; }
@@ -2930,9 +2933,9 @@ h6 {
 /* Testimonials Area css
 ============================================================================================ */
 .testimonials_area {
-  background: #f9f9ff; }
+  background: #fff; }
   .testimonials_area.testi_two {
-    background: #fff; }
+    background: #f9f9ff; }
     .testimonials_area.testi_two .testi_inner {
       margin-top: -20px;
       margin-bottom: -20px; }
