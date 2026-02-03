@@ -105,10 +105,11 @@
     /*  Isotope Fillter js
     /*----------------------------------------------------*/
 	function projects_isotope(){
-        if ( $('.projects_area').length ){
+        var $projectsInner = $(".projects_inner");
+        if ( $projectsInner.length ){
             // Activate isotope in container
-			$(".projects_inner").imagesLoaded( function() {
-                $(".projects_inner").isotope({
+			$projectsInner.imagesLoaded( function() {
+                $projectsInner.isotope({
                     layoutMode: 'fitRows',
                     animationOptions: {
                         duration: 750,
@@ -123,7 +124,7 @@
                 $(this).addClass("active");
 
                 var selector = $(this).attr("data-filter");
-                $(".projects_inner").isotope({
+                $projectsInner.isotope({
                     filter: selector,
                     animationOptions: {
                         duration: 450,

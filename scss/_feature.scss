@@ -167,5 +167,49 @@
 		}
 	}
 }
+
+/* Projects Showcase Area (Home) */
+.projects_showcase_area{
+	background: #f9f9ff;
+}
+.projects_showcase_inner{
+	margin-bottom: -30px;
+}
+.projects_showcase_item{
+	padding: 50px 35px;
+	border-radius: 10px;
+	@include transition;
+	background: #fff;
+	margin-bottom: 30px;
+	i{
+		margin-bottom: 35px;
+		display: block;
+		&:before{
+			margin-left: 0px;
+			font-size: 60px;
+			color: #e1e1e1;
+			line-height: 60px;
+		}
+	}
+	h4{
+		color: $dip;
+		font-size: 21px;
+		font-family: $hee;
+		font-weight: bold;
+		margin-bottom: 20px;
+		text-transform: uppercase;
+	}
+	p{
+		margin-bottom: 0px;
+	}
+	.main_btn{
+		padding: 0px 30px;
+		line-height: 38px;
+	}
+	&:hover{
+		box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.08);
+		border-color: #fff;
+	}
+}
 /* End Feature Area css
 ============================================================================================ */
