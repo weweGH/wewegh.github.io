@@ -8,7 +8,7 @@
     - 
 
 - 하위 이동
-    - ABOUT 클릭 → `about-us.html`
+    - ABOUT 클릭 → `index.html`의 Welcome Area로 이동
     - SERVICES 클릭 → `services.html`
     - PAGES/PORTFOLIO 클릭 → `portfolio.html`
     - PAGES/PROJECT DETAILS 클릭 → `portfolio-details.html`
