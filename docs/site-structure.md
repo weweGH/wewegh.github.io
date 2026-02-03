@@ -7,8 +7,13 @@
 - 주요 섹션:
     - 
 
-- 하위 이동
+- 내비게이션바 이동 경로
+    - HOME 클릭 → `index.html`의 Home Banner Area로 이동
     - ABOUT 클릭 → `index.html`의 Welcome Area로 이동
+    - PROJECTS 클릭 → `index.html`의 Projects Area로 이동
+    - EXPERIMENTS 클릭 → `index.html`의 Experiments Area로 이동
+    - BLOG 클릭 → `index.html`의 Blog Area로 이동
+
     - SERVICES 클릭 → `services.html`
     - PAGES/PORTFOLIO 클릭 → `portfolio.html`
     - PAGES/PROJECT DETAILS 클릭 → `portfolio-details.html`
