@@ -14,10 +14,12 @@
 
     <style>
         :root {
-            --primary-color: #766dff;
-            --text-dark: #222222;
-            --text-light: #666666;
-            --bg-light: #f8f9fa;
+            --primary-color: #E4572E;
+            --accent-color: #F3A712;
+            --text-dark: #1F2933;
+            --text-light: #4B5563;
+            --bg-light: #FAFAF9;
+            --border-light: #E5E7EB;
         }
 
         body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
@@ -48,9 +50,9 @@
             position: relative;
             z-index: 5;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid #eee;
+            border: 1px solid var(--border-light);
         }
-        .meta-item { border-right: 1px solid #ddd; padding: 0 20px; }
+        .meta-item { border-right: 1px solid var(--border-light); padding: 0 20px; }
         .meta-item:last-child { border-right: none; }
         .meta-label { font-size: 13px; color: var(--primary-color); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
         .meta-value { font-size: 16px; color: var(--text-dark); font-weight: 600; }
@@ -67,12 +69,12 @@
             top: 6px;
             bottom: 6px;
             width: 2px;
-            background: rgba(118, 109, 255, 0.2);
+            background: rgba(228, 87, 46, 0.35);
         }
         .step-box {
             position: relative;
             padding: 18px 22px;
-            border: 1px solid #eee;
+            border: 1px solid var(--border-light);
             border-radius: 12px;
             background: #fff;
             margin-bottom: 20px;
@@ -88,11 +90,11 @@
             height: 12px;
             border-radius: 50%;
             background: var(--primary-color);
-            box-shadow: 0 0 0 6px rgba(118, 109, 255, 0.15);
+            box-shadow: 0 0 0 6px rgba(228, 87, 46, 0.22);
         }
         .step-box:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 26px rgba(118, 109, 255, 0.12);
+            box-shadow: 0 12px 26px rgba(228, 87, 46, 0.16);
         }
         .step-heading {
             display: flex;
@@ -104,7 +106,7 @@
             font-size: 11px;
             font-weight: 700;
             color: var(--primary-color);
-            background: rgba(118, 109, 255, 0.15);
+            background: rgba(228, 87, 46, 0.2);
             padding: 2px 9px;
             border-radius: 999px;
             margin-bottom: 0;
@@ -118,20 +120,20 @@
         .step-title {
             font-size: 18px;
             font-weight: 600;
-            color: #555555;
+            color: var(--text-light);
             margin-bottom: 0;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
         .step-desc {
             font-size: 16px;
-            color: #1f1f1f;
+            color: var(--text-dark);
             line-height: 1.85;
             word-break: keep-all;
             margin-left: 58px;
         }
 
-        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .image-section { background: var(--bg-light); padding: 80px 0; margin-top: 60px; }
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -142,11 +144,11 @@
             height: 250px;
             object-fit: cover;
             border-radius: 8px;
-            border: 1px solid #eee;
+            border: 1px solid var(--border-light);
         }
 
         @media (max-width: 768px) {
-            .meta-item { border-right: none; border-bottom: 1px solid #ddd; padding: 10px 0; }
+            .meta-item { border-right: none; border-bottom: 1px solid var(--border-light); padding: 10px 0; }
             .timeline-wrap { padding-left: 24px; }
             .step-box::before { left: -24px; }
         }
@@ -162,7 +164,7 @@
             <div class="container">
                 <div class="banner_content text-center">
                     <h2 style="font-size: 40px;">만다라트 차트 가이드</h2>
-                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;">2025.4.9 ~ 2025.11.21</p>
+                    <p style="margin-top: 10px; font-size: 14px; color: var(--text-light); letter-spacing: 1px;">2025.4.9 ~ 2025.11.21</p>
                 </div>
             </div>
         </div>
