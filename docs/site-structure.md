@@ -13,14 +13,14 @@
     - PROJECTS 클릭 → `index.html`의 Projects Area로 이동
     - EXPERIMENTS 클릭 → `index.html`의 Experiments Area로 이동
     - BLOG 클릭 → `index.html`의 Blog Area로 이동
+    - CONTACT 클릭 → `index.html`의 Home Contact Area로 이동
 
-    - SERVICES 클릭 → `services.html`
-    - PAGES/PORTFOLIO 클릭 → `portfolio.html`
-    - PAGES/PROJECT DETAILS 클릭 → `portfolio-details.html`
-    - PAGES/ELEMENTS 클릭 → `elements.html`
-    - BLOG/BLOG 클릭 → `https://wewegh.tistory.com`
-    - BLOG/BLOG DETAILS 클릭 → `single-blog.html`
-    - CONTACT 클릭 → `contact.html`
+- Projects Area(프로젝트 참여 이력) 이동 경로
+    - RAG 구축 클릭 → `search-rag.html`
+    - 유사 제품 탐색 기능 클릭 → `product-similarity.html`
+    
+
+
 
 ---
 
