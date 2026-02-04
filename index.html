@@ -37,7 +37,7 @@
                 background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(59, 130, 246, 0.18));
             }
             .hero_redesign .banner_inner {
-                padding: 190px 0 120px;
+                padding: 185px 0 110px;
             }
             .hero_kicker {
                 display: inline-block;
@@ -61,92 +61,28 @@
                 max-width: 720px;
                 font: 400 17px/1.8 "Roboto", sans-serif;
                 color: #374151;
-                margin-bottom: 34px;
+                margin-bottom: 22px;
             }
-            .hero_cta_row a {
-                display: inline-block;
-                padding: 13px 24px;
-                border-radius: 10px;
-                font: 600 13px/1 "Roboto", sans-serif;
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-                margin-right: 10px;
-                margin-bottom: 10px;
-            }
-            .hero_cta_row .primary_cta {
-                background: #111827;
-                color: #fff;
-            }
-            .hero_cta_row .ghost_cta {
-                border: 1px solid #c7d2fe;
-                color: #312e81;
-                background: rgba(255, 255, 255, 0.78);
-            }
-            .hero_focus {
-                margin-top: 26px;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                padding: 0;
+            .hero_story_list {
                 list-style: none;
+                margin: 0 0 20px;
+                padding: 0;
             }
-            .hero_focus li {
-                font: 500 13px/1 "Roboto", sans-serif;
-                color: #334155;
-                border: 1px solid #e2e8f0;
-                background: rgba(255, 255, 255, 0.85);
-                border-radius: 999px;
-                padding: 9px 14px;
-            }
-            .hero_signal_card {
-                border: 1px solid #dbeafe;
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 16px 40px rgba(30, 41, 59, 0.1);
-                border-radius: 18px;
-                padding: 24px;
-            }
-            .hero_signal_card h3 {
-                font: 700 16px/1.4 "Heebo", sans-serif;
-                color: #111827;
-                margin-bottom: 16px;
-                text-transform: uppercase;
-            }
-            .hero_signal_card ul {
-                margin: 0;
-                padding-left: 18px;
-            }
-            .hero_signal_card li {
+            .hero_story_list li {
                 margin-bottom: 8px;
-                color: #374151;
-                font: 400 14px/1.6 "Roboto", sans-serif;
-            }
-            .about_redesign {
-                background: #ffffff;
-            }
-            .about_redesign .about_heading {
-                color: #111827;
-                font: 800 38px/1.2 "Heebo", sans-serif;
-                margin-bottom: 18px;
-                text-transform: none;
-            }
-            .about_redesign .about_intro {
-                color: #334155;
-                font: 400 16px/1.9 "Roboto", sans-serif;
-                margin-bottom: 18px;
-            }
-            .about_redesign .about_stack {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                margin-top: 24px;
-            }
-            .about_redesign .about_stack span {
-                background: #f8fafc;
-                border: 1px solid #e2e8f0;
-                border-radius: 999px;
                 color: #1f2937;
-                font: 500 12px/1 "Roboto", sans-serif;
-                padding: 8px 12px;
+                font: 600 15px/1.6 "Roboto", sans-serif;
+            }
+            .hero_subtext {
+                color: #334155;
+                font: 400 16px/1.8 "Roboto", sans-serif;
+                margin: 0;
+            }
+            .evidence_title {
+                color: #111827;
+                font: 700 16px/1.4 "Heebo", sans-serif;
+                text-transform: uppercase;
+                margin-bottom: 12px;
             }
             .capability_card {
                 border: 1px solid #e5e7eb;
@@ -184,11 +120,8 @@
                 .hero_redesign h1 {
                     font-size: 38px;
                 }
-                .hero_signal_card {
-                    margin-top: 20px;
-                }
-                .about_redesign .about_heading {
-                    font-size: 32px;
+                .evidence_col {
+                    margin-top: 24px;
                 }
             }
         </style>
@@ -197,89 +130,48 @@
         
         {% include header.html %}
         
-        <!--================Home Banner Area =================-->
-        <section class="home_banner_area hero_redesign">
+        <!--================Hero + About Area =================-->
+        <section id="about" class="home_banner_area hero_redesign">
             <div class="banner_inner">
 				<div class="container">
 					<div class="row align-items-center">
-						<div class="col-lg-8">
+						<div class="col-lg-6">
 							<div class="banner_content">
-                                <span class="hero_kicker">Data Scientist Portfolio</span>
-								<h1>문제를 모델링하고, 결과를 제품 경험으로 연결합니다.</h1>
-								<p class="hero_lead">교통과 코스메틱 도메인에서 데이터 분석, ML/DL 모델링, 서비스 적용까지 수행했습니다. 이 포트폴리오는 "무엇을 만들었는가"보다 "어떤 판단으로 결과를 만들었는가"에 집중합니다.</p>
-                                <div class="hero_cta_row">
-                                    <a class="primary_cta" href="#projects">프로젝트 보기</a>
-                                    <a class="ghost_cta" href="#contact">연락하기</a>
-                                </div>
-                                <ul class="hero_focus">
-                                    <li>Domain: Traffic · Cosmetics R&D</li>
-                                    <li>Focus: Decision-Oriented Analytics</li>
-                                    <li>Approach: Data → Model → Product</li>
+                                <span class="hero_kicker">Open to Work</span>
+								<h1>Decision-Focused Data Scientist</h1>
+								<p class="hero_lead">I design analytical systems that help teams make better decisions - faster and with confidence.</p>
+                                <p class="hero_subtext" style="margin-bottom: 12px;">Over 6+ years, I have worked across:</p>
+	                                <ul class="hero_story_list">
+                                    <li>Data Science</li>
+                                    <li>Product Ownership</li>
+                                    <li>Platform Building</li>
                                 </ul>
+                                <p class="hero_subtext">Below are the core capabilities I use to turn ambiguity into decisions.</p>
 							</div>
 						</div>
-                        <div class="col-lg-4">
-                            <div class="hero_signal_card">
-                                <h3>Current Focus</h3>
-                                <ul>
-                                    <li>RAG 기반 원료 문서 탐색 경험 고도화</li>
-                                    <li>유사 제품 비교 UI 설계 및 로직 개선</li>
-                                    <li>해석 가능한 분석 결과 전달 방식 연구</li>
-                                </ul>
+                        <div class="col-lg-6 evidence_col">
+                            <h3 class="evidence_title">Evidence</h3>
+                            <div class="capability_card">
+                                <div class="label">Capability 01</div>
+                                <h4>Analytical Product Design</h4>
+                                <p>Translating business ambiguity into analytical systems from PRD to deployment.</p>
                             </div>
+                            <div class="capability_card">
+                                <div class="label">Capability 02</div>
+                                <h4>Applied Machine Learning</h4>
+                                <p>RAG, NLP, similarity search, and prediction models focused on decision support.</p>
+                            </div>
+                            <div class="capability_card">
+                            <div class="label">Capability 03</div>
+                            <h4>Data & Platform Engineering</h4>
+                            <p>Building searchable, reusable data products with ownership over infra and maintenance.</p>
+                        </div>
                         </div>
 					</div>
 				</div>
             </div>
         </section>
-        <!--================End Home Banner Area =================-->
-        
-        <!--================Welcome Area =================-->
-        <section id="about" class="welcome_area about_redesign p_120">
-        	<div class="container">
-        		<div class="row welcome_inner">
-        			<div class="col-lg-6">
-        				<div class="welcome_text">
-        					<h2 class="about_heading">데이터를 해석 가능한 선택지로 바꾸는 사람</h2>
-        					<p class="about_intro">
-								통계학 기반의 분석 역량에 교통 도메인 연구 경험을 더해, 현실 문제를 정량적으로 구조화해왔습니다.
-                                모델 성능을 높이는 것에서 끝내지 않고, 결과가 실제 의사결정에서 어떻게 쓰이는지까지 설계하는 방식을 지향합니다.
-							</p>
-                            <p class="about_intro">
-                                업무에서는 데이터 수집/전처리, ML/DL/NLP 모델링, 결과 시각화, 서비스 적용까지 폭넓게 담당했습니다.
-                                프로젝트마다 "기술 정확도"와 "사용자 해석 가능성"의 균형을 핵심 기준으로 두고 있습니다.
-                            </p>
-                            <div class="about_stack">
-                                <span>Python</span>
-                                <span>SQL</span>
-                                <span>ML/DL</span>
-                                <span>NLP · RAG</span>
-                                <span>Analytics</span>
-                                <span>Data Storytelling</span>
-                            </div>
-        				</div>
-        			</div>
-        			<div class="col-lg-6">
-                        <div class="capability_card">
-                            <div class="label">Capability 01</div>
-                            <h4>문제 정의와 분석 설계</h4>
-                            <p>복잡한 업무 요구를 분석 가능한 질문으로 전환하고, 의사결정에 필요한 데이터 구조를 먼저 설계합니다.</p>
-                        </div>
-                        <div class="capability_card">
-                            <div class="label">Capability 02</div>
-                            <h4>모델링과 실험 운영</h4>
-                            <p>ML/DL/NLP 기반 실험을 빠르게 반복하며 성능뿐 아니라 적용 가능성과 운영 부담까지 함께 검토합니다.</p>
-                        </div>
-                        <div class="capability_card">
-                            <div class="label">Capability 03</div>
-                            <h4>결과 전달과 제품화</h4>
-                            <p>분석 결과를 팀이 바로 활용할 수 있도록 비교 가능한 지표, 해석 가능한 UI, 실행 가능한 인사이트로 정리합니다.</p>
-                        </div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Welcome Area =================-->
+        <!--================End Hero + About Area =================-->
         
         <!--================Projects Area =================-->
         <section id="projects" class="projects_showcase_area p_120">
