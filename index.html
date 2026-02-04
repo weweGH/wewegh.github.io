@@ -20,29 +20,214 @@
         <!-- main css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
+        <style>
+            .hero_redesign {
+                position: relative;
+                overflow: hidden;
+                background: radial-gradient(circle at 10% 20%, #fff8ef 0, #f3f7ff 45%, #eef2ff 100%);
+            }
+            .hero_redesign:before {
+                content: "";
+                position: absolute;
+                top: -120px;
+                right: -100px;
+                width: 360px;
+                height: 360px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(59, 130, 246, 0.18));
+            }
+            .hero_redesign .banner_inner {
+                padding: 190px 0 120px;
+            }
+            .hero_kicker {
+                display: inline-block;
+                font: 700 12px/1 "Roboto", sans-serif;
+                letter-spacing: 0.18em;
+                color: #be185d;
+                background: rgba(255, 255, 255, 0.85);
+                border: 1px solid #fbcfe8;
+                border-radius: 999px;
+                padding: 9px 14px;
+                margin-bottom: 18px;
+                text-transform: uppercase;
+            }
+            .hero_redesign h1 {
+                font: 800 50px/1.12 "Heebo", sans-serif;
+                color: #111827;
+                margin-bottom: 18px;
+                text-transform: none;
+            }
+            .hero_redesign .hero_lead {
+                max-width: 720px;
+                font: 400 17px/1.8 "Roboto", sans-serif;
+                color: #374151;
+                margin-bottom: 34px;
+            }
+            .hero_cta_row a {
+                display: inline-block;
+                padding: 13px 24px;
+                border-radius: 10px;
+                font: 600 13px/1 "Roboto", sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            .hero_cta_row .primary_cta {
+                background: #111827;
+                color: #fff;
+            }
+            .hero_cta_row .ghost_cta {
+                border: 1px solid #c7d2fe;
+                color: #312e81;
+                background: rgba(255, 255, 255, 0.78);
+            }
+            .hero_focus {
+                margin-top: 26px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 0;
+                list-style: none;
+            }
+            .hero_focus li {
+                font: 500 13px/1 "Roboto", sans-serif;
+                color: #334155;
+                border: 1px solid #e2e8f0;
+                background: rgba(255, 255, 255, 0.85);
+                border-radius: 999px;
+                padding: 9px 14px;
+            }
+            .hero_signal_card {
+                border: 1px solid #dbeafe;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 16px 40px rgba(30, 41, 59, 0.1);
+                border-radius: 18px;
+                padding: 24px;
+            }
+            .hero_signal_card h3 {
+                font: 700 16px/1.4 "Heebo", sans-serif;
+                color: #111827;
+                margin-bottom: 16px;
+                text-transform: uppercase;
+            }
+            .hero_signal_card ul {
+                margin: 0;
+                padding-left: 18px;
+            }
+            .hero_signal_card li {
+                margin-bottom: 8px;
+                color: #374151;
+                font: 400 14px/1.6 "Roboto", sans-serif;
+            }
+            .about_redesign {
+                background: #ffffff;
+            }
+            .about_redesign .about_heading {
+                color: #111827;
+                font: 800 38px/1.2 "Heebo", sans-serif;
+                margin-bottom: 18px;
+                text-transform: none;
+            }
+            .about_redesign .about_intro {
+                color: #334155;
+                font: 400 16px/1.9 "Roboto", sans-serif;
+                margin-bottom: 18px;
+            }
+            .about_redesign .about_stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 24px;
+            }
+            .about_redesign .about_stack span {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 999px;
+                color: #1f2937;
+                font: 500 12px/1 "Roboto", sans-serif;
+                padding: 8px 12px;
+            }
+            .capability_card {
+                border: 1px solid #e5e7eb;
+                border-radius: 14px;
+                padding: 20px;
+                margin-bottom: 14px;
+                background: #fff;
+                transition: transform .25s ease, box-shadow .25s ease;
+            }
+            .capability_card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+            }
+            .capability_card .label {
+                font: 700 11px/1 "Roboto", sans-serif;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #7c3aed;
+                margin-bottom: 8px;
+            }
+            .capability_card h4 {
+                font: 700 21px/1.35 "Heebo", sans-serif;
+                color: #111827;
+                margin-bottom: 9px;
+            }
+            .capability_card p {
+                margin: 0;
+                font: 400 14px/1.7 "Roboto", sans-serif;
+                color: #475569;
+            }
+            @media (max-width: 991px) {
+                .hero_redesign .banner_inner {
+                    padding: 120px 0 88px;
+                }
+                .hero_redesign h1 {
+                    font-size: 38px;
+                }
+                .hero_signal_card {
+                    margin-top: 20px;
+                }
+                .about_redesign .about_heading {
+                    font-size: 32px;
+                }
+            }
+        </style>
     </head>
     <body>
         
         {% include header.html %}
         
         <!--================Home Banner Area =================-->
-        <section class="home_banner_area">
+        <section class="home_banner_area hero_redesign">
             <div class="banner_inner">
 				<div class="container">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="home_left_img">
-								<img src="img/banner/home-left-1.png" alt="">
-							</div>
-						</div>
-						<div class="col-lg-6">
+					<div class="row align-items-center">
+						<div class="col-lg-8">
 							<div class="banner_content">
-								<h5>This is me</h5>
-								<h2>Jeon GaHyun</h2>
-								<p>You will begin to realise why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different futures)</p>
-								<a class="banner_btn" href="#">Discover Now</a>
+                                <span class="hero_kicker">Data Scientist Portfolio</span>
+								<h1>문제를 모델링하고, 결과를 제품 경험으로 연결합니다.</h1>
+								<p class="hero_lead">교통과 코스메틱 도메인에서 데이터 분석, ML/DL 모델링, 서비스 적용까지 수행했습니다. 이 포트폴리오는 "무엇을 만들었는가"보다 "어떤 판단으로 결과를 만들었는가"에 집중합니다.</p>
+                                <div class="hero_cta_row">
+                                    <a class="primary_cta" href="#projects">프로젝트 보기</a>
+                                    <a class="ghost_cta" href="#contact">연락하기</a>
+                                </div>
+                                <ul class="hero_focus">
+                                    <li>Domain: Traffic · Cosmetics R&D</li>
+                                    <li>Focus: Decision-Oriented Analytics</li>
+                                    <li>Approach: Data → Model → Product</li>
+                                </ul>
 							</div>
 						</div>
+                        <div class="col-lg-4">
+                            <div class="hero_signal_card">
+                                <h3>Current Focus</h3>
+                                <ul>
+                                    <li>RAG 기반 원료 문서 탐색 경험 고도화</li>
+                                    <li>유사 제품 비교 UI 설계 및 로직 개선</li>
+                                    <li>해석 가능한 분석 결과 전달 방식 연구</li>
+                                </ul>
+                            </div>
+                        </div>
 					</div>
 				</div>
             </div>
@@ -50,81 +235,46 @@
         <!--================End Home Banner Area =================-->
         
         <!--================Welcome Area =================-->
-        <section id="about" class="welcome_area p_120">
+        <section id="about" class="welcome_area about_redesign p_120">
         	<div class="container">
         		<div class="row welcome_inner">
         			<div class="col-lg-6">
         				<div class="welcome_text">
-        					<h4>About Myself</h4>
-        					<p>
-								안녕하세요. 데이터 사이언티스트 전가현입니다. 
-								통계학을 전공하고, 데이터 분석가로서 더 깊은 교통 도메인 지식을 쌓기 위해 도시과학대학원에서 교통을 전공했습니다.
-								대학원에서 다양한 데이터를 다루며 학위 논문으로 이미지 데이터를 활용한 고속도로 이벤트 예측 딥러닝 모델을 개발했습니다. 
-								한 가지 주제를 위해 대용량 데이터를 수집, 전처리부터 모델 개발, 평가까지 오랜 시간 연구한 경험은 데이터 분석가로서 자부심을 갖게 된 계기가 되었습니다.
-								다양한 정형/비정형 데이터 전처리와 분석 경험과 ML/DL 알고리즘을 활용한 예측 모델을 실제 서비스에 배포하며 쌓은 역량을 타 도메인에 적용하여 완성도 높은 결과를 이끌어낼 수 있습니다. 
-								또한 적극적인 소통으로 협업하여 팀의 정해진 목표를 달성하기 위해 높은 시너지를 낼 수 있도록 기여하겠습니다.
+        					<h2 class="about_heading">데이터를 해석 가능한 선택지로 바꾸는 사람</h2>
+        					<p class="about_intro">
+								통계학 기반의 분석 역량에 교통 도메인 연구 경험을 더해, 현실 문제를 정량적으로 구조화해왔습니다.
+                                모델 성능을 높이는 것에서 끝내지 않고, 결과가 실제 의사결정에서 어떻게 쓰이는지까지 설계하는 방식을 지향합니다.
 							</p>
-        					<div class="row">
-        						<div class="col-md-4">
-        							<div class="wel_item">
-        								<i class="lnr lnr-database"></i>
-        								<h4>$2.5M</h4>
-        								<p>Total Donation</p>
-        							</div>
-        						</div>
-        						<div class="col-md-4">
-        							<div class="wel_item">
-        								<i class="lnr lnr-book"></i>
-        								<h4>1465</h4>
-        								<p>Total Projects</p>
-        							</div>
-        						</div>
-        						<div class="col-md-4">
-        							<div class="wel_item">
-        								<i class="lnr lnr-users"></i>
-        								<h4>3965</h4>
-        								<p>Total Volunteers</p>
-        							</div>
-        						</div>
-        					</div>
+                            <p class="about_intro">
+                                업무에서는 데이터 수집/전처리, ML/DL/NLP 모델링, 결과 시각화, 서비스 적용까지 폭넓게 담당했습니다.
+                                프로젝트마다 "기술 정확도"와 "사용자 해석 가능성"의 균형을 핵심 기준으로 두고 있습니다.
+                            </p>
+                            <div class="about_stack">
+                                <span>Python</span>
+                                <span>SQL</span>
+                                <span>ML/DL</span>
+                                <span>NLP · RAG</span>
+                                <span>Analytics</span>
+                                <span>Data Storytelling</span>
+                            </div>
         				</div>
         			</div>
         			<div class="col-lg-6">
-        				<div class="tools_expert">
-        					<h3>SKILLS</h3>
-        					<div class="skill_main">
-								<div class="skill_item">
-									<h4>Programming Tools | Python, SQL</h4>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Modeling | ML, DL, NLP(RAG) </h4>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Statistics </h4>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Analytics & BI </h4>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Data Engineering </h4>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-        				</div>
+                        <div class="capability_card">
+                            <div class="label">Capability 01</div>
+                            <h4>문제 정의와 분석 설계</h4>
+                            <p>복잡한 업무 요구를 분석 가능한 질문으로 전환하고, 의사결정에 필요한 데이터 구조를 먼저 설계합니다.</p>
+                        </div>
+                        <div class="capability_card">
+                            <div class="label">Capability 02</div>
+                            <h4>모델링과 실험 운영</h4>
+                            <p>ML/DL/NLP 기반 실험을 빠르게 반복하며 성능뿐 아니라 적용 가능성과 운영 부담까지 함께 검토합니다.</p>
+                        </div>
+                        <div class="capability_card">
+                            <div class="label">Capability 03</div>
+                            <h4>결과 전달과 제품화</h4>
+                            <p>분석 결과를 팀이 바로 활용할 수 있도록 비교 가능한 지표, 해석 가능한 UI, 실행 가능한 인사이트로 정리합니다.</p>
+                        </div>
         			</div>
         		</div>
         	</div>
