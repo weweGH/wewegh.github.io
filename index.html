@@ -48,35 +48,75 @@
                 border: 1px solid #fbcfe8;
                 border-radius: 999px;
                 padding: 9px 14px;
-                margin-bottom: 18px;
+                margin-bottom: 10px;
                 text-transform: uppercase;
             }
             .hero_redesign h1 {
-                font: 800 50px/1.12 "Heebo", sans-serif;
+                font: 800 58px/1.08 "Heebo", sans-serif;
                 color: #111827;
-                margin-bottom: 18px;
+                margin-bottom: 8px;
                 text-transform: none;
             }
+            .hero_role {
+                margin: 0;
+                color: #334155;
+                font: 700 36px/1.15 "Heebo", sans-serif;
+            }
+            .hero_redesign .banner_inner .banner_content p.hero_role {
+                margin: 0 !important;
+            }
+            .hero_identity {
+                margin-bottom: 4px;
+            }
+            .hero_message {
+                margin-bottom: 6px;
+            }
             .hero_redesign .hero_lead {
-                max-width: 720px;
-                font: 400 17px/1.8 "Roboto", sans-serif;
-                color: #374151;
-                margin-bottom: 22px;
+                max-width: 100%;
+                font: 500 18px/1.75 "Roboto", sans-serif;
+                color: #1f2937;
+                margin-bottom: 2px;
+            }
+            .hero_redesign .banner_inner .banner_content p.hero_lead {
+                margin: 0 0 2px !important;
+            }
+            .hero_intro_note {
+                margin: 0 0 4px;
+                color: #475569;
+                font: 400 14px/1.7 "Roboto", sans-serif;
+            }
+            .hero_redesign .banner_inner .banner_content p.hero_intro_note {
+                margin: 0 0 4px !important;
             }
             .hero_story_list {
                 list-style: none;
-                margin: 0 0 20px;
+                margin: 0;
                 padding: 0;
             }
             .hero_story_list li {
-                margin-bottom: 8px;
-                color: #1f2937;
+                margin-bottom: 3px;
+                color: #0f172a;
                 font: 600 15px/1.6 "Roboto", sans-serif;
+                padding-left: 14px;
+                position: relative;
+            }
+            .hero_story_list li:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 10px;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #6366f1;
             }
             .hero_subtext {
                 color: #334155;
-                font: 400 16px/1.8 "Roboto", sans-serif;
+                font: 400 15px/1.75 "Roboto", sans-serif;
                 margin: 0;
+            }
+            .hero_redesign .banner_inner .banner_content p.hero_subtext {
+                margin: 0 !important;
             }
             .evidence_title {
                 color: #111827;
@@ -120,6 +160,9 @@
                 .hero_redesign h1 {
                     font-size: 38px;
                 }
+                .hero_role {
+                    font-size: 26px;
+                }
                 .evidence_col {
                     margin-top: 24px;
                 }
@@ -137,17 +180,22 @@
 					<div class="row align-items-center">
 						<div class="col-lg-6">
 							<div class="banner_content">
-                                <span class="hero_kicker">Open to Work</span>
-								<h1>Decision-Focused Data Scientist</h1>
-								<p class="hero_lead">I design analytical systems that help teams make better decisions - faster and with confidence.</p>
-                                <p class="hero_subtext" style="margin-bottom: 12px;">Over 6+ years, I have worked across:</p>
-	                                <ul class="hero_story_list">
-                                    <li>Data Science</li>
-                                    <li>Product Ownership</li>
-                                    <li>Platform Building</li>
-                                </ul>
-                                <p class="hero_subtext">Below are the core capabilities I use to turn ambiguity into decisions.</p>
-							</div>
+		                                <span class="hero_kicker">Open to Work</span>
+                                <div class="hero_identity">
+	                                <h1>Jeon Gahyun</h1>
+									<p class="hero_role">Decision-Focused Data Scientist</p>
+                                </div>
+                                <div class="hero_message">
+								    <p class="hero_lead">Building analytical products that drive real business impact.</p>
+                                    <p class="hero_subtext">I build systems that go beyond analysis - designed to be adopted and used in real workflows.</p>
+                                </div>
+	                                <p class="hero_intro_note">What I bring (5+ years):</p>
+		                            <ul class="hero_story_list">
+	                                    <li>Product-minded data science (decision-first framing)</li>
+	                                    <li>RAG &amp; search systems for faster knowledge retrieval</li>
+	                                    <li>End-to-end ownership (delivery, logging, iteration)</li>
+	                                </ul>
+								</div>
 						</div>
                         <div class="col-lg-6 evidence_col">
                             <h3 class="evidence_title">Evidence</h3>

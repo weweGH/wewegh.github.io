@@ -15,10 +15,16 @@
     - BLOG 클릭 → `index.html`의 Blog Area로 이동
     - CONTACT 클릭 → `index.html`의 Home Contact Area로 이동
 
-- Projects Area(프로젝트 참여 이력) 이동 경로
-    - RAG 구축 클릭 → `search-rag.html`
-    - 유사 제품 탐색 기능 클릭 → `product-similarity.html`
+- Projects 이동 경로
+    - 교통예보시스템 기능 개선 → `traffic-system.html`
+    - GTX 통행 패턴 분석 → `gtx-pattern.html`
+    - RAG 구축 → `search-rag.html`
+    - 유사 제품 탐색 기능 구현 → `product-similarity.html`
+    - 미생물 데이터 분석 → ``
     
+- Experiments 이동 경로
+    - 교통예보시스템 기능 개선 → `traffic-system.html`
+    - GTX 통행 패턴 분석 → `gtx-pattern.html`
 
 
 
