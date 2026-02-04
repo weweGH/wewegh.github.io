@@ -1,0 +1,255 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | RAG System</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 200px !important; margin-top: 0; }
+        .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 15px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        .meta-item { border-right: 1px solid #ddd; padding: 0 20px; }
+        .meta-item:last-child { border-right: none; }
+        .meta-label { font-size: 13px; color: var(--primary-color); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+        .meta-value { font-size: 16px; color: var(--text-dark); font-weight: 600; }
+
+        /* 프로젝트 상세 내용 (1열 그리드) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .step-box {
+            padding: 16px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 4px solid rgba(118, 109, 255, 0.2);
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .step-box:hover {
+            background: #faf9ff;
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(118, 109, 255, 0.15);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 56px;
+        }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .meta-item { border-right: none; border-bottom: 1px solid #ddd; padding: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html menu_class="page_header" %}
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;">GTX 영향권 통행 패턴 분석</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;">2023.1.10 ~ 2023.6.8</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="meta-container">
+            <div class="row text-center">
+                <div class="col-md-6 meta-item">
+                    <div class="meta-label">Snapshot</div>
+                    <div class="meta-value">공공 및 민간 데이터를 활용한 수도권 연계 광역 교통 통행 패턴 분석</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">ROLE</div>
+                    <div class="meta-value">분석 설계, 모델링</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">Tech Stack</div>
+                    <div class="meta-value">DA, ML</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">CONTEXT</div>
+                </div>
+                <p class="step-desc">
+                    GTX 노선 개통·연장에 따른 수도권 교통 수요 변화를 사전에 설명해야 했으나, 기존 통행 분석은 단편적 지표 중심으로 구조적 변화 파악에 한계 존재
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">DECISION</div>
+                </div>
+                <p class="step-desc">
+					대규모 교통 인프라 사업의 효과를 정량적으로 설명하지 못할 경우, 정책 판단과 대외 커뮤니케이션의 설득력 저하 문제 인식
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">FRAMING</div>
+                </div>
+                <p class="step-desc">
+                    문제를 “통행량이 얼마나 변하는가”가 아닌, “GTX 도입이 수도권 내부·외부 통행 구조를 어떻게 재편하는가”라는 질문으로 재정의
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">INSIGHT</div>
+                </div>
+                <p class="step-desc">
+                    노선 인접 여부보다, 행정구역·OD·시간대에 따라 GTX 영향이 상이하게 분화되는 통행 패턴 확인
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc">
+                    GTX 영향권을 공간·통행 단위로 구조화하여, 노선별·구간별 통행 변화와 확산 범위를 설명 가능한 분석 체계로 정리
+                </p>
+            </div>
+
+            <div class="step-box" style="border-bottom-color: var(--primary-color);">
+                <div class="step-heading">
+                    <div class="step-tag">06</div>
+                    <div class="step-title">LEARNING</div>
+                </div>
+                <p class="step-desc">
+                    교통 데이터 분석의 핵심이 수치 비교가 아니라, 정책 판단에 필요한 구조적 변화 서사를 만드는 데 있음을 인식
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="image-section">
+        <div class="container">
+            <h3 class="text-center mb-5" style="font-weight: 700; color: #222;">Project Showcase</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    {% include footer.html %}
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
