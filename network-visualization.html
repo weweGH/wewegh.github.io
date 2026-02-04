@@ -1,0 +1,325 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | RAG System</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #E4572E;
+            --accent-color: #F3A712;
+            --text-dark: #1F2933;
+            --text-light: #4B5563;
+            --bg-light: #FAFAF9;
+            --border-light: #E5E7EB;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        .banner_area { min-height: 200px !important; margin-top: 0; }
+        .banner_area .banner_inner {
+            min-height: 200px !important;
+            background: linear-gradient(135deg, rgba(228, 87, 46, 0.12), rgba(243, 167, 18, 0.18)) !important;
+        }
+
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar { background: #fff; }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+        .meta-container {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 15px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-light);
+        }
+        .meta-item { border-right: 1px solid var(--border-light); padding: 0 20px; }
+        .meta-item:last-child { border-right: none; }
+        .meta-label { font-size: 13px; color: var(--primary-color); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+        .meta-value { font-size: 16px; color: var(--text-dark); font-weight: 600; }
+        .meta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .meta-link .fa {
+            font-size: 14px;
+        }
+        .meta-link:hover {
+            color: #c7421b;
+        }
+        .tech-stack-inline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-left: 58px;
+        }
+        .tech-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(228, 87, 46, 0.12);
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .timeline-wrap {
+            margin-top: 50px;
+            position: relative;
+            padding-left: 34px;
+        }
+        .timeline-wrap::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: rgba(228, 87, 46, 0.35);
+        }
+        .step-box {
+            position: relative;
+            padding: 18px 22px;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            background: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step-box::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            box-shadow: 0 0 0 6px rgba(228, 87, 46, 0.22);
+        }
+        .step-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(228, 87, 46, 0.16);
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(228, 87, 46, 0.2);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: var(--text-dark);
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 58px;
+        }
+        /* 하이라이트: 볼드 + 형광펜 */
+        /* .highlight {
+            color: var(--text-dark);
+            font-weight: 600;
+            background: rgba(228, 87, 46, 0.1);
+            padding: 0 4px;
+            border-radius: 4px;
+        } */
+        .highlight { color: var(--text-dark); font-weight: 600; }
+        .step-note {
+            display: block;
+            margin-left: 20px;
+            font-size: 15px;
+            color: var(--text-light);
+        }
+
+        .image-section { background: var(--bg-light); padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        @media (max-width: 768px) {
+            .meta-item { border-right: none; border-bottom: 1px solid var(--border-light); padding: 10px 0; }
+            .timeline-wrap { padding-left: 24px; }
+            .step-box::before { left: -24px; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html menu_class="page_header" %}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;">네트워크 그래프 관계도 시각화</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: var(--text-light); letter-spacing: 1px;">2025.10.17 ~ 진행 중</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="meta-container">
+            <div class="row text-center">
+                <div class="col-md-6 meta-item">
+                    <div class="meta-label">Snapshot</div>
+                    <div class="meta-value">네트워크 그래프 개념을 학습하기 위해, 에피소드 흐름에 따라 변화하는 인물 관계를 시각화한 인터랙티브 웹 프로젝트</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">ROLE</div>
+                    <div class="meta-value">End-to-End Design & Frontend Development</div>
+                </div>
+                <div class="col-md-3 meta-item">
+                    <div class="meta-label">Domain</div>
+                    <div class="meta-value">
+                        <a class="meta-link" href="https://character-network-visualization.vercel.app/" target="_blank" rel="noreferrer">
+                            character-network-visualization
+                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-wrap">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">PROBLEM</div>
+                </div>
+                <p class="step-desc">
+                    ‣ 네트워크 그래프는 이론적으로는 이해했지만, 실제 데이터 구조와 시각화 흐름을 체감할 기회가 부족<br>
+                    ‣ 단순 예제가 아닌, 관계가 시간에 따라 축적·변화하는 구조를 직접 구현하며 학습하고자 함<br>
+                    ‣ 노드·엣지 속성이 시각적 요소로 어떻게 해석되는지 경험이 필요하다고 판단
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">KEY FEATURES</div>
+                </div>
+                <p class="step-desc">
+                    ‣ <span class="highlight">인물 관계 네트워크 그래프 시각화</span><br>
+                    <span class="step-note">: 노드(인물)·엣지(관계)를 기반으로 한 force-directed 그래프</span>
+                    ‣ <span class="highlight">에피소드 기반 관계 변화 반영</span><br>
+                    <span class="step-note">: 에피소드 진행에 따라 관계가 누적·업데이트되는 구조</span>
+                    ‣ <span class="highlight">시각적 정보 구분</span><br>
+                    <span class="step-note">: 중요도에 따른 노드 크기, 소속에 따른 색상 구분</span>
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">TECH STACK</div>
+                </div>
+               <p class="step-desc">
+                    React · TypeScript · react-force-graph-2d · Tailwind CSS
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc">
+                    ‣ 네트워크 그래프의 데이터 구조(nodes/edges)와 시각화 간의 연결 관계를 명확히 이해<br>
+                    ‣ force 기반 레이아웃과 사용자 인터랙션(드래그·줌)의 동작 원리 체득
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">REFLECTION</div>
+                </div>
+                <p class="step-desc">
+                    ‣ 네트워크 시각화는 차트보다 데이터 모델링 설계가 훨씬 중요하다는 점을 체감<br>
+                    ‣ 시각적 요소 하나하나가 데이터 해석에 직접적인 영향을 준다는 것을 학습<br>
+                    ‣ 다시 한다면, 학습 목적에 맞게 데이터 규모를 더 작게 시작했을 것
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="image-section">
+        <div class="container">
+            <h3 class="text-center mb-5" style="font-weight: 700; color: #222;">Project Showcase</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="img/gallery/portfolio_details.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    {% include footer.html %}
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
