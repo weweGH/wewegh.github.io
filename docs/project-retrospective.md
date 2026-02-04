@@ -244,6 +244,44 @@
 
 ---
 
+## 테니스 운동 효과 분석 (RHR 기반) | 2025.11.13 ~ 2025.11.23
+
+- SNAPSHOT
+    - 애플워치 RHR 데이터를 활용해, 테니스 운동이 장기적으로 휴식기 심박수에 미친 영향을 검증한 개인 데이터 분석 프로젝트
+
+- ROLE
+    - Problem Framing · Data Analysis · Statistical Testing
+
+- BLOG
+    - https://wewegh.tistory.com/143
+
+- PROBLEM
+    - 꾸준한 운동이 실제로 심혈관 지표 개선으로 이어졌는지 체감이 아닌 데이터로 확인하고 싶었음
+    - 단순 전·후 비교가 아닌, 장기 추세와 분포 변화까지 함께 검증할 필요가 있다고 판단
+    - 개인 건강 데이터에서도 통계적 검정이 의미를 가질 수 있는지 실험하고자 함
+
+- KEY FEATURES
+    - Apple Health RHR 데이터 기반 장기 추세 분석
+        - 30일 이동 평균, 연도·월별 변화 시각화
+    - 분포 중심 분석
+        - boxplot·violin plot을 통한 중심 이동과 분산 변화 확인
+    - 통계적 가설 검정
+        - 비정규성 고려한 Kruskal-Wallis 검정 적용
+
+- TECH STACK
+    - Python · Pandas · Plotly · Non-parametric Statistics
+    
+- OUTCOME
+    - 2022~2025년 동안 RHR이 일관되게 감소하며 분포 또한 안정화됨을 확인
+    - 연도별 RHR 차이가 통계적으로 유의미함을 검정으로 입증
+
+- REFLECTION
+    - 개인 데이터라도 분석 설계와 검정 방식에 따라 충분히 설득력 있는 결론을 도출할 수 있음을 체감
+    - 평균 변화보다 분포·변동성 해석이 건강 데이터에서 더 중요하다는 점을 명확히 인식
+    - 다시 한다면, 수면·체중 등 교란 요인을 함께 모델링했을 것
+
+---
+
 ## 프로젝트명
 
 - SNAPSHOT: 프로젝트를 한 줄로 요약
