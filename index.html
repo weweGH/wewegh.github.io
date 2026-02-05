@@ -39,118 +39,127 @@
             .hero_redesign .banner_inner {
                 padding: 185px 0 110px;
             }
-            .hero_kicker {
+            .hero_section_label {
                 display: inline-block;
-                font: 700 12px/1 "Roboto", sans-serif;
-                letter-spacing: 0.18em;
-                color: #be185d;
-                background: rgba(255, 255, 255, 0.85);
-                border: 1px solid #fbcfe8;
-                border-radius: 999px;
-                padding: 9px 14px;
-                margin-bottom: 10px;
+                font: 700 16px/1.2 "Roboto", sans-serif;
+                letter-spacing: 0.08em;
+                color: #7c3aed;
                 text-transform: uppercase;
+                margin-bottom: 12px;
             }
             .hero_redesign h1 {
-                font: 800 58px/1.08 "Heebo", sans-serif;
+                font: 800 56px/1.08 "Heebo", sans-serif;
                 color: #111827;
-                margin-bottom: 8px;
+                margin: 0 0 8px;
                 text-transform: none;
             }
-            .hero_role {
+            .hero_tagline {
+                font: 600 16px/1.5 "Heebo", sans-serif;
+                color: #111827;
                 margin: 0;
-                color: #334155;
-                font: 700 36px/1.15 "Heebo", sans-serif;
             }
-            .hero_redesign .banner_inner .banner_content p.hero_role {
-                margin: 0 !important;
+            .hero_redesign .banner_inner .banner_content p.hero_tagline {
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: 600;
+                color: #111827 !important;
+                margin: 0;
             }
-            .hero_identity {
-                margin-bottom: 4px;
+            .hero_summary_block {
+                margin-top: 34px;
             }
-            .hero_message {
-                margin-bottom: 6px;
+            .hero_summary {
+                font-size: 16px;
+                line-height: 1.85;
+                font-weight: 400;
+                font-family: "Roboto", sans-serif;
+                color: #0f172a;
+                margin: 0;
+                max-width: 520px;
             }
-            .hero_redesign .hero_lead {
-                max-width: 100%;
-                font: 500 18px/1.75 "Roboto", sans-serif;
-                color: #1f2937;
-                margin-bottom: 2px;
+            .hero_redesign .banner_inner .banner_content p.hero_summary {
+                font-size: 16px;
+                line-height: 1.85;
+                font-weight: 400;
+                font-family: "Roboto", sans-serif;
+                color: #0f172a;
+                margin: 0;
+                max-width: 520px;
             }
-            .hero_redesign .banner_inner .banner_content p.hero_lead {
-                margin: 0 0 2px !important;
+            .hero_question {
+                font: 600 16px/1.5 "Roboto", sans-serif;
+                color: #111827;
+                margin: 0 0 14px;
             }
-            .hero_intro_note {
-                margin: 0 0 4px;
-                color: #475569;
-                font: 400 14px/1.7 "Roboto", sans-serif;
-            }
-            .hero_redesign .banner_inner .banner_content p.hero_intro_note {
-                margin: 0 0 4px !important;
-            }
-            .hero_story_list {
+            .hero_scope_list {
                 list-style: none;
                 margin: 0;
                 padding: 0;
             }
-            .hero_story_list li {
-                margin-bottom: 3px;
+            .hero_scope_block {
+                margin-top: 36px;
                 color: #0f172a;
-                font: 600 15px/1.6 "Roboto", sans-serif;
-                padding-left: 14px;
-                position: relative;
             }
-            .hero_story_list li:before {
+            .hero_scope_list li {
+                position: relative;
+                padding-left: 20px;
+                margin-bottom: 12px;
+                font: 500 16px/1.75 "Roboto", sans-serif;
+                color: #0f172a;
+            }
+            .hero_redesign .banner_inner .banner_content .hero_scope_list li {
+                color: #0f172a !important;
+            }
+            .hero_scope_list li:before {
                 content: "";
                 position: absolute;
                 left: 0;
-                top: 10px;
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
+                top: 11px;
+                width: 8px;
+                height: 8px;
+                border-radius: 999px;
                 background: #6366f1;
             }
-            .hero_subtext {
-                color: #334155;
-                font: 400 15px/1.75 "Roboto", sans-serif;
-                margin: 0;
-            }
-            .hero_redesign .banner_inner .banner_content p.hero_subtext {
-                margin: 0 !important;
-            }
-            .evidence_title {
-                color: #111827;
+            .hero_side_heading {
                 font: 700 16px/1.4 "Heebo", sans-serif;
                 text-transform: uppercase;
-                margin-bottom: 12px;
+                color: #111827;
+                margin-bottom: 18px;
+            }
+            .hero_right {
+                position: relative;
+            }
+            @media (min-width: 992px) {
+                .hero_left {
+                    padding-right: 40px;
+                }
+                .hero_right {
+                    padding-left: 60px;
+                    border-left: 1px solid rgba(15, 23, 42, 0.1);
+                }
             }
             .capability_card {
                 border: 1px solid #e5e7eb;
                 border-radius: 14px;
-                padding: 20px;
-                margin-bottom: 14px;
-                background: #fff;
-                transition: transform .25s ease, box-shadow .25s ease;
-            }
-            .capability_card:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+                padding: 24px;
+                margin-bottom: 18px;
+                background: #f9fafb;
             }
             .capability_card .label {
                 font: 700 11px/1 "Roboto", sans-serif;
-                letter-spacing: 0.12em;
+                letter-spacing: 0.14em;
                 text-transform: uppercase;
                 color: #7c3aed;
-                margin-bottom: 8px;
+                margin-bottom: 10px;
             }
             .capability_card h4 {
                 font: 700 21px/1.35 "Heebo", sans-serif;
                 color: #111827;
-                margin-bottom: 9px;
+                margin-bottom: 10px;
             }
             .capability_card p {
                 margin: 0;
-                font: 400 14px/1.7 "Roboto", sans-serif;
+                font: 400 16px/1.75 "Roboto", sans-serif;
                 color: #475569;
             }
             @media (max-width: 991px) {
@@ -158,13 +167,15 @@
                     padding: 120px 0 88px;
                 }
                 .hero_redesign h1 {
-                    font-size: 38px;
+                    font-size: 40px;
                 }
-                .hero_role {
-                    font-size: 26px;
+                .hero_tagline {
+                    font-size: 24px;
                 }
-                .evidence_col {
-                    margin-top: 24px;
+                .hero_right {
+                    margin-top: 40px;
+                    padding-left: 0;
+                    border-left: none;
                 }
             }
         </style>
@@ -177,43 +188,46 @@
         <section id="about" class="home_banner_area hero_redesign">
             <div class="banner_inner">
 				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-6">
+					<div class="row align-items-start">
+						<div class="col-lg-6 hero_left">
 							<div class="banner_content">
-		                                <span class="hero_kicker">Open to Work</span>
                                 <div class="hero_identity">
-	                                <h1>Jeon Gahyun</h1>
-									<p class="hero_role">Decision-Focused Data Scientist</p>
+	                                <h1>Jeon Ga Hyun</h1>
+									<p class="hero_tagline">의사결정과 업무 흐름을 바꾸는 데이터 사이언티스트</p>
                                 </div>
-                                <div class="hero_message">
-								    <p class="hero_lead">Building analytical products that drive real business impact.</p>
-                                    <p class="hero_subtext">I build systems that go beyond analysis - designed to be adopted and used in real workflows.</p>
+                                <div class="hero_summary_block">
+                                    <span class="hero_section_label">Summary</span>
+                                    <p class="hero_summary">
+                                        의사결정 중심의 데이터 과학자는 도메인 전문가 및 의사결정 소유자와 긴밀히 협력하여 복잡하고 높은 위험을 감수하는 의사결정을 지원합니다.
+                                        불확실성을 줄이고, 더 빠르고 일관된 의사결정을 가능하게 하며, 분석을 실제 결과에 영향을 미치는 명확하고 실행 가능한 인사이트로 변환하는 데 중점을 둡니다.
+                                    </p>
                                 </div>
-	                                <p class="hero_intro_note">What I bring (5+ years):</p>
-		                            <ul class="hero_story_list">
-	                                    <li>Product-minded data science (decision-first framing)</li>
-	                                    <li>RAG &amp; search systems for faster knowledge retrieval</li>
-	                                    <li>End-to-end ownership (delivery, logging, iteration)</li>
+                                <div class="hero_scope_block">
+                                    <span class="hero_section_label">Experience</span>
+		                            <ul class="hero_scope_list">
+	                                    <li>의사결정 지점과 업무 흐름을 기준으로 분석과 모델을 설계해 실제 행동 변화를 만듦</li>
+	                                    <li>문제 정의 → 모델·분석 설계 → 시스템 구현 → 현업 배포·운영까지 책임지는 실무형 오너십</li>
 	                                </ul>
-								</div>
+                                </div>
+							</div>
 						</div>
-                        <div class="col-lg-6 evidence_col">
-                            <h3 class="evidence_title">Evidence</h3>
+                        <div class="col-lg-6 hero_right">
+                            <span class="hero_section_label">Core Capabilities</span>
                             <div class="capability_card">
-                                <div class="label">Capability 01</div>
-                                <h4>Analytical Product Design</h4>
-                                <p>Translating business ambiguity into analytical systems from PRD to deployment.</p>
+                                <div class="label">01</div>
+                                <h4>의사 결정 중심 문제 프레임</h4>
+                                <p>독립적인 지표가 아닌 실제 비즈니스 결정 및 워크플로우 영향에 대한 분석 정의</p>
                             </div>
                             <div class="capability_card">
-                                <div class="label">Capability 02</div>
-                                <h4>Applied Machine Learning</h4>
-                                <p>RAG, NLP, similarity search, and prediction models focused on decision support.</p>
+                                <div class="label">02</div>
+                                <h4>단일 프로젝트 리더십 및 실행</h4>
+                                <p>데이터 과학, 제품 사고, 실습 제공을 결합해 순수한 기술 역할을 넘어 프로젝트를 이끕니다.</p>
                             </div>
                             <div class="capability_card">
-                            <div class="label">Capability 03</div>
-                            <h4>Data & Platform Engineering</h4>
-                            <p>Building searchable, reusable data products with ownership over infra and maintenance.</p>
-                        </div>
+                                <div class="label">03</div>
+                                <h4>강력한 기능 간 파트너십</h4>
+                                <p>복잡한 분석을 실질적인 의사 결정 지원으로 전환하고 이해관계자 정렬을 촉진합니다.</p>
+                            </div>
                         </div>
 					</div>
 				</div>
