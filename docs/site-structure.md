@@ -20,121 +20,42 @@
     - GTX 통행 패턴 분석 → `gtx-pattern.html`
     - RAG 구축 → `search-rag.html`
     - 유사 제품 탐색 기능 구현 → `product-similarity.html`
-    - 미생물 데이터 분석 → ``
     
 - Experiments 이동 경로
-    - 교통예보시스템 기능 개선 → `traffic-system.html`
-    - GTX 통행 패턴 분석 → `gtx-pattern.html`
+    - 만다라트 차트 가이드 → `experiments-mandalart.html`
+    - 네트워크 그래프 관계도 시각화 → `network-visualization.html` 
+    - 테니스 운동 효과 분석 → `experiments-tennis-rhr.html`
 
+- 블로그 이동 경로
+    - 슬랙 전송 자동화 → `https://wewegh.tistory.com/150` 
+    - 사계절 → `https://wewegh.tistory.com/135` 
+    - 딥러닝 원리 → `https://wewegh.tistory.com/78` 
 
-
----
-
-## 2. ABOUT
-
-- 파일: `about-us.html`
-- 목적: 
-- 내용:
-
----
-
-## 3. SERVICES
-
-- 파일: `services.html`
-- 목적: 
-- 내용:
-
----
-
-## 4. PAGES/PORTFOLIO
-
-- 파일: `portfolio.html`
-- 목적: 
-- 내용:
-
----
-
-## 5. PAGES/PROJECT DETAILS
-
-- 파일: `portfolio-details.html`
-- 목적: 
-- 내용:
-
----
-
-## 6. PAGES/ELEMENTS
-
-- 파일: `elements.html`
-- 목적: 
-- 내용:
-
----
-
-## 7. BLOG/BLOG
-
-- 파일: `blog.html`
-- 목적: 
-- 내용:
-
----
-
-## 8. BLOG/BLOG DETAILS
-
-- 파일: `single-blog.html`
-- 목적: 
-- 내용:
-
----
-
-## 9. CONTACT
-
-- 파일: `contact.html`
-- 목적: 
-- 내용:
-
----
 
 ## 페이지 구조
 
 ```mermaid
 graph TD
-    Home[index.html<br/>Home] --> Blog[blog.html<br/>Blog]
-    Home --> Services[services.html<br/>Services]
-    Home --> Portfolio[portfolio.html<br/>Portfolio]
-    Home --> About[about-us.html<br/>About]
-    Home --> Contact[contact.html<br/>Contact]
-
-    Blog --> SingleBlog[single-blog.html<br/>Blog Detail]
-    Portfolio --> PortfolioDetails[portfolio-details.html<br/>Project Detail]
-```    
-
-```mermaid
-flowchart TD
-    Home[Home/index.html]
-    About[About/about-us.html]
-    Services[Services/services.html]
-    Portfolio[Portfolio/portfolio.html]
-    Blog[Blog/blog.html]
-    Contact[Contact/contact.html]
-
-    Home -->|Navbar: About| About
-    Home -->|Navbar: Services| Services
-    Home -->|Navbar: Portfolio| Portfolio
-    Home -->|Navbar: Blog| Blog
-    Home -->|Navbar: Contact| Contact
-    Home -->|"Hero CTA: More About Me"| About
+    Home --> Projects
+    Home --> Experiments
 ```
 
-## Home → 다른 페이지 이동 경로
+---
 
-| 클릭 요소               | 이동 대상              | 코드 위치                                 |
-| ----------------------- | ---------------------- | ----------------------------------------- |
-| Home                    | index.html             | <a class="nav-link" href="index.html">    |
-| About                   | about-us.html          | <a class="nav-link" href="about-us.html"> |
-| Services                | services.html          | <a class="nav-link" href="services.html"> |
-| Pages → Portfolio       | portfolio.html         | dropdown                                  |
-| Pages → Project Details | portfolio-details.html | dropdown                                  |
-| Pages → Elements        | elements.html          | dropdown                                  |
-| Blog → Blog List        | blog.html              | dropdown                                  |
-| Blog → Blog Details     | single-blog.html       | dropdown                                  |
-| Contact                 | contact.html           | <a class="nav-link" href="contact.html">  |
+```mermaid
+graph TD
+    Projects --> project_a[교통예보시스템 기능 개선<br/>`traffic-system.html`]
+    Projects --> project_b[GTX 통행 패턴 분석<br/>`gtx-pattern.html`]
+    Projects --> project_c[RAG 구축<br/>`search-rag.html`]
+    Projects --> project_d[유사 제품 탐색 기능 구현<br/>`product-similarity.html`]
+```
+
+---
+
+```mermaid
+graph TD
+    Experiments --> exp_a[만다라트 차트 가이드<br/>`experiments-mandalart.html`]
+    Experiments --> exp_b[네트워크 그래프 관계도 시각화<br/>`network-visualization.html`]
+    Experiments --> exp_c[테니스 운동 효과 분석<br/>`experiments-tennis-rhr.html`]
+
+```
