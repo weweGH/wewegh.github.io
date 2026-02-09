@@ -154,7 +154,7 @@ button:focus {
       align-items: center;
       margin-right: auto; }
       .header_area .navbar .navbar-brand img {
-        max-height: 48px;
+        max-height: 96px;
         width: auto; }
     .header_area .navbar .collapse.navbar-collapse {
       flex-grow: 1; }
