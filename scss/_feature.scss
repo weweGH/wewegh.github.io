@@ -184,11 +184,13 @@
 	i{
 		margin-bottom: 35px;
 		display: block;
+		transition: color 300ms ease;
 		&:before{
 			margin-left: 0px;
 			font-size: 60px;
-			color: #e1e1e1;
+			color: #9ca3af;
 			line-height: 60px;
+			transition: color 300ms ease;
 		}
 	}
 	h4{
@@ -209,6 +211,11 @@
 	&:hover{
 		box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.08);
 		border-color: #fff;
+		i{
+			&:before{
+				color: $baseColor;
+			}
+		}
 	}
 }
 /* End Feature Area css

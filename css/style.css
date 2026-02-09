@@ -3047,8 +3047,9 @@ h6 {
     .projects_showcase_item i:before {
       margin-left: 0px;
       font-size: 60px;
-      color: #e1e1e1;
-      line-height: 60px; }
+      color: #9ca3af;
+      line-height: 60px;
+      transition: color 300ms ease; }
   .projects_showcase_item h4 {
     color: #222222;
     font-size: 21px;
@@ -3064,6 +3065,8 @@ h6 {
   .projects_showcase_item:hover {
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.08);
     border-color: #fff; }
+    .projects_showcase_item:hover i:before {
+      color: #8490ff; }
     .feature_item:hover i:before {
       background: linear-gradient(to right, #8490ff 0%, #62bdfc 70%);
       -webkit-background-clip: text;
@@ -3115,6 +3118,12 @@ h6 {
     bottom: 30px;
     padding-left: 30px;
     padding-right: 30px; }
+    .projects_item .projects_text i {
+      font-size: 36px;
+      color: #9ca3af;
+      margin-bottom: 15px;
+      display: inline-block;
+      transition: color 300ms ease; }
     .projects_item .projects_text h4 {
       font-size: 21px;
       font-family: "Heebo", sans-serif;
@@ -3133,6 +3142,8 @@ h6 {
     background: linear-gradient(to right, #8490ff 0%, #62bdfc 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
+  .projects_item:hover .projects_text i {
+    color: #8490ff; }
 
 /* End Projects Area css
 ============================================================================================ */
