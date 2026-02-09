@@ -11,6 +11,28 @@
         padding: 0px;
         border: 0px;
         border-radius: 0px;
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .navbar-brand{
+            display: inline-flex;
+            align-items: center;
+            margin-right: auto;
+            img{
+                max-height: 48px;
+                width: auto;
+            }
+        }
+        .navbar-collapse{
+            flex-grow: 1;
+            @media(min-width: 992px){
+                display: flex !important;
+                justify-content: flex-end;
+            }
+        }
         .nav{
             .nav-item{
 				margin-right: 45px;
