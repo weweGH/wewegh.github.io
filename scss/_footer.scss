@@ -25,16 +25,18 @@
 	display: none;
 }
 
-.contact_widget,
-.credits_widget{
-	p{
-		font-size: 14px;
-		line-height: 24px;
-		color: #a1a7b4;
-		margin-bottom: 15px;
-		a{
-			color: $baseColor;
-			text-decoration: none;
+.footer_area{
+	.contact_widget,
+	.credits_widget{
+		p{
+			font-size: 14px;
+			line-height: 24px;
+			color: #a1a7b4;
+			margin-bottom: 15px;
+			a{
+				color: $baseColor;
+				text-decoration: none;
+			}
 		}
 	}
 }

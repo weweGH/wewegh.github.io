@@ -3247,14 +3247,14 @@ h6 {
 .social_widget {
   display: none; }
 
-.contact_widget p,
-.credits_widget p {
+.footer_area .contact_widget p,
+.footer_area .credits_widget p {
   font-size: 14px;
   line-height: 24px;
-  color: #a1a7b4;
+  color: #a1a7b4 !important;
   margin-bottom: 15px; }
-  .contact_widget p a,
-  .credits_widget p a {
+  .footer_area .contact_widget p a,
+  .footer_area .credits_widget p a {
     color: #8490ff;
     text-decoration: none; }
 
