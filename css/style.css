@@ -144,6 +144,14 @@ button:focus {
     padding: 0px;
     border: 0px;
     border-radius: 0px; }
+    .header_area .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+    .header_area .navbar .navbar-brand {
+      margin-right: auto;
+      display: inline-flex;
+      align-items: center; }
     .header_area .navbar .nav .nav-item {
       margin-right: 45px; }
       .header_area .navbar .nav .nav-item .nav-link {
