@@ -144,21 +144,6 @@ button:focus {
     padding: 0px;
     border: 0px;
     border-radius: 0px; }
-    .header_area .navbar .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap; }
-    .header_area .navbar .navbar-brand {
-      margin-right: auto;
-      display: inline-flex;
-      align-items: center; }
-    .header_area .navbar .collapse.navbar-collapse {
-      flex-grow: 1; }
-    @media (min-width: 992px) {
-      .header_area .navbar .collapse.navbar-collapse {
-        display: flex !important;
-        justify-content: flex-end; } }
     .header_area .navbar .nav .nav-item {
       margin-right: 45px; }
       .header_area .navbar .nav .nav-item .nav-link {
