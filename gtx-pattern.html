@@ -148,27 +148,31 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2 style="font-size: 40px;">GTX 영향권 통행 패턴 분석</h2>
-                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;">2023.1.10 ~ 2023.6.8</p>
+                    <h2 style="font-size: 40px;" data-i18n="gtx_banner_title">GTX 영향권 통행 패턴 분석</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="gtx_banner_period">2023.1.10 ~ 2023.6.8</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <div class="meta-container">
             <div class="row text-center">
                 <div class="col-md-6 meta-item">
                     <div class="meta-label">Snapshot</div>
-                    <div class="meta-value">공공 및 민간 데이터를 활용한 수도권 연계 광역 교통 통행 패턴 분석</div>
+                    <div class="meta-value" data-i18n="gtx_snapshot">공공 및 민간 데이터를 활용한 수도권 연계 광역 교통 통행 패턴 분석</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">ROLE</div>
-                    <div class="meta-value">분석 설계, 모델링</div>
+                    <div class="meta-value" data-i18n="gtx_role">분석 설계, 모델링</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">Tech Stack</div>
-                    <div class="meta-value">DA, ML</div>
+                    <div class="meta-value" data-i18n="gtx_stack">DA, ML</div>
                 </div>
             </div>
         </div>
@@ -179,7 +183,7 @@
                     <div class="step-tag">01</div>
                     <div class="step-title">CONTEXT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="gtx_step_1">
                     GTX 노선 개통·연장에 따른 수도권 교통 수요 변화를 사전에 설명해야 했으나, 기존 통행 분석은 단편적 지표 중심으로 구조적 변화 파악에 한계 존재
                 </p>
             </div>
@@ -189,7 +193,7 @@
                     <div class="step-tag">02</div>
                     <div class="step-title">DECISION</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="gtx_step_2">
 					대규모 교통 인프라 사업의 효과를 정량적으로 설명하지 못할 경우, 정책 판단과 대외 커뮤니케이션의 설득력 저하 문제 인식
                 </p>
             </div>
@@ -199,7 +203,7 @@
                     <div class="step-tag">03</div>
                     <div class="step-title">FRAMING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="gtx_step_3">
                     문제를 “통행량이 얼마나 변하는가”가 아닌, “GTX 도입이 수도권 내부·외부 통행 구조를 어떻게 재편하는가”라는 질문으로 재정의
                 </p>
             </div>
@@ -209,7 +213,7 @@
                     <div class="step-tag">04</div>
                     <div class="step-title">INSIGHT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="gtx_step_4">
                     노선 인접 여부보다, 행정구역·OD·시간대에 따라 GTX 영향이 상이하게 분화되는 통행 패턴 확인
                 </p>
             </div>
@@ -219,7 +223,7 @@
                     <div class="step-tag">05</div>
                     <div class="step-title">OUTCOME</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="gtx_step_5">
                     GTX 영향권을 공간·통행 단위로 구조화하여, 노선별·구간별 통행 변화와 확산 범위를 설명 가능한 분석 체계로 정리
                 </p>
             </div>
@@ -229,7 +233,7 @@
                     <div class="step-tag">06</div>
                     <div class="step-title">LEARNING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="gtx_step_6">
                     교통 데이터 분석의 핵심이 수치 비교가 아니라, 정책 판단에 필요한 구조적 변화 서사를 만드는 데 있음을 인식
                 </p>
             </div>
@@ -252,5 +256,36 @@
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                gtx_banner_title: "GTX 영향권 통행 패턴 분석",
+                gtx_banner_period: "2023.1.10 ~ 2023.6.8",
+                gtx_snapshot: "공공 및 민간 데이터를 활용한 수도권 연계 광역 교통 통행 패턴 분석",
+                gtx_role: "분석 설계, 모델링",
+                gtx_stack: "DA, ML",
+                gtx_step_1: "GTX 노선 개통·연장에 따른 수도권 교통 수요 변화를 사전에 설명해야 했으나, 기존 통행 분석은 단편적 지표 중심으로 구조적 변화 파악에 한계 존재",
+                gtx_step_2: "대규모 교통 인프라 사업의 효과를 정량적으로 설명하지 못할 경우, 정책 판단과 대외 커뮤니케이션의 설득력 저하 문제 인식",
+                gtx_step_3: "문제를 “통행량이 얼마나 변하는가”가 아닌, “GTX 도입이 수도권 내부·외부 통행 구조를 어떻게 재편하는가”라는 질문으로 재정의",
+                gtx_step_4: "노선 인접 여부보다, 행정구역·OD·시간대에 따라 GTX 영향이 상이하게 분화되는 통행 패턴 확인",
+                gtx_step_5: "GTX 영향권을 공간·통행 단위로 구조화하여, 노선별·구간별 통행 변화와 확산 범위를 설명 가능한 분석 체계로 정리",
+                gtx_step_6: "교통 데이터 분석의 핵심이 수치 비교가 아니라, 정책 판단에 필요한 구조적 변화 서사를 만드는 데 있음을 인식"
+            },
+            en: {
+                gtx_banner_title: "GTX Influence-Area Travel Pattern Analysis",
+                gtx_banner_period: "Jan 10, 2023 – Jun 8, 2023",
+                gtx_snapshot: "Analyzed metropolitan travel patterns by combining public and private data across the greater Seoul area.",
+                gtx_role: "Analysis design, modeling",
+                gtx_stack: "DA, ML",
+                gtx_step_1: "Needed to explain how GTX openings and extensions would reshape metropolitan demand, but legacy analyses relied on single-point indicators.",
+                gtx_step_2: "Recognized that failure to quantify the impact of large-scale transport investments would weaken policy decisions and messaging.",
+                gtx_step_3: "Reframed the question from “How much does volume change?” to “How does GTX reorganize internal vs. external flows across the region?”",
+                gtx_step_4: "Found that impact differed more by district, OD pair, and time of day than by simple proximity to a line.",
+                gtx_step_5: "Structured the study by spatial and trip units so each line/segment’s spread and magnitude could be explained.",
+                gtx_step_6: "Learned that traffic analytics must build narrative structures for policy decisions, not just compare numbers."
+            }
+        };
+    </script>
+    <script src="js/lang-toggle.js"></script>
 </body>
 </html>

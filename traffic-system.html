@@ -148,27 +148,31 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2 style="font-size: 40px;">교통예보시스템 기능 개선</h2>
-                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;">2023.6.19 ~ 2023.12.5</p>
+                    <h2 style="font-size: 40px;" data-i18n="traffic_banner_title">교통예보시스템 기능 개선</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="traffic_banner_period">2023.6.19 ~ 2023.12.5</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <div class="meta-container">
             <div class="row text-center">
                 <div class="col-md-6 meta-item">
                     <div class="meta-label">Snapshot</div>
-                    <div class="meta-value">한국도로공사 교통예보시스템 개발 및 구축</div>
+                    <div class="meta-value" data-i18n="traffic_snapshot">한국도로공사 교통예보시스템 개발 및 구축</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">ROLE</div>
-                    <div class="meta-value">PM, 시스템 설계 및<br> 예측 모델 고도화</div>
+                    <div class="meta-value" data-i18n-html="traffic_role">PM, 시스템 설계 및<br> 예측 모델 고도화</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">Tech Stack</div>
-                    <div class="meta-value">ML, DL</div>
+                    <div class="meta-value" data-i18n="traffic_stack">ML, DL</div>
                 </div>
             </div>
         </div>
@@ -179,7 +183,7 @@
                     <div class="step-tag">01</div>
                     <div class="step-title">CONTEXT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="traffic_step_1">
                     기존 교통 예측이 단순 룰 기반 방식에 의존하며, <span class="highlight">시간대·기상·교통 흐름 변화가 충분히 반영되지 않는 상황 존재</span>
                 </p>
             </div>
@@ -189,7 +193,7 @@
                     <div class="step-tag">02</div>
                     <div class="step-title">DECISION</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="traffic_step_2">
                     예측 신뢰도 한계로 인해 도로 위 안전 리스크를 사전에 전달할 수 있는 정량적이고 직관적인 지표 부재 문제 인식
                 </p>
             </div>
@@ -199,7 +203,7 @@
                     <div class="step-tag">03</div>
                     <div class="step-title">FRAMING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="traffic_step_3">
                     문제를 “사고를 얼마나 정확히 예측할 것인가”가 아닌, “도로 이용자가 위험 수준을 직관적으로 이해하고 대비할 수 있는가”라는 질문으로 재정의
                 </p>
             </div>
@@ -209,7 +213,7 @@
                     <div class="step-tag">04</div>
                     <div class="step-title">INSIGHT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="traffic_step_4">
                     단일 수치 예측보다, 위험 수준을 단계화해 전달할 때 예보 결과의 이해도와 활용 가능성 증가
                 </p>
             </div>
@@ -219,8 +223,8 @@
                     <div class="step-tag">05</div>
                     <div class="step-title">OUTCOME</div>
                 </div>
-                <p class="step-desc">
-                    ‣ 시계열 기반 예측 모델과 해석 가능한 안전 등급 체계를 결합한 교통 안전 예보 시스템 구축
+                <p class="step-desc" data-i18n-html="traffic_step_5">
+                    ‣ 시계열 기반 예측 모델과 해석 가능한 안전 등급 체계를 결합한 교통 안전 예보 시스템 구축<br>
                     ‣ 예측 결과를 대외 커뮤니케이션에 바로 활용 가능한 지표 형태로 제공
                 </p>
             </div>
@@ -230,7 +234,7 @@
                     <div class="step-tag">06</div>
                     <div class="step-title">LEARNING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="traffic_step_6">
                     예측 시스템의 가치는 정확도 자체보다, 판단과 행동으로 연결되는 전달 구조에 있음을 인식
                 </p>
             </div>
@@ -253,5 +257,36 @@
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                traffic_banner_title: "교통예보시스템 기능 개선",
+                traffic_banner_period: "2023.6.19 ~ 2023.12.5",
+                traffic_snapshot: "한국도로공사 교통예보시스템 개발 및 구축",
+                traffic_role: "PM, 시스템 설계 및<br> 예측 모델 고도화",
+                traffic_stack: "ML, DL",
+                traffic_step_1: "기존 교통 예측이 단순 룰 기반 방식에 의존하며, <span class=\"highlight\">시간대·기상·교통 흐름 변화가 충분히 반영되지 않는 상황 존재</span>",
+                traffic_step_2: "예측 신뢰도 한계로 인해 도로 위 안전 리스크를 사전에 전달할 수 있는 정량적이고 직관적인 지표 부재 문제 인식",
+                traffic_step_3: "문제를 “사고를 얼마나 정확히 예측할 것인가”가 아닌, “도로 이용자가 위험 수준을 직관적으로 이해하고 대비할 수 있는가”라는 질문으로 재정의",
+                traffic_step_4: "단일 수치 예측보다, 위험 수준을 단계화해 전달할 때 예보 결과의 이해도와 활용 가능성 증가",
+                traffic_step_5: "‣ 시계열 기반 예측 모델과 해석 가능한 안전 등급 체계를 결합한 교통 안전 예보 시스템 구축<br>‣ 예측 결과를 대외 커뮤니케이션에 바로 활용 가능한 지표 형태로 제공",
+                traffic_step_6: "예측 시스템의 가치는 정확도 자체보다, 판단과 행동으로 연결되는 전달 구조에 있음을 인식"
+            },
+            en: {
+                traffic_banner_title: "Traffic Forecasting System Enhancement",
+                traffic_banner_period: "Jun 19, 2023 – Dec 5, 2023",
+                traffic_snapshot: "Developed and deployed the Korea Expressway Corporation’s traffic forecasting platform.",
+                traffic_role: "PM, system architecture & forecasting model improvement",
+                traffic_stack: "ML, DL",
+                traffic_step_1: "Legacy forecasts relied on rule-based logic and failed to capture time-of-day, weather, and flow dynamics.",
+                traffic_step_2: "Without reliable forecasts, there were no quantitative, intuitive indicators to communicate road safety risks in advance.",
+                traffic_step_3: "Reframed success from “How accurately do we predict accidents?” to “Can drivers intuitively understand and act on risk levels?”",
+                traffic_step_4: "Learned that tiered risk communication is more actionable than a single numeric prediction.",
+                traffic_step_5: "‣ Built a safety forecasting system combining time-series models with interpretable alert tiers.<br>‣ Delivered outputs as communication-ready indicators for stakeholders.",
+                traffic_step_6: "Recognized that the value of forecasting lies less in accuracy and more in how the results drive decisions and actions."
+            }
+        };
+    </script>
+    <script src="js/lang-toggle.js"></script>
 </body>
 </html>

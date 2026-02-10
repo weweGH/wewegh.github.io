@@ -148,24 +148,27 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2 style="font-size: 40px;">유사 제품 탐색 기능</h2>
-                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;">2025.4.9 ~ 2025.11.21</p>
+                    <h2 style="font-size: 40px;" data-i18n="ps_banner_title">유사 제품 탐색 기능</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="ps_banner_period">2025.4.9 ~ 2025.11.21</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <div class="meta-container">
             <div class="row text-center">
                 <div class="col-md-6 meta-item">
                     <div class="meta-label">Snapshot</div>
-                    <div class="meta-value">연구 과정에서 특정 제품과 전성분 구성이 유사한 다른 제품들을
-빠르게 참고할 수 있는 기능</div>
+                    <div class="meta-value" data-i18n-html="ps_snapshot">연구 과정에서 특정 제품과 전성분 구성이 유사한 다른 제품들을<br>빠르게 참고할 수 있는 기능</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">ROLE</div>
-                    <div class="meta-value">기능 기획 및 유사도 로직 설계</div>
+                    <div class="meta-value" data-i18n="ps_role">기능 기획 및 유사도 로직 설계</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">logic</div>
@@ -180,7 +183,7 @@
                     <div class="step-tag">01</div>
                     <div class="step-title">CONTEXT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="ps_step_1">
                     연구 과정에서 특정 제품과 전성분 구성이 유사한 제품을 찾기 위해, 다수의 제품 전성분을 개별적으로 확인·비교해야 하는 상황 존재
                 </p>
             </div>
@@ -190,7 +193,7 @@
                     <div class="step-tag">02</div>
                     <div class="step-title">DECISION</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="ps_step_2">
                     유사 제품 탐색 과정의 비효율이 연구 초기 판단 지연과 후보 축소의 불확실성으로 이어지는 문제 인식
                 </p>
             </div>
@@ -200,7 +203,7 @@
                     <div class="step-tag">03</div>
                     <div class="step-title">FRAMING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="ps_step_3">
                     성분의 존재 유무만으로도 의미 있는 기준을 제공할 수 있는가?
                 </p>
             </div>
@@ -210,7 +213,7 @@
                     <div class="step-tag">04</div>
                     <div class="step-title">INSIGHT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="ps_step_4">
                     PoC를 통해 유사도 점수보다 전성분 겹침과 차이를 함께 제시할 때 결과 이해와 해석이 용이해지는 경향 확인
                 </p>
             </div>
@@ -220,7 +223,7 @@
                     <div class="step-tag">05</div>
                     <div class="step-title">OUTCOME</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="ps_step_5">
                     유사도 정밀도 고도화가 아닌, Top-5 유사 제품과 성분 겹침·차이를 직관적으로 비교하는 탐색 UI 중심 구현
                 </p>
             </div>
@@ -230,7 +233,7 @@
                     <div class="step-tag">06</div>
                     <div class="step-title">LEARNING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="ps_step_6">
                     유사도 문제의 핵심이 모델 성능이 아니라, 사용자의 판단 과정과 해석 가능성에 있음을 인식
                 </p>
             </div>
@@ -253,5 +256,34 @@
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                ps_banner_title: "유사 제품 탐색 기능",
+                ps_banner_period: "2025.4.9 ~ 2025.11.21",
+                ps_snapshot: "연구 과정에서 특정 제품과 전성분 구성이 유사한 다른 제품들을<br>빠르게 참고할 수 있는 기능",
+                ps_role: "기능 기획 및 유사도 로직 설계",
+                ps_step_1: "연구 과정에서 특정 제품과 전성분 구성이 유사한 제품을 찾기 위해, 다수의 제품 전성분을 개별적으로 확인·비교해야 하는 상황 존재",
+               ps_step_2: "유사 제품 탐색 과정의 비효율이 연구 초기 판단 지연과 후보 축소의 불확실성으로 이어지는 문제 인식",
+                ps_step_3: "성분의 존재 유무만으로도 의미 있는 기준을 제공할 수 있는가?",
+                ps_step_4: "PoC를 통해 유사도 점수보다 전성분 겹침과 차이를 함께 제시할 때 결과 이해와 해석이 용이해지는 경향 확인",
+                ps_step_5: "유사도 정밀도 고도화가 아닌, Top-5 유사 제품과 성분 겹침·차이를 직관적으로 비교하는 탐색 UI 중심 구현",
+                ps_step_6: "유사도 문제의 핵심이 모델 성능이 아니라, 사용자의 판단 과정과 해석 가능성에 있음을 인식"
+            },
+            en: {
+                ps_banner_title: "Similar Product Discovery",
+                ps_banner_period: "Apr 9, 2025 – Nov 21, 2025",
+                ps_snapshot: "A feature that lets researchers quickly reference other products whose ingredients closely match a target formula.",
+                ps_role: "Product planning and similarity-logic design",
+                ps_step_1: "Researchers had to open and compare every ingredient list individually to find similar products.",
+                ps_step_2: "The inefficiency delayed early-stage decisions and added uncertainty when narrowing candidates.",
+                ps_step_3: "Asked whether the mere presence/absence of ingredients could become a meaningful comparison signal.",
+                ps_step_4: "PoC work showed users understood results faster when overlap and differences were displayed together, not just a similarity score.",
+                ps_step_5: "Focused on a UX that compares the Top 5 similar products with overlapping vs. unique ingredients instead of chasing higher score precision.",
+                ps_step_6: "Reinforced that similarity problems hinge on user interpretation, not just model accuracy."
+            }
+        };
+    </script>
+    <script src="js/lang-toggle.js"></script>
 </body>
 </html>

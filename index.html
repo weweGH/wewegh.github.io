@@ -672,151 +672,103 @@
             })(jQuery);
         </script>
         <script>
-            (function() {
-                var translations = {
-                    ko: {
-                        hero_tagline: "의사결정과 업무 흐름을 바꾸는 데이터 사이언티스트",
-                        hero_summary: "의사결정 중심의 데이터 과학자는 도메인 전문가 및 의사결정 소유자와 긴밀히 협력하여 복잡하고 높은 위험을 감수하는 의사결정을 지원합니다. 불확실성을 줄이고, 더 빠르고 일관된 의사결정을 가능하게 하며, 분석을 실제 결과에 영향을 미치는 명확하고 실행 가능한 인사이트로 변환하는 데 중점을 둡니다.",
-                        experience_item_1: "의사결정 지점과 업무 흐름을 기준으로 분석과 모델을 설계해 실제 행동 변화를 만듦",
-                        experience_item_2: "문제 정의 → 모델·분석 설계 → 시스템 구현 → 현업 배포·운영까지 책임지는 실무형 오너십",
-                        capability_title_1: "의사 결정 중심 문제 프레임",
-                        capability_desc_1: "독립적인 지표가 아닌 실제 비즈니스 결정 및 워크플로우 영향에 대한 분석 정의",
-                        capability_title_2: "단일 프로젝트 리더십 및 실행",
-                        capability_desc_2: "데이터 과학, 제품 사고, 실습 제공을 결합해 순수한 기술 역할을 넘어 프로젝트를 이끕니다.",
-                        capability_title_3: "강력한 기능 간 파트너십",
-                        capability_desc_3: "복잡한 분석을 실질적인 의사 결정 지원으로 전환하고 이해관계자 정렬을 촉진합니다.",
-                        projects_desc: "업무 프로젝트에서 맡은 역할과 기여 범위를 간결하게 정리했습니다.<br>카드 클릭 시 프로젝트별 상세 내용을 확인할 수 있습니다.",
-                        project_1_title: "교통예보시스템 기능 개선",
-                        project_1_item_1: "요구사항 분석 및 전체 일정·운영 총괄",
-                        project_1_item_2: "교통안전 예측 모델(DT) 고도화",
-                        project_1_item_3: "시계열 예측 모델(XGBoost) 고도화",
-                        project_2_title: "GTX 통행 패턴 분석",
-                        project_2_item_1: "교통카드 기반 통행 패턴 분석",
-                        project_2_item_2: "GTX 영향권 통행 패턴 분석(RNN)",
-                        project_2_item_3: "GTX 영향권 수요 변화 도출",
-                        project_3_title: "교통예보시스템 고정밀화",
-                        project_3_item_1: "고속도로 통행 데이터 품질 분석",
-                        project_3_item_2: "도시간 소요시간 예측 모델(CNN) 고도화",
-                        project_3_item_3: "도시간 소요시간 예측 모델(CNN) 고도화",
-                        project_4_title: "RAG 구축",
-                        project_4_item_1: "다수의 문서를 개별적으로 확인해야 하는 문제",
-                        project_4_item_2: "검색 비용 문제 증가",
-                        project_4_item_3: "검색의 목적을 재정의한 RAG 프로젝트",
-                        project_5_title: "유사 제품 탐색 기능 구현",
-                        project_5_item_1: "추가 예정",
-                        project_5_item_2: "추가 예정",
-                        project_5_item_3: "추가 예정",
-                        project_6_title: "미생물 데이터 분석",
-                        project_6_item_1: "방부력 실험 데이터 분석",
-                        project_6_item_2: "차원 축소 분석",
-                        project_6_item_3: "데이터 시각화",
-                        experiments_desc: "개인 프로젝트와 분석을 모아 정리했습니다.<br>카드 클릭 시 프로젝트별 상세 내용을 확인할 수 있습니다.",
-                        blog_desc: "23년 6월부터 '데이터 사이언스로 한걸음' 블로그를 운영 중입니다.<br>매일의 발견과 지금까지 겪었던 시행착오에 관해 기록합니다.",
-                        blog_1_title: "'삼성전자' 뉴스 수집 & 슬랙 전송 워크플로우",
-                        blog_1_desc: "이 글에서는 n8n 입문 단계의 실습으로 '정해진 시간에 뉴스를 수집하고, 슬랙으로 전송하는 방법'을 소개합니다. 매일 아침 9시에 자동으로 '삼성전자' 뉴스를 수집하고, 슬랙으로 전송하는 n8n 워크플로우를 작업합니다.",
-                        blog_2_title: "우리나라는<br>사계절이 정말 뚜렷할까?",
-                        blog_2_desc: "이 글에서는 실제 기상 데이터를 기반으로 계절 변화를 시각화하여 정말 사계절이 뚜렷한지, 지역별로 사계절은 얼마나 차이 나는지 확인합니다. '기온'을 기준으로 계절별로 정량적인 구분을 정의하고, 동일한 기준을 각각의 도시에 적용하여 분석합니다.",
-                        blog_3_title: "딥러닝<br>작동 원리",
-                        blog_3_desc: "이 글에서는 딥러닝의 작동 원리에 대해 설명합니다. 가중치, 손실 함수, 옵티마이저 3개의 그림으로 딥러닝의 작동 원리와 '정확한 가중치 값을 찾는 것'인 딥러닝의 목표를 이해합니다.",
-                        contact_blog_name: "데이터 사이언스로 한 걸음",
-                        contact_resume_cta: "이력서 다운로드"
-                    },
-                    en: {
-                        hero_tagline: "A data scientist who changes decisions and workflows",
-                        hero_summary: "Decision-focused data scientists work closely with domain experts and decision owners to support complex, high-stakes decisions. They reduce uncertainty, enable faster and more consistent decisions, and translate analysis into clear, actionable insights that change real outcomes.",
-                        experience_item_1: "Designs analysis and models around decision points and workflows to drive real behavior change.",
-                        experience_item_2: "Owns the full lifecycle from problem framing → modeling/analysis design → system implementation → production rollout and operations.",
-                        capability_title_1: "Decision-centered problem framing",
-                        capability_desc_1: "Defines analysis around real business decisions and workflow impact, not isolated metrics.",
-                        capability_title_2: "Single-project leadership and execution",
-                        capability_desc_2: "Leads projects beyond a pure technical role by combining data science, product thinking, and hands-on delivery.",
-                        capability_title_3: "Strong cross-functional partnership",
-                        capability_desc_3: "Turns complex analysis into practical decision support and aligns stakeholders.",
-                        projects_desc: "Summarized my role and contribution scope across work projects.<br>Click a card to see the project details.",
-                        project_1_title: "Traffic Forecasting System Improvement",
-                        project_1_item_1: "Led requirements analysis and overall schedule/operations.",
-                        project_1_item_2: "Enhanced traffic safety prediction model (DT).",
-                        project_1_item_3: "Improved time-series forecasting model (XGBoost).",
-                        project_2_title: "GTX Travel Pattern Analysis",
-                        project_2_item_1: "Analyzed travel patterns from transit card data.",
-                        project_2_item_2: "Modeled GTX influence-area patterns (RNN).",
-                        project_2_item_3: "Derived demand shifts in GTX influence areas.",
-                        project_3_title: "High-precision Traffic Forecasting System",
-                        project_3_item_1: "Assessed highway traffic data quality.",
-                        project_3_item_2: "Improved intercity travel time prediction model (CNN).",
-                        project_3_item_3: "Improved intercity travel time prediction model (CNN).",
-                        project_4_title: "RAG Build",
-                        project_4_item_1: "Problem: needing to check many documents individually.",
-                        project_4_item_2: "Rising search cost.",
-                        project_4_item_3: "A RAG project that redefined the purpose of search.",
-                        project_5_title: "Similar Product Discovery Feature",
-                        project_5_item_1: "TBD",
-                        project_5_item_2: "TBD",
-                        project_5_item_3: "TBD",
-                        project_6_title: "Microbial Data Analysis",
-                        project_6_item_1: "Analyzed preservative efficacy experiment data.",
-                        project_6_item_2: "Dimensionality reduction analysis.",
-                        project_6_item_3: "Data visualization.",
-                        experiments_desc: "A collection of personal projects and analyses.<br>Click a card to see the details.",
-                        blog_desc: "Since June 2023, I have been running the blog 'One Step into Data Science'.<br>I write about daily discoveries and the trial and error I've gone through.",
-                        blog_1_title: "'Samsung Electronics' news collection & Slack delivery workflow",
-                        blog_1_desc: "In this post, I introduce an n8n beginner exercise: how to collect news at a set time and send it to Slack. I build a workflow that collects 'Samsung Electronics' news every morning at 9 and sends it to Slack.",
-                        blog_2_title: "Do we really have<br>four distinct seasons in Korea?",
-                        blog_2_desc: "Using real weather data, I visualize seasonal changes and check how distinct the four seasons are, and how they differ by region. I define seasons quantitatively based on temperature and apply the same criteria to each city.",
-                        blog_3_title: "How Deep Learning<br>Works",
-                        blog_3_desc: "I explain how deep learning works. Using three diagrams—weights, loss function, and optimizer—I explain the mechanism and the goal of finding accurate weights.",
-                        contact_blog_name: "One Step into Data Science",
-                        contact_resume_cta: "Download Resume"
-                    }
-                };
-
-                function setLang(lang) {
-                    var dict = translations[lang] || translations.ko;
-                    document.documentElement.setAttribute('lang', lang);
-                    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-                        if (el.hasAttribute('data-i18n-lock')) {
-                            return;
-                        }
-                        var key = el.getAttribute('data-i18n');
-                        if (dict[key] !== undefined) {
-                            el.textContent = dict[key];
-                        }
-                    });
-                    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
-                        if (el.hasAttribute('data-i18n-lock')) {
-                            return;
-                        }
-                        var key = el.getAttribute('data-i18n-html');
-                        if (dict[key] !== undefined) {
-                            el.innerHTML = dict[key];
-                        }
-                    });
-                    document.querySelectorAll('.lang_btn').forEach(function(btn) {
-                        var isActive = btn.getAttribute('data-lang') === lang;
-                        btn.classList.toggle('active', isActive);
-                        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-                    });
-                    try {
-                        localStorage.setItem('site_lang', lang);
-                    } catch (e) {
-                        // ignore
-                    }
+            window.pageTranslations = {
+                ko: {
+                    hero_tagline: "의사결정과 업무 흐름을 바꾸는 데이터 사이언티스트",
+                    hero_summary: "의사결정 중심의 데이터 과학자는 도메인 전문가 및 의사결정 소유자와 긴밀히 협력하여 복잡하고 높은 위험을 감수하는 의사결정을 지원합니다. 불확실성을 줄이고, 더 빠르고 일관된 의사결정을 가능하게 하며, 분석을 실제 결과에 영향을 미치는 명확하고 실행 가능한 인사이트로 변환하는 데 중점을 둡니다.",
+                    experience_item_1: "의사결정 지점과 업무 흐름을 기준으로 분석과 모델을 설계해 실제 행동 변화를 만듦",
+                    experience_item_2: "문제 정의 → 모델·분석 설계 → 시스템 구현 → 현업 배포·운영까지 책임지는 실무형 오너십",
+                    capability_title_1: "의사 결정 중심 문제 프레임",
+                    capability_desc_1: "독립적인 지표가 아닌 실제 비즈니스 결정 및 워크플로우 영향에 대한 분석 정의",
+                    capability_title_2: "단일 프로젝트 리더십 및 실행",
+                    capability_desc_2: "데이터 과학, 제품 사고, 실습 제공을 결합해 순수한 기술 역할을 넘어 프로젝트를 이끕니다.",
+                    capability_title_3: "강력한 기능 간 파트너십",
+                    capability_desc_3: "복잡한 분석을 실질적인 의사 결정 지원으로 전환하고 이해관계자 정렬을 촉진합니다.",
+                    projects_desc: "업무 프로젝트에서 맡은 역할과 기여 범위를 간결하게 정리했습니다.<br>카드 클릭 시 프로젝트별 상세 내용을 확인할 수 있습니다.",
+                    project_1_title: "교통예보시스템 기능 개선",
+                    project_1_item_1: "요구사항 분석 및 전체 일정·운영 총괄",
+                    project_1_item_2: "교통안전 예측 모델(DT) 고도화",
+                    project_1_item_3: "시계열 예측 모델(XGBoost) 고도화",
+                    project_2_title: "GTX 통행 패턴 분석",
+                    project_2_item_1: "교통카드 기반 통행 패턴 분석",
+                    project_2_item_2: "GTX 영향권 통행 패턴 분석(RNN)",
+                    project_2_item_3: "GTX 영향권 수요 변화 도출",
+                    project_3_title: "교통예보시스템 고정밀화",
+                    project_3_item_1: "고속도로 통행 데이터 품질 분석",
+                    project_3_item_2: "도시간 소요시간 예측 모델(CNN) 고도화",
+                    project_3_item_3: "도시간 소요시간 예측 모델(CNN) 고도화",
+                    project_4_title: "RAG 구축",
+                    project_4_item_1: "다수의 문서를 개별적으로 확인해야 하는 문제",
+                    project_4_item_2: "검색 비용 문제 증가",
+                    project_4_item_3: "검색의 목적을 재정의한 RAG 프로젝트",
+                    project_5_title: "유사 제품 탐색 기능 구현",
+                    project_5_item_1: "추가 예정",
+                    project_5_item_2: "추가 예정",
+                    project_5_item_3: "추가 예정",
+                    project_6_title: "미생물 데이터 분석",
+                    project_6_item_1: "방부력 실험 데이터 분석",
+                    project_6_item_2: "차원 축소 분석",
+                    project_6_item_3: "데이터 시각화",
+                    experiments_desc: "개인 프로젝트와 분석을 모아 정리했습니다.<br>카드 클릭 시 프로젝트별 상세 내용을 확인할 수 있습니다.",
+                    blog_desc: "23년 6월부터 '데이터 사이언스로 한걸음' 블로그를 운영 중입니다.<br>매일의 발견과 지금까지 겪었던 시행착오에 관해 기록합니다.",
+                    blog_1_title: "'삼성전자' 뉴스 수집 & 슬랙 전송 워크플로우",
+                    blog_1_desc: "이 글에서는 n8n 입문 단계의 실습으로 '정해진 시간에 뉴스를 수집하고, 슬랙으로 전송하는 방법'을 소개합니다. 매일 아침 9시에 자동으로 '삼성전자' 뉴스를 수집하고, 슬랙으로 전송하는 n8n 워크플로우를 작업합니다.",
+                    blog_2_title: "우리나라는<br>사계절이 정말 뚜렷할까?",
+                    blog_2_desc: "이 글에서는 실제 기상 데이터를 기반으로 계절 변화를 시각화하여 정말 사계절이 뚜렷한지, 지역별로 사계절은 얼마나 차이 나는지 확인합니다. '기온'을 기준으로 계절별로 정량적인 구분을 정의하고, 동일한 기준을 각각의 도시에 적용하여 분석합니다.",
+                    blog_3_title: "딥러닝<br>작동 원리",
+                    blog_3_desc: "이 글에서는 딥러닝의 작동 원리에 대해 설명합니다. 가중치, 손실 함수, 옵티마이저 3개의 그림으로 딥러닝의 작동 원리와 '정확한 가중치 값을 찾는 것'인 딥러닝의 목표를 이해합니다.",
+                    contact_blog_name: "데이터 사이언스로 한 걸음",
+                    contact_resume_cta: "이력서 다운로드"
+                },
+                en: {
+                    hero_tagline: "A data scientist who changes decisions and workflows",
+                    hero_summary: "Decision-focused data scientists work closely with domain experts and decision owners to support complex, high-stakes decisions. They reduce uncertainty, enable faster and more consistent decisions, and translate analysis into clear, actionable insights that change real outcomes.",
+                    experience_item_1: "Designs analysis and models around decision points and workflows to drive real behavior change.",
+                    experience_item_2: "Owns the full lifecycle from problem framing → modeling/analysis design → system implementation → production rollout and operations.",
+                    capability_title_1: "Decision-centered problem framing",
+                    capability_desc_1: "Defines analysis around real business decisions and workflow impact, not isolated metrics.",
+                    capability_title_2: "Single-project leadership and execution",
+                    capability_desc_2: "Leads projects beyond a pure technical role by combining data science, product thinking, and hands-on delivery.",
+                    capability_title_3: "Strong cross-functional partnership",
+                    capability_desc_3: "Turns complex analysis into practical decision support and aligns stakeholders.",
+                    projects_desc: "Summarized my role and contribution scope across work projects.<br>Click a card to see the project details.",
+                    project_1_title: "Traffic Forecasting System Improvement",
+                    project_1_item_1: "Led requirements analysis and overall schedule/operations.",
+                    project_1_item_2: "Enhanced traffic safety prediction model (DT).",
+                    project_1_item_3: "Improved time-series forecasting model (XGBoost).",
+                    project_2_title: "GTX Travel Pattern Analysis",
+                    project_2_item_1: "Analyzed travel patterns from transit card data.",
+                    project_2_item_2: "Modeled GTX influence-area patterns (RNN).",
+                    project_2_item_3: "Derived demand shifts in GTX influence areas.",
+                    project_3_title: "High-precision Traffic Forecasting System",
+                    project_3_item_1: "Assessed highway traffic data quality.",
+                    project_3_item_2: "Improved intercity travel time prediction model (CNN).",
+                    project_3_item_3: "Improved intercity travel time prediction model (CNN).",
+                    project_4_title: "RAG Build",
+                    project_4_item_1: "Problem: needing to check many documents individually.",
+                    project_4_item_2: "Rising search cost.",
+                    project_4_item_3: "A RAG project that redefined the purpose of search.",
+                    project_5_title: "Similar Product Discovery Feature",
+                    project_5_item_1: "TBD",
+                    project_5_item_2: "TBD",
+                    project_5_item_3: "TBD",
+                    project_6_title: "Microbial Data Analysis",
+                    project_6_item_1: "Analyzed preservative efficacy experiment data.",
+                    project_6_item_2: "Dimensionality reduction analysis.",
+                    project_6_item_3: "Data visualization.",
+                    experiments_desc: "A collection of personal projects and analyses.<br>Click a card to see the details.",
+                    blog_desc: "Since June 2023, I have been running the blog 'One Step into Data Science'.<br>I write about daily discoveries and the trial and error I've gone through.",
+                    blog_1_title: "'Samsung Electronics' news collection & Slack delivery workflow",
+                    blog_1_desc: "In this post, I introduce an n8n beginner exercise: how to collect news at a set time and send it to Slack. I build a workflow that collects 'Samsung Electronics' news every morning at 9 and sends it to Slack.",
+                    blog_2_title: "Do we really have<br>four distinct seasons in Korea?",
+                    blog_2_desc: "Using real weather data, I visualize seasonal changes and check how distinct the four seasons are, and how they differ by region. I define seasons quantitatively based on temperature and apply the same criteria to each city.",
+                    blog_3_title: "How Deep Learning<br>Works",
+                    blog_3_desc: "I explain how deep learning works. Using three diagrams—weights, loss function, and optimizer—I explain the mechanism and the goal of finding accurate weights.",
+                    contact_blog_name: "One Step into Data Science",
+                    contact_resume_cta: "Download Resume"
                 }
-
-                document.querySelectorAll('.lang_btn').forEach(function(btn) {
-                    btn.addEventListener('click', function() {
-                        setLang(btn.getAttribute('data-lang'));
-                    });
-                });
-
-                var saved = 'ko';
-                try {
-                    saved = localStorage.getItem('site_lang') || 'ko';
-                } catch (e) {
-                    saved = 'ko';
-                }
-                setLang(saved);
-            })();
+            };
         </script>
+        <script src="js/lang-toggle.js"></script>
     </body>
 </html>

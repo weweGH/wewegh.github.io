@@ -148,27 +148,31 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2 style="font-size: 40px;">원료 첨부파일 검색 RAG</h2>
-                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;">2025.4.9 ~ 2025.11.21</p>
+                    <h2 style="font-size: 40px;" data-i18n="rag_banner_title">원료 첨부파일 검색 RAG</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="rag_banner_period">2025.4.9 ~ 2025.11.21</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <div class="meta-container">
             <div class="row text-center">
                 <div class="col-md-6 meta-item">
                     <div class="meta-label">Snapshot</div>
-                    <div class="meta-value">PDF 중심 검토 흐름을 의사결정 중심 탐색 구조로 전환한 RAG 프로젝트</div>
+                    <div class="meta-value" data-i18n="rag_snapshot">PDF 중심 검토 흐름을 의사결정 중심 탐색 구조로 전환한 RAG 프로젝트</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">ROLE</div>
-                    <div class="meta-value">검색 파이프라인 설계 및 구현</div>
+                    <div class="meta-value" data-i18n="rag_role">검색 파이프라인 설계 및 구현</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">Tech Stack</div>
-                    <div class="meta-value">Semantic Search, RAG</div>
+                    <div class="meta-value" data-i18n="rag_stack">Semantic Search, RAG</div>
                 </div>
             </div>
         </div>
@@ -179,7 +183,7 @@
                     <div class="step-tag">01</div>
                     <div class="step-title">CONTEXT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="rag_step_1">
                     연구원 및 규제 담당자가 성분 정보 확인 시, <span class="highlight">다수의 PDF 문서를 개별적으로 열람해야 하는 구조</span>로 인한 검색 비효율 발생
                 </p>
             </div>
@@ -189,7 +193,7 @@
                     <div class="step-tag">02</div>
                     <div class="step-title">DECISION</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="rag_step_2">
 					‣ 성분 검색 비용 증가로 인한 <span class="highlight">의사결정 지연 및 중복 검토 발생</span><br>
                     ‣ <span class="highlight">R&D 생산성 저하 및 규제 대응 속도 감소</span>로 이어지는 구조적 문제 인식
                 </p>
@@ -200,7 +204,7 @@
                     <div class="step-tag">03</div>
                     <div class="step-title">FRAMING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="rag_step_3">
                     사용자의 핵심 니즈가 ‘정확한 문서 탐색’인지, 혹은 ‘의사결정에 필요한 핵심 정보와 규제 맥락의 빠른 파악’인지에 대한 문제 재정의
                 </p>
             </div>
@@ -210,7 +214,7 @@
                     <div class="step-tag">04</div>
                     <div class="step-title">INSIGHT</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="rag_step_4">
                     검색 로그 및 문서 열람 패턴 분석을 통해, 사용자가 문서 원본보다 성분 요약 정보와 규제 맥락 확인에 더 많은 시간을 사용하는 경향 확인
                 </p>
             </div>
@@ -220,7 +224,7 @@
                     <div class="step-tag">05</div>
                     <div class="step-title">OUTCOME</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="rag_step_5">
                     ‣ 단순 키워드 검색 개선이 아닌, 의사결정 지원을 위한 정보 요약·맥락화 방향으로 문제 해결 전략 설정<br>
                     ‣ <span class="highlight">시멘틱 서치 기반 RAG 구조 도입</span>을 통한 검색 경험 개선
                 </p>
@@ -231,7 +235,7 @@
                     <div class="step-tag">06</div>
                     <div class="step-title">LEARNING</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n="rag_step_6">
                     검색 문제의 핵심은 기술적 정확도 자체가 아니라, 사용자가 어떤 결정을 위해 검색하고 있는지를 이해하는 문제라는 인식 강화
                 </p>
             </div>
@@ -254,5 +258,36 @@
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                rag_banner_title: "원료 첨부파일 검색 RAG",
+                rag_banner_period: "2025.4.9 ~ 2025.11.21",
+                rag_snapshot: "PDF 중심 검토 흐름을 의사결정 중심 탐색 구조로 전환한 RAG 프로젝트",
+                rag_role: "검색 파이프라인 설계 및 구현",
+                rag_stack: "Semantic Search, RAG",
+                rag_step_1: "연구원 및 규제 담당자가 성분 정보 확인 시, <span class=\"highlight\">다수의 PDF 문서를 개별적으로 열람해야 하는 구조</span>로 인한 검색 비효율 발생",
+                rag_step_2: "‣ 성분 검색 비용 증가로 인한 <span class=\"highlight\">의사결정 지연 및 중복 검토 발생</span><br>‣ <span class=\"highlight\">R&D 생산성 저하 및 규제 대응 속도 감소</span>로 이어지는 구조적 문제 인식",
+                rag_step_3: "사용자의 핵심 니즈가 ‘정확한 문서 탐색’인지, 혹은 ‘의사결정에 필요한 핵심 정보와 규제 맥락의 빠른 파악’인지에 대한 문제 재정의",
+                rag_step_4: "검색 로그 및 문서 열람 패턴 분석을 통해, 사용자가 문서 원본보다 성분 요약 정보와 규제 맥락 확인에 더 많은 시간을 사용하는 경향 확인",
+                rag_step_5: "‣ 단순 키워드 검색 개선이 아닌, 의사결정 지원을 위한 정보 요약·맥락화 방향으로 문제 해결 전략 설정<br>‣ <span class=\"highlight\">시멘틱 서치 기반 RAG 구조 도입</span>을 통한 검색 경험 개선",
+                rag_step_6: "검색 문제의 핵심은 기술적 정확도 자체가 아니라, 사용자가 어떤 결정을 위해 검색하고 있는지를 이해하는 문제라는 인식 강화"
+            },
+            en: {
+                rag_banner_title: "Formula Attachment Search RAG",
+                rag_banner_period: "Apr 9, 2025 – Nov 21, 2025",
+                rag_snapshot: "Converted a PDF-heavy review workflow into a decision-centered RAG experience.",
+                rag_role: "Search pipeline design & implementation",
+                rag_stack: "Semantic Search, RAG",
+                rag_step_1: "Researchers and regulatory staff had to open numerous PDFs individually to confirm ingredients, creating a highly inefficient search experience.",
+                rag_step_2: "‣ Rising search costs caused decision delays and duplicate reviews.<br>‣ This led to lower R&D productivity and slower regulatory response.",
+                rag_step_3: "Reframed whether the real need was precise document retrieval or fast understanding of key facts and regulatory context.",
+                rag_step_4: "Log analysis showed users spent more time reading summaries and regulatory context than full documents.",
+                rag_step_5: "‣ Pivoted from keyword tuning to delivering summarized, contextual information that supports decisions.<br>‣ Introduced a semantic-search-based RAG workflow to upgrade the experience.",
+                rag_step_6: "Realized the core of search problems is understanding the user’s decision, not only improving technical accuracy."
+            }
+        };
+    </script>
+    <script src="js/lang-toggle.js"></script>
 </body>
 </html>
