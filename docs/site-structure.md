@@ -22,9 +22,9 @@
     - 유사 제품 탐색 기능 구현 → `product-similarity.html`
     
 - Experiments 이동 경로
-    - 만다라트 차트 가이드 → `experiments-mandalart.html`
-    - 네트워크 그래프 관계도 시각화 → `network-visualization.html` 
-    - 테니스 운동 효과 분석 → `experiments-tennis-rhr.html`
+    - 만다라트 차트 가이드 → `experiments/experiments-mandalart.html`
+    - 네트워크 그래프 관계도 시각화 → `experiments/network-visualization.html` 
+    - 테니스 운동 효과 분석 → `experiments/experiments-tennis-rhr.html`
 
 - 블로그 이동 경로
     - 슬랙 전송 자동화 → `https://wewegh.tistory.com/150` 
@@ -54,8 +54,8 @@ graph TD
 
 ```mermaid
 graph TD
-    Experiments --> exp_a[만다라트 차트 가이드<br/>`experiments-mandalart.html`]
-    Experiments --> exp_b[네트워크 그래프 관계도 시각화<br/>`network-visualization.html`]
-    Experiments --> exp_c[테니스 운동 효과 분석<br/>`experiments-tennis-rhr.html`]
+    Experiments --> exp_a[만다라트 차트 가이드<br/>`experiments/experiments-mandalart.html`]
+    Experiments --> exp_b[네트워크 그래프 관계도 시각화<br/>`experiments/network-visualization.html`]
+    Experiments --> exp_c[테니스 운동 효과 분석<br/>`experiments/experiments-tennis-rhr.html`]
 
 ```
