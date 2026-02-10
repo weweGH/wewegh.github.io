@@ -213,29 +213,33 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2 style="font-size: 40px;">네트워크 그래프 관계도 시각화</h2>
-                    <p style="margin-top: 10px; font-size: 14px; color: var(--text-light); letter-spacing: 1px;">2025.10.17 ~ 진행 중</p>
+                    <h2 style="font-size: 40px;" data-i18n="network_banner_title">네트워크 그래프 관계도 시각화</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: var(--text-light); letter-spacing: 1px;" data-i18n="network_banner_period">2025.10.17 ~ 진행 중</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <div class="meta-container">
             <div class="row text-center">
                 <div class="col-md-6 meta-item">
                     <div class="meta-label">Snapshot</div>
-                    <div class="meta-value">네트워크 그래프 개념을 학습하기 위해, 에피소드 흐름에 따라 변화하는 인물 관계를 시각화한 인터랙티브 웹 프로젝트</div>
+                    <div class="meta-value" data-i18n="network_snapshot">네트워크 그래프 개념을 학습하기 위해, 에피소드 흐름에 따라 변화하는 인물 관계를 시각화한 인터랙티브 웹 프로젝트</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">ROLE</div>
-                    <div class="meta-value">End-to-End Design & Frontend Development</div>
+                    <div class="meta-value" data-i18n="network_role">End-to-End Design & Frontend Development</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">Domain</div>
                     <div class="meta-value">
                         <a class="meta-link" href="https://character-network-visualization.vercel.app/" target="_blank" rel="noreferrer">
-                            character-network-visualization
+                            <span data-i18n="network_domain">character-network-visualization</span>
                             <i class="fa fa-external-link" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -249,7 +253,7 @@
                     <div class="step-tag">01</div>
                     <div class="step-title">PROBLEM</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="network_problem">
                     ‣ 네트워크 그래프는 이론적으로는 이해했지만, 실제 데이터 구조와 시각화 흐름을 체감할 기회가 부족<br>
                     ‣ 단순 예제가 아닌, 관계가 시간에 따라 축적·변화하는 구조를 직접 구현하며 학습하고자 함<br>
                     ‣ 노드·엣지 속성이 시각적 요소로 어떻게 해석되는지 경험이 필요하다고 판단
@@ -261,7 +265,7 @@
                     <div class="step-tag">02</div>
                     <div class="step-title">KEY FEATURES</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="network_features">
                     ‣ <span class="highlight">인물 관계 네트워크 그래프 시각화</span><br>
                     <span class="step-note">: 노드(인물)·엣지(관계)를 기반으로 한 force-directed 그래프</span>
                     ‣ <span class="highlight">에피소드 기반 관계 변화 반영</span><br>
@@ -276,7 +280,7 @@
                     <div class="step-tag">03</div>
                     <div class="step-title">TECH STACK</div>
                 </div>
-               <p class="step-desc">
+               <p class="step-desc" data-i18n="network_stack">
                     React · TypeScript · react-force-graph-2d · Tailwind CSS
                 </p>
             </div>
@@ -286,7 +290,7 @@
                     <div class="step-tag">04</div>
                     <div class="step-title">OUTCOME</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="network_outcome">
                     ‣ 네트워크 그래프의 데이터 구조(nodes/edges)와 시각화 간의 연결 관계를 명확히 이해<br>
                     ‣ force 기반 레이아웃과 사용자 인터랙션(드래그·줌)의 동작 원리 체득
                 </p>
@@ -297,7 +301,7 @@
                     <div class="step-tag">05</div>
                     <div class="step-title">REFLECTION</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="network_reflection">
                     ‣ 네트워크 시각화는 차트보다 데이터 모델링 설계가 훨씬 중요하다는 점을 체감<br>
                     ‣ 시각적 요소 하나하나가 데이터 해석에 직접적인 영향을 준다는 것을 학습<br>
                     ‣ 다시 한다면, 학습 목적에 맞게 데이터 규모를 더 작게 시작했을 것
@@ -322,5 +326,34 @@
 
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                network_banner_title: "네트워크 그래프 관계도 시각화",
+                network_banner_period: "2025.10.17 ~ 진행 중",
+                network_snapshot: "네트워크 그래프 개념을 학습하기 위해, 에피소드 흐름에 따라 변화하는 인물 관계를 시각화한 인터랙티브 웹 프로젝트",
+                network_role: "End-to-End Design & Frontend Development",
+                network_domain: "character-network-visualization",
+                network_problem: "‣ 네트워크 그래프는 이론적으로는 이해했지만, 실제 데이터 구조와 시각화 흐름을 체감할 기회가 부족<br>‣ 단순 예제가 아닌, 관계가 시간에 따라 축적·변화하는 구조를 직접 구현하며 학습하고자 함<br>‣ 노드·엣지 속성이 시각적 요소로 어떻게 해석되는지 경험이 필요하다고 판단",
+                network_features: "‣ <span class=\"highlight\">인물 관계 네트워크 그래프 시각화</span><br><span class=\"step-note\">노드(인물)·엣지(관계)를 기반으로 한 force-directed 그래프</span><br>‣ <span class=\"highlight\">에피소드 기반 관계 변화 반영</span><br><span class=\"step-note\">에피소드 진행에 따라 관계가 누적·업데이트</span><br>‣ <span class=\"highlight\">시각적 정보 구분</span><br><span class=\"step-note\">중요도에 따른 크기, 소속에 따른 색상</span>",
+                network_stack: "React · TypeScript · react-force-graph-2d · Tailwind CSS",
+                network_outcome: "‣ 네트워크 그래프의 데이터 구조(nodes/edges)와 시각화 간 연결 관계를 명확히 이해<br>‣ force 기반 레이아웃과 사용자 인터랙션(드래그·줌)의 동작 원리를 체득",
+                network_reflection: "‣ 네트워크 시각화는 차트보다 데이터 모델링 설계가 훨씬 중요하다는 점을 체감<br>‣ 시각적 요소 하나하나가 데이터 해석에 직접적인 영향을 준다는 것을 학습<br>‣ 다시 한다면, 학습 목적에 맞게 데이터 규모를 더 작게 시작했을 것"
+            },
+            en: {
+                network_banner_title: "Character Network Visualization",
+                network_banner_period: "Oct 17, 2025 – Present",
+                network_snapshot: "An interactive web project that visualizes how character relationships evolve episode by episode to internalize network graph concepts.",
+                network_role: "End-to-End Design & Frontend Development",
+                network_domain: "character-network-visualization",
+                network_problem: "‣ I understood network graphs conceptually but lacked hands-on intuition for the data structure and rendering flow.<br>‣ Wanted to build something where relationships accumulate and change over time rather than a static toy dataset.<br>‣ Needed to see how node and edge attributes translate into visual cues.",
+                network_features: "‣ <span class=\"highlight\">Relationship network visualization</span><br><span class=\"step-note\">Force-directed graph using people as nodes and relationships as edges</span><br>‣ <span class=\"highlight\">Episode-driven updates</span><br><span class=\"step-note\">Relationships accumulate/refresh as episodes progress</span><br>‣ <span class=\"highlight\">Visual encoding</span><br><span class=\"step-note\">Node size indicates importance, color shows affiliation</span>",
+                network_stack: "React · TypeScript · react-force-graph-2d · Tailwind CSS",
+                network_outcome: "‣ Gained a clear mapping between the nodes/edges data model and what appears onscreen.<br>‣ Understood how force-based layouts and interactions (drag/zoom) behave.",
+                network_reflection: "‣ Learned that in network visualization the data modeling matters more than the chart itself.<br>‣ Every visual element directly affects interpretation.<br>‣ Next time I would start with a smaller dataset aligned to the learning goal."
+            }
+        };
+    </script>
+    <script src="/js/lang-toggle.js"></script>
 </body>
 </html>

@@ -213,29 +213,33 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2 style="font-size: 40px;">테니스 운동 효과 분석 (RHR 기반)</h2>
-                    <p style="margin-top: 10px; font-size: 14px; color: var(--text-light); letter-spacing: 1px;">2025.11.13 ~ 2025.11.23</p>
+                    <h2 style="font-size: 40px;" data-i18n="tennis_banner_title">테니스 운동 효과 분석 (RHR 기반)</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: var(--text-light); letter-spacing: 1px;" data-i18n="tennis_banner_period">2025.11.13 ~ 2025.11.23</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <div class="meta-container">
             <div class="row text-center">
                 <div class="col-md-6 meta-item">
                     <div class="meta-label">Snapshot</div>
-                    <div class="meta-value">애플워치 RHR 데이터를 활용해, 테니스 운동이 장기적으로 휴식기 심박수에 미친 영향을 검증한 개인 데이터 분석 프로젝트</div>
+                    <div class="meta-value" data-i18n="tennis_snapshot">애플워치 RHR 데이터를 활용해, 테니스 운동이 장기적으로 휴식기 심박수에 미친 영향을 검증한 개인 데이터 분석 프로젝트</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">ROLE</div>
-                    <div class="meta-value">Problem Framing · Data Analysis · Statistical Testing</div>
+                    <div class="meta-value" data-i18n="tennis_role">Problem Framing · Data Analysis · Statistical Testing</div>
                 </div>
                 <div class="col-md-3 meta-item">
                     <div class="meta-label">Blog</div>
                     <div class="meta-value">
                         <a class="meta-link" href="https://wewegh.tistory.com/143" target="_blank" rel="noreferrer">
-                            tennis-analysis
+                            <span data-i18n="tennis_blog">tennis-analysis</span>
                             <i class="fa fa-external-link" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -249,7 +253,7 @@
                     <div class="step-tag">01</div>
                     <div class="step-title">PROBLEM</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="tennis_problem">
                     ‣ 꾸준한 운동이 실제로 심혈관 지표 개선으로 이어졌는지 체감이 아닌 데이터로 확인하고 싶었음<br>
                     ‣ 단순 전·후 비교가 아닌, 장기 추세와 분포 변화까지 함께 검증할 필요가 있다고 판단<br>
                     ‣ 개인 건강 데이터에서도 통계적 검정이 의미를 가질 수 있는지 실험하고자 함
@@ -261,7 +265,7 @@
                     <div class="step-tag">02</div>
                     <div class="step-title">KEY FEATURES</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="tennis_features">
                     ‣ <span class="highlight">Apple Health RHR 데이터 기반 장기 추세 분석</span><br>
                     <span class="step-note">: 30일 이동 평균, 연도·월별 변화 시각화</span>
                     ‣ <span class="highlight">분포 중심 분석</span><br>
@@ -276,7 +280,7 @@
                     <div class="step-tag">03</div>
                     <div class="step-title">TECH STACK</div>
                 </div>
-               <p class="step-desc">
+               <p class="step-desc" data-i18n="tennis_stack">
                     Python · Pandas · Plotly · Non-parametric Statistics
                 </p>
             </div>
@@ -286,7 +290,7 @@
                     <div class="step-tag">04</div>
                     <div class="step-title">OUTCOME</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="tennis_outcome">
                     ‣ 2022~2025년 동안 RHR이 일관되게 감소하며 분포 또한 안정화됨을 확인<br>
                     ‣ 연도별 RHR 차이가 통계적으로 유의미함을 검정으로 입증
                 </p>
@@ -297,7 +301,7 @@
                     <div class="step-tag">05</div>
                     <div class="step-title">REFLECTION</div>
                 </div>
-                <p class="step-desc">
+                <p class="step-desc" data-i18n-html="tennis_reflection">
                     ‣ 개인 데이터라도 분석 설계와 검정 방식에 따라 충분히 설득력 있는 결론을 도출할 수 있음을 체감<br>
                     ‣ 평균 변화보다 분포·변동성 해석이 건강 데이터에서 더 중요하다는 점을 명확히 인식<br>
                     ‣ 다시 한다면, 수면·체중 등 교란 요인을 함께 모델링했을 것
@@ -322,5 +326,34 @@
 
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                tennis_banner_title: "테니스 운동 효과 분석 (RHR 기반)",
+                tennis_banner_period: "2025.11.13 ~ 2025.11.23",
+                tennis_snapshot: "애플워치 RHR 데이터를 활용해, 테니스 운동이 장기적으로 휴식기 심박수에 미친 영향을 검증한 개인 데이터 분석 프로젝트",
+                tennis_role: "Problem Framing · Data Analysis · Statistical Testing",
+                tennis_blog: "tennis-analysis",
+                tennis_problem: "‣ 꾸준한 운동이 실제로 심혈관 지표 개선으로 이어졌는지 체감이 아닌 데이터로 확인하고 싶었음<br>‣ 단순 전·후 비교가 아닌, 장기 추세와 분포 변화까지 함께 검증할 필요가 있다고 판단<br>‣ 개인 건강 데이터에서도 통계적 검정이 의미를 가질 수 있는지 실험하고자 함",
+                tennis_features: "‣ <span class=\"highlight\">Apple Health RHR 데이터 기반 장기 추세 분석</span><br><span class=\"step-note\">: 30일 이동 평균, 연도·월별 변화 시각화</span><br>‣ <span class=\"highlight\">분포 중심 분석</span><br><span class=\"step-note\">: boxplot·violin plot을 통한 중심 이동과 분산 변화 확인</span><br>‣ <span class=\"highlight\">통계적 가설 검정</span><br><span class=\"step-note\">: 비정규성 고려한 Kruskal-Wallis 검정 적용</span>",
+                tennis_stack: "Python · Pandas · Plotly · Non-parametric Statistics",
+                tennis_outcome: "‣ 2022~2025년 동안 RHR이 일관되게 감소하며 분포 또한 안정화됨을 확인<br>‣ 연도별 RHR 차이가 통계적으로 유의미함을 검정으로 입증",
+                tennis_reflection: "‣ 개인 데이터라도 분석 설계와 검정 방식에 따라 충분히 설득력 있는 결론을 도출할 수 있음을 체감<br>‣ 평균 변화보다 분포·변동성 해석이 건강 데이터에서 더 중요하다는 점을 명확히 인식<br>‣ 다시 한다면, 수면·체중 등 교란 요인을 함께 모델링했을 것"
+            },
+            en: {
+                tennis_banner_title: "Tennis Workout Impact Analysis (Resting HR)",
+                tennis_banner_period: "Nov 13, 2025 – Nov 23, 2025",
+                tennis_snapshot: "A personal data study using Apple Watch RHR to verify how sustained tennis training affected resting heart rate over years.",
+                tennis_role: "Problem Framing · Data Analysis · Statistical Testing",
+                tennis_blog: "tennis-analysis",
+                tennis_problem: "‣ Wanted to validate cardiovascular improvements with data instead of gut feel.<br>‣ Needed to examine long-term trends and distribution shifts rather than simple before/after comparisons.<br>‣ Curious whether statistical tests can still be meaningful on personal health data.",
+                tennis_features: "‣ <span class=\"highlight\">Long-term trend analysis from Apple Health RHR</span><br><span class=\"step-note\">30-day moving averages plus year/month views</span><br>‣ <span class=\"highlight\">Distribution-focused insights</span><br><span class=\"step-note\">Used box/violin plots to track shifts in center and spread</span><br>‣ <span class=\"highlight\">Statistical hypothesis testing</span><br><span class=\"step-note\">Applied the Kruskal-Wallis test due to non-normality</span>",
+                tennis_stack: "Python · Pandas · Plotly · Non-parametric Statistics",
+                tennis_outcome: "‣ Observed a consistent drop and stabilization of RHR from 2022 to 2025.<br>‣ Proved via statistical testing that yearly RHR differences are significant.",
+                tennis_reflection: "‣ Even personal datasets can yield convincing conclusions when framed and tested properly.<br>‣ Understanding distribution/variance matters more than mean changes for health data.<br>‣ Next time I would model confounders such as sleep or weight."
+            }
+        };
+    </script>
+    <script src="/js/lang-toggle.js"></script>
 </body>
 </html>
