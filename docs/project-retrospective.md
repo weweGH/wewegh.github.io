@@ -1,55 +1,25 @@
-# 프로젝트 회고
 
-> 해당 문서는 프로젝트 종료 후 '회고'를 기록합니다. 중단된 프로젝트도 포함. 다음 양식으로 정리
+# 회고 작성 규칙
 
-- Snapshot
-    - 프로젝트 한 줄 요약
-                
-- ROLE
-    - 내 역할
-                
-- Tech Stack
-    - e.g) PCA, Time-Series Analysis, Contour Visualization
+> 회고 작성하기 전, 반드시 숙지!
 
-1. 상황 (Context) `우리는 지금 어떤 현실에 있었는가?`
-    - 문제의 배경
-    - 누가, 언제, 어떤 불편/제약 속에 있었는지
-    - 아직 판단이나 해석 X
-    - [주의] 문제 원인 설명까지 같이 하지 말 것
-    - [주의] 이미 해결책 힌트가 들어감
-
-2. 왜 이게 중요한 문제였는지 (Decision) `그래서 이 문제가 왜 '판단이 필요한 문제'였는가?`
-    - 비즈니스/조직 관점
-    - 조직의 선택, 속도, 리스크
-    - [주의] context를 다시 말함
-    - [주의] '불편했다', '어려웠다' 수준에서 끝남
-
-3. 내가 정의한 질문 (Framing) `주어진 문제를 그대로 풀지 않고, '진짜 풀어야 할 질문'을 다시 정의했는가?`
-    - 해결책이 열려있는. 판단 기준이 바뀔 수 있는 질문
-    - [주의] 어떤 모델을 사용할까? X
-    - [주의] 어떤 지표를 확인할까? X
-
-4. 분석 및 인사이트 (Insight) `그래서 데이터를 통해 무엇을 알게 되었는가`
-    - 데이터 분석 결과
-    - 숫자보다 패턴
-    - "그래서 뭐가 보였는지"
-    - [주의] 행동만 나열('로그분석함', '모델 실행')
-
-5. 그래서 어떤 판단이 내려졌는지 (Outcome) `그래서 실제로 어떤 선택이 내려졌는가`
-    - 결과가 '분석 결과'로 끝남
-    - "왜 그 선택이었는지"가 보임
-    - [주의] 기술만 말함
-
-
-6. 그 경험이 나에게 남긴 관점 (Learning) `이 경험이 내 사고를 어떻게 바꿨는가?`
-    - 경험을 축적된 관점으로 전환
-    - 나의 판단 기준 변화
-    - 다음 문제에도 적용 가능
-    - [주의] 교훈이 너무 일반적
-    - [주의] 기술적인 배움만 언급
+- '프로젝트 회고' 작성 규칙
+    - `html` 파일 내의 위치에 본 문서의 특정 프로젝트에 대한 내용을 그대로 복사 붙여넣기 할 것
+    - 본 문서에는 한글과 영어가 함께 작성되어있음. 영어도 그대로 복사 붙여넣기 할 것
+    - 매핑 정보는 다음과 같음
+        - Snapshot: `meta-label`이 Snapshot인 `meta-value`
+        - ROLE: `meta-label`이 ROLE인 `meta-value`
+        - Tech Stack: `meta-label`이 Tech Stack인 `meta-value`
+        1. CONTEXT: `step-title`이 CONTEXT인 `step-desc`
+        2. DECISION: `step-title`이 DECISION인 `step-desc`
+        3. FRAMING: `step-title`이 FRAMING인 `step-desc`
+        4. INSIGHT: `step-title`이 INSIGHT인 `step-desc`
+        5. OUTCOME: `step-title`이 OUTCOME인 `step-desc`
+        6. LEARNING: `step-title`이 LEARNING인 `step-desc`
 
 ---
 
+# 프로젝트 회고
 
 ## GTX 영향권 통행 패턴 분석 | 2023.1.10 ~ 2023.6.8
 
@@ -105,34 +75,46 @@
 
 - Snapshot
     - 특정 원료가 미생물에 미치는 영향에 대한 방부력 식별 로직 개발 및 시각화
+        - Developed and visualized a logic to identify the impact of specific ingredients on microbial preservative performance.
                 
 - ROLE
     - PCA 공간 축소 및 시각화를 활용한 위험 영역 식별 로직 설계·구현
+        - Designed and implemented a risk-zone identification framework using PCA-based dimensionality reduction and visualization.
                 
 - Tech Stack
     - PCA, Time-series Analysis, Contour Visualization
 
 1. CONTEXT
-    - 2025년 5월 기준 유화 립 틴트 방부력 시험 의뢰 건수가 전년 총 건수를 이미 초과한 상황 존재
+    - 2025년 4월 기준 유화 립 틴트 방부력 시험 의뢰 건수가 전년 총 건수를 이미 초과한 상황 존재
+        - By April 2025, the number of preservative testing requests for emulsified lip tints had already exceeded the total volume of the previous year.
     - 전 색상 시험 확대에 따라 시험 인력·시간 소모가 급증하고, 일부 고객 건은 결과 도출까지 6개월 이상 소요되는 구조 지속
+        - As testing expanded to all color variants, the demand on testing resources and time increased substantially, with some client cases taking over six months to reach conclusions.
 
 2. DECISION
     - 시험 대상 증가 증가와 함께 품질 이슈 발생률 및 최종 부적합률이 동반 상승하며, 기존 전수 시험 방식의 지속 가능성에 대한 판단 필요성 대두
+        - With both testing volume and quality issue rates rising simultaneously—including higher final non-conformance rates—it became necessary to reassess the sustainability of the existing full-coverage testing approach.
 
 3. FRAMING
     - “미생물 위험이 유사한 색상군을 구조적으로 구분할 수 있는가”
+        - Reframed the problem as: “Can we systematically group colors with similar microbial risk profiles?”
 
 4. INSIGHT
     - 미생물 시계열 데이터를 PCA 공간으로 축소해 시각화한 결과, 색소 조성에 따라 방부력 반응이 연속적인 군집 패턴으로 분포함을 확인
+        - By projecting microbial time-series data into a PCA space, I observed that preservative responses formed continuous cluster patterns depending on pigment composition.
     - 등고선(contour) 시각화를 통해 미생물 증식 강도가 특정 영역에 집중되는 경향 관찰
+        - Contour visualization revealed that high microbial growth intensity tended to concentrate in specific regions of the feature space.
 
 5. OUTCOME
     - PCA 기반 공간 분포와 등고선 시각화를 활용해 취약 영역에 해당하는 대표 호수 선별 로직 구축
+        - Built a representative color-selection logic targeting high-risk regions based on PCA spatial distribution and contour patterns.
     - 연간 방부력 시험 대상 약 80% 이상 축소 및 외부 시험 비용 약 3천만 원 절감 성과 도출
+        - Reduced annual preservative testing volume by more than 80%, saving approximately ₩30 million in external testing costs.
 
 6. LEARNING
     - 복잡한 실험 데이터를 단순한 수치 비교가 아닌 공간적 패턴으로 표현할 때, 판단 기준이 명확해지고 조직 내 합의가 훨씬 빠르게 형성된다는 관점을 얻게 됨
+        - Learned that representing complex experimental data as spatial patterns—rather than isolated numerical comparisons—clarifies decision criteria and accelerates organizational alignment.
     - 결국 의사결정에 있어 중요한 것은 “얼마나 정확한 수치인가”보다 이해관계자가 직관적으로 받아들일 수 있는 방식으로 어떻게 보여주는가라는 인식으로 사고가 확장됨
+        - Developed the perspective that effective decision-making depends less on numerical precision alone and more on how intuitively insights are communicated to stakeholders.
 
 ---
 
