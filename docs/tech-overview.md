@@ -32,8 +32,8 @@
 ## 주요 페이지 엔트리
 - `index.html`: 메인 랜딩 페이지
 - `about-us.html`, `services.html`, `portfolio.html`, `blog.html`, `contact.html`: 섹션별 개별 페이지
-- `portfolio-details.html`, `single-blog.html`: 상세 페이지
-- `search-rag.html`, `product-similarity.html`: 프로젝트 상세/실험 페이지
+- `projects/portfolio-details.html`, `single-blog.html`: 상세 페이지
+- `projects/search-rag.html`, `product-similarity.html`: 프로젝트 상세/실험 페이지
 
 ## 로컬 개발 및 수정 흐름 (간단 가이드)
 1. 레이아웃/콘텐츠 수정: 해당 HTML 파일 직접 편집

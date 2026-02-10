@@ -16,9 +16,9 @@
     - CONTACT 클릭 → `index.html`의 Home Contact Area로 이동
 
 - Projects 이동 경로
-    - 교통예보시스템 기능 개선 → `traffic-system.html`
-    - GTX 통행 패턴 분석 → `gtx-pattern.html`
-    - RAG 구축 → `search-rag.html`
+    - 교통예보시스템 기능 개선 → `projects/traffic-system.html`
+    - GTX 통행 패턴 분석 → `projects/gtx-pattern.html`
+    - RAG 구축 → `projects/search-rag.html`
     - 유사 제품 탐색 기능 구현 → `product-similarity.html`
     
 - Experiments 이동 경로
@@ -44,9 +44,9 @@ graph TD
 
 ```mermaid
 graph TD
-    Projects --> project_a[교통예보시스템 기능 개선<br/>`traffic-system.html`]
-    Projects --> project_b[GTX 통행 패턴 분석<br/>`gtx-pattern.html`]
-    Projects --> project_c[RAG 구축<br/>`search-rag.html`]
+    Projects --> project_a[교통예보시스템 기능 개선<br/>`projects/traffic-system.html`]
+    Projects --> project_b[GTX 통행 패턴 분석<br/>`projects/gtx-pattern.html`]
+    Projects --> project_c[RAG 구축<br/>`projects/search-rag.html`]
     Projects --> project_d[유사 제품 탐색 기능 구현<br/>`product-similarity.html`]
 ```
 
