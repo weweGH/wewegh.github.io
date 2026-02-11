@@ -1,0 +1,353 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="icon" href="/img/wewegh_logo.png" type="image/png">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | PDS</title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 200px !important; margin-top: 0; }
+        .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            margin-top: 18px;
+        }
+        .meta-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #111827;
+            margin: 60px 0 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading + .details-grid {
+            border-top: 3px solid #4f46e5;
+            padding-top: 12px;
+        }
+        .meta-card-single {
+            border-top: 3px solid #4f46e5;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+            padding: 12px 0 12px;
+            display: grid;
+            gap: 16px;
+        }
+        .meta-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .meta-row:first-child {
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+        }
+        .meta-section-label {
+            font-size: 13px;
+            color: #4f46e5;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+        .meta-info-block p,
+        .impact-list {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .impact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* 프로젝트 상세 내용 (1열 그리드) */
+        .section-heading {
+            margin-top: 60px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        .step-box {
+            padding: 16px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 4px solid rgba(118, 109, 255, 0.2);
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .step-box:hover {
+            background: #faf9ff;
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(118, 109, 255, 0.15);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 56px;
+        }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card-single { grid-template-columns: 1fr; }
+            .meta-info-block { border-right: none; padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html menu_class="page_header" base="../" %}
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;" data-i18n="pds_banner_title">유사도 기반 제품 탐색 서비스</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="pds_banner_period">2026.1.14 ~ 2026.2.6</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="meta-container">
+            <div class="meta-title">Project Overview</div>
+            <div class="meta-card-single">
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Snapshot</span>
+                        <p data-i18n="pds_snapshot">전성분 기반 TF-IDF + Cosine 유사도를 활용해 연구원이 직관적으로 유사 제품을 탐색·비교할 수 있는 웹 서비스 구현</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label" data-i18n="pds_impact_title">Impact</span>
+                        <p data-i18n="pds_metric_combined">전성분 탐색 흐름 표준화 | 겹침·차이 시각화로 판단 속도 개선 | 사내 시스템 기능 확장</p>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Role</span>
+                        <p data-i18n="pds_role">문제 정의부터 유사도 로직 설계, UI 목업, 프론트엔드 구현 및 배포까지 End-to-End 단독 수행</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label">Tech Stack</span>
+                        <p data-i18n="pds_stack">TF-IDF, Cosine Similarity, React</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading">Decision Narrative</div>
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">CONTEXT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="pds_step_1">
+                    ‣ 제품 연구 초기 단계에서 타겟 제품을 선정하기 위해 다수의 제품 전성분을 개별적으로 열람·비교해야 하는 구조 존재<br>
+                    ‣ 유사한 제형 감을 가진 제품을 찾기 위해 엑셀 기반 검색과 수작업 비교가 반복되며, 탐색 과정이 개인 경험과 감에 의존하는 경향 존재
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">DECISION</div>
+                </div>
+                <p class="step-desc" data-i18n-html="pds_step_2">
+                    ‣ 제품 탐색 속도와 초기 후보 선정의 방향성은 이후 제형 설계 및 실험 범위에 직접적인 영향을 미치는 요소<br>
+                    ‣ 유사 제품 탐색 과정의 비효율이 연구 판단 지연과 후보 축소의 불확실성으로 이어질 가능성 존재
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">FRAMING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="pds_step_3">
+                    ‣ "전성분의 구조적 유사성을 기반으로 연구 초기 탐색 과정을 더 일관되게 만들 수 있는가?"<br>
+                    ‣ "유사도 점수를 제시하는 것만으로 충분한가, 아니면 판단에 필요한 맥락까지 함께 제공해야 하는가?"
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">INSIGHT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="pds_step_4">
+                    ‣ TF-IDF + Cosine 기반 유사도 산출 결과 자체보다, 타겟 제품과의 성분 겹침·차이를 함께 시각적으로 제시할 때 이해도가 높아지는 패턴 확인<br>
+                    ‣ 유사도 점수는 방향성을 제공하지만, 실제 판단은 어떤 성분이 왜 겹치는지를 확인하는 순간에 이루어진다는 점 발견<br>
+                    ‣ Top-N 전체 리스트보다 Top-5 내에서 직관적으로 비교 가능한 구조가 탐색 집중도를 높임
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc" data-i18n-html="pds_step_5">
+                    ‣ 제품 검색 → 타겟 선택 → Top-5 유사 제품 비교 → 성분 겹침·차이 음영 처리로 이어지는 탐색 플로우 설계 및 웹 구현<br>
+                    ‣ 성분을 원문 순서 그대로 유지하고, 타겟과 겹치는 성분은 파란 음영, 타겟에는 없고 해당 제품에만 존재하는 성분은 노란 음영 처리<br>
+                    ‣ 배포 이후 긍정적 사용자 피드백을 확보했으며, 기능이 사내 서비스로 확장됨
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">06</div>
+                    <div class="step-title">LEARNING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="pds_step_6">
+                    ‣ 유사도 문제의 핵심은 알고리즘 정밀도가 아니라 사용자가 어떤 단서로 판단을 내리는지에 대한 이해에 있음을 체득<br>
+                    ‣ 모델 결과를 정답으로 제시하기보다 판단을 돕는 구조로 설계할 때 분석 결과가 실제 업무 흐름에 자연스럽게 흡수된다는 관점 확립<br>
+                    ‣ 데이터 기반 기능 역시 하나의 프로덕트로 보고, 사용자 행동 흐름을 중심으로 설계해야 한다는 사고 확장
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% include footer.html %}
+
+    <script>
+        window.pageTranslations = {
+            ko: {
+                pds_banner_title: "유사도 기반 제품 탐색 서비스",
+                pds_banner_period: "2026.1.14 ~ 2026.2.6",
+                pds_snapshot: "전성분 기반 TF-IDF + Cosine 유사도를 활용해 연구원이 직관적으로 유사 제품을 탐색·비교할 수 있는 웹 서비스 구현",
+                pds_impact_title: "Impact",
+                pds_metric_combined: "전성분 탐색 흐름 표준화 | 겹침·차이 시각화로 판단 속도 개선 | 사내 시스템 기능 확장",
+                pds_role: "문제 정의부터 유사도 로직 설계, UI 목업, 프론트엔드 구현 및 배포까지 End-to-End 단독 수행",
+                pds_stack: "TF-IDF, Cosine Similarity, React",
+                pds_step_1: "‣ 제품 연구 초기 단계에서 타겟 제품을 선정하기 위해 다수의 제품 전성분을 개별적으로 열람·비교해야 하는 구조 존재<br>‣ 유사한 제형 감을 가진 제품을 찾기 위해 엑셀 기반 검색과 수작업 비교가 반복되며, 탐색 과정이 개인 경험과 감에 의존하는 경향 존재",
+                pds_step_2: "‣ 제품 탐색 속도와 초기 후보 선정의 방향성은 이후 제형 설계 및 실험 범위에 직접적인 영향을 미치는 요소<br>‣ 유사 제품 탐색 과정의 비효율이 연구 판단 지연과 후보 축소의 불확실성으로 이어질 가능성 존재",
+                pds_step_3: "‣ \"전성분의 구조적 유사성을 기반으로 연구 초기 탐색 과정을 더 일관되게 만들 수 있는가?\"<br>‣ \"유사도 점수를 제시하는 것만으로 충분한가, 아니면 판단에 필요한 맥락까지 함께 제공해야 하는가?\"",
+                pds_step_4: "‣ TF-IDF + Cosine 기반 유사도 산출 결과 자체보다, 타겟 제품과의 성분 겹침·차이를 함께 시각적으로 제시할 때 이해도가 높아지는 패턴 확인<br>‣ 유사도 점수는 방향성을 제공하지만, 실제 판단은 어떤 성분이 왜 겹치는지를 확인하는 순간에 이루어진다는 점 발견<br>‣ Top-N 전체 리스트보다 Top-5 내에서 직관적으로 비교 가능한 구조가 탐색 집중도를 높임",
+                pds_step_5: "‣ 제품 검색 → 타겟 선택 → Top-5 유사 제품 비교 → 성분 겹침·차이 음영 처리로 이어지는 탐색 플로우 설계 및 웹 구현<br>‣ 성분을 원문 순서 그대로 유지하고, 타겟과 겹치는 성분은 파란 음영, 타겟에는 없고 해당 제품에만 존재하는 성분은 노란 음영 처리<br>‣ 배포 이후 긍정적 사용자 피드백을 확보했으며, 기능이 사내 서비스로 확장됨",
+                pds_step_6: "‣ 유사도 문제의 핵심은 알고리즘 정밀도가 아니라 사용자가 어떤 단서로 판단을 내리는지에 대한 이해에 있음을 체득<br>‣ 모델 결과를 정답으로 제시하기보다 판단을 돕는 구조로 설계할 때 분석 결과가 실제 업무 흐름에 자연스럽게 흡수된다는 관점 확립<br>‣ 데이터 기반 기능 역시 하나의 프로덕트로 보고, 사용자 행동 흐름을 중심으로 설계해야 한다는 사고 확장"
+            },
+            en: {
+                pds_banner_title: "Similarity-based Product Discovery Service",
+                pds_banner_period: "Jan 14, 2026 – Feb 6, 2026",
+                pds_snapshot: "Built a product discovery service that enables researchers to intuitively explore and compare similar products using ingredient-level TF-IDF and cosine similarity.",
+                pds_impact_title: "Impact",
+                pds_metric_combined: "Standardized full-ingredient exploration | Accelerated judgments via overlap/difference visualization | Expanded into the internal system",
+                pds_role: "Led the project independently end-to-end, from problem definition and similarity logic design to UI prototyping, frontend implementation, and deployment.",
+                pds_stack: "TF-IDF, Cosine Similarity, React",
+                pds_step_1: "‣ During the early stage of product research, researchers had to manually open and compare ingredient lists across many products to pick a target reference.<br>‣ To find products with similar formulation profiles, they repeatedly relied on Excel searches and manual comparisons, so the exploration depended heavily on individual experience and intuition.",
+                pds_step_2: "‣ The speed of exploration and the direction of initial candidate selection directly shaped downstream formulation design and the scope of experiments.<br>‣ Inefficiencies in the similarity exploration process risked delaying research decisions and increasing uncertainty when narrowing down candidates.",
+                pds_step_3: "‣ \"Can we make the early exploration process more consistent by leveraging structural similarity in full ingredient lists?\"<br>‣ \"Is presenting a similarity score alone enough, or should we also provide context that supports researchers' judgment?\"",
+                pds_step_4: "‣ Rather than the TF-IDF + cosine similarity score alone, understanding improved when overlaps and differences with the target were visualized together.<br>‣ The score gives direction, but actual judgment happens when researchers inspect which ingredients overlap and why.<br>‣ A concise, intuitive Top-5 comparison kept users focused better than showing a long Top-N list.",
+                pds_step_5: "‣ Designed and implemented a flow of product search → target selection → Top-5 similar comparison → ingredient overlap/difference highlighting.<br>‣ Preserved the original ingredient order, highlighting overlaps in blue and ingredients unique to the compared product in yellow.<br>‣ Secured positive user feedback after launch, and the feature was expanded into the internal service.",
+                pds_step_6: "‣ Learned that the crux of similarity work is understanding the cues people use to decide, not chasing marginal algorithmic precision.<br>‣ By positioning model outputs as decision support rather than a final answer, analytical results blended naturally into the workflow.<br>‣ Reinforced the view that data-driven capabilities must be treated as products designed around user behavior and decision flow."
+            }
+        };
+    </script>
+    <script src="/js/lang-toggle.js"></script>
+</body>
+</html>
