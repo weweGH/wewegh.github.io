@@ -9,19 +9,24 @@
     - 1개의 문장만 있을 때는 불릿(`-`, `‣`)을 사용하지 말 것
     - 2개 이상의 문장일 때는 각 문장 앞에 `‣`를 붙이고 `<br>`로 줄바꿈할 것
     - 프로젝트 메타 정보(Snapshot, ROLE, Tech Stack)에는 불릿을 사용하지 말 것
+    - 프로젝트 상세 템플릿 규칙
+        - `projects/prj-ompt.html` 구조를 템플릿으로 삼아, Project Overview 카드(Snapshot/Role/Impact/Tech Stack)와 Decision Narrative 섹션(CONTEXT~LEARNING)이 동일한 레이아웃/스타일을 유지하도록 할 것
+        - Project Overview 및 Decision Narrative 제목은 동일한 스타일과 텍스트 그림자를 사용하고, 각 섹션 상단에는 굵은 보더 라인이 있어야 함
+        - Impact 항목은 “시험 대상 80% 축소 | …” 형식처럼 한 줄 텍스트로 구성하고, 해당 문장은 ko/en 번역 키(`micro_metric_combined`)로 관리할 것
     - 프로젝트 타이틀 규칙
         - `## 프로젝트 한글명 프로젝트 영문명 | 기간` 형식을 유지할 것
         - HTML 배너의 `data-i18n`(ko)에는 한글명을, `window.pageTranslations.en`에는 문서상 영문명을 동일하게 기입할 것
     - 매핑 정보는 다음과 같음
-        - Snapshot: `meta-label`이 Snapshot인 `meta-value`
-        - ROLE: `meta-label`이 ROLE인 `meta-value`
-        - Tech Stack: `meta-label`이 Tech Stack인 `meta-value`
-        1. CONTEXT: `step-title`이 CONTEXT인 `step-desc`
-        2. DECISION: `step-title`이 DECISION인 `step-desc`
-        3. FRAMING: `step-title`이 FRAMING인 `step-desc`
-        4. INSIGHT: `step-title`이 INSIGHT인 `step-desc`
-        5. OUTCOME: `step-title`이 OUTCOME인 `step-desc`
-        6. LEARNING: `step-title`이 LEARNING인 `step-desc`
+        - Snapshot: `meta-card-single` 내 Snapshot 블록
+        - Impact: `meta-card-single` 내 Impact 문장(`micro_metric_combined`)
+        - ROLE: `meta-card-single` 내 Role 블록
+        - Tech Stack: `meta-card-single` 내 Tech Stack 블록
+        1. CONTEXT: `details-grid`의 첫 번째 `step-box`
+        2. DECISION: 두 번째 `step-box`
+        3. FRAMING: 세 번째 `step-box`
+        4. INSIGHT: 네 번째 `step-box`
+        5. OUTCOME: 다섯 번째 `step-box`
+        6. LEARNING: 여섯 번째 `step-box`
     - 다국어 토글 규칙
         - HTML 본문에는 한국어만 배치하고, 영어 문장은 `window.pageTranslations.en`에 정의할 것
         - `data-i18n`/`data-i18n-html`을 사용해 토글 시 한 언어만 화면에 노출되도록 구현할 것
@@ -85,7 +90,9 @@
 - Snapshot
     - 특정 원료가 미생물에 미치는 영향에 대한 방부력 식별 로직 개발 및 시각화
         - Developed and visualized a logic to identify the impact of specific ingredients on microbial preservative performance.
-                
+- Impact
+    - 시험 대상 80% 축소 | 연간 3천만원 비용 절감 | 리드타임 6개월 → 단축
+        - Reduced testing scope by 80% | saved ₩30M annually | cut lead time from six months.
 - ROLE
     - 방부 테스트 위험 영역 식별 로직 설계·구현
         - Designed and implemented logic to identify high-risk regions in preservative efficacy testing.
