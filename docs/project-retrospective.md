@@ -158,26 +158,62 @@
 
 ---
 
-## 유사 제품 탐색 기능 | 2026.1.14 ~ 2026.2.6
+## 유사도 기반 제품 탐색 서비스 Similarity-based Product Discovery Service | 2026.1.14 ~ 2026.2.6
+
+> `projects/prj-pds.html`
+
+- Snapshot
+    - 전성분 기반 TF-IDF + Cosine 유사도를 활용해 연구원이 직관적으로 유사 제품을 탐색·비교할 수 있는 웹 서비스 구현
+        - Built a product discovery service that enables researchers to intuitively explore and compare similar products using ingredient-level TF-IDF and cosine similarity.
+- Impact
+    - 
+- ROLE
+    - 문제 정의부터 유사도 로직 설계, UI 목업, 프론트엔드 구현 및 배포까지 End-to-End 단독 수행
+        - Led the project independently end-to-end, from problem definition and similarity logic design to UI prototyping, frontend implementation, and deployment.
+- Tech Stack
+    - TF-IDF, Cosine Similarity, React
 
 1. CONTEXT
-    - 연구 과정에서 특정 제품과 전성분 구성이 유사한 제품을 찾기 위해, 다수의 제품 전성분을 개별적으로 확인·비교해야 하는 상황 존재
+    - 제품 연구 초기 단계에서 타겟 제품을 선정하기 위해 다수의 제품 전성분을 개별적으로 열람·비교해야 하는 구조 존재
+        - During the early stages of product research, researchers had to manually review and compare ingredient lists across multiple products to identify suitable target references.
+    - 유사한 제형 감을 가진 제품을 찾기 위해 엑셀 기반 검색과 수작업 비교가 반복되며, 탐색 과정이 개인 경험과 감에 의존하는 경향 존재
+        - To find products with similar formulation characteristics, they repeatedly relied on Excel-based searches and manual comparisons, and the exploration process tended to depend heavily on individual experience and intuition.
 
 2. DECISION
-    - 유사 제품 탐색 과정의 비효율이 연구 초기 판단 지연과 후보 축소의 불확실성으로 이어지는 문제 인식
+    - 제품 탐색 속도와 초기 후보 선정의 방향성은 이후 제형 설계 및 실험 범위에 직접적인 영향을 미치는 요소
+        - The speed of product exploration and the direction of initial candidate selection directly influence subsequent formulation design and the scope of experimentation.
+    - 유사 제품 탐색 과정의 비효율이 연구 판단 지연과 후보 축소의 불확실성으로 이어질 가능성 존재
+        - The inefficiency of the similarity exploration process had the potential to delay research decisions and increase uncertainty in narrowing down candidate products.
 
 3. FRAMING
-    - 성분의 존재 유무만으로도 의미 있는 기준을 제공할 수 있는가?
+    - “전성분의 구조적 유사성을 기반으로 연구 초기 탐색 과정을 더 일관되게 만들 수 있는가?”
+        - “Can we make the early-stage exploration process more consistent by leveraging structural similarity in full ingredient lists?”
+    - “유사도 점수를 제시하는 것만으로 충분한가, 아니면 판단에 필요한 맥락까지 함께 제공해야 하는가?”
+        - “Is presenting a similarity score alone sufficient, or should we also provide contextual information that supports researchers’ judgment?”
 
 4. INSIGHT
-    - PoC를 통해 유사도 점수보다 전성분 겹침과 차이를 함께 제시할 때 결과 이해와 해석이 용이해지는 경향 확인
+    - TF-IDF + Cosine 기반 유사도 산출 결과 자체보다, 타겟 제품과의 성분 겹침·차이를 함께 시각적으로 제시할 때 이해도가 높아지는 패턴 확인
+        - Through the PoC, I observed that researchers’ understanding improved significantly when ingredient overlaps and differences with the target product were visually presented alongside the TF-IDF + cosine similarity score, rather than relying on the score alone.
+    - 유사도 점수는 방향성을 제공하지만, 실제 판단은 “어떤 성분이 왜 겹치는지”를 보는 순간에 이루어진다는 점 발견
+        - While the similarity score provided directional guidance, actual judgment tended to occur when researchers examined which ingredients overlapped and why.
+    - Top-N 전체 리스트보다 Top-5 내에서 직관적으로 비교 가능한 구조가 탐색 집중도를 높임
+        - Additionally, presenting a focused Top-5 comparison—rather than a longer Top-N list—helped increase concentration and usability during exploration.
 
 5. OUTCOME
-    - 유사도 정밀도 고도화가 아닌, Top-5 유사 제품과 성분 겹침·차이를 직관적으로 비교하는 탐색 UI 중심 구현
+    - 제품 검색 → 타겟 선택 → Top-5 유사 제품 비교 → 성분 겹침·차이 음영 처리로 이어지는 탐색 흐름 설계 및 웹 구현
+        - Designed and implemented a structured exploration flow: product search → target selection → Top-5 similar product comparison → visual highlighting of ingredient overlaps and differences.
+    - 성분을 원문 순서 그대로 유지하며, 타겟과 겹치는 성분은 파란 음영, 타겟에는 없고 해당 제품에만 존재하는 성분은 노란 음영 처리 → 판단 과정의 가독성과 해석 가능성 강화
+        - Ingredient lists were displayed in their original order, with overlapping ingredients highlighted in blue and ingredients unique to the compared product highlighted in yellow, improving readability and interpretability during decision-making.
+    - 배포 이후 긍정적 사용자 피드백을 확보했으며, 사내 서비스 기능 확장으로 이어짐
+        - Following deployment, the service received positive user feedback and was subsequently expanded as a feature within the internal system.
 
 6. LEARNING
-    - 유사도 문제의 핵심이 모델 성능이 아니라, 사용자의 판단 과정과 해석 가능성에 있음을 인식
-    
+    - 유사도 문제의 핵심은 알고리즘 정밀도가 아니라, 사용자가 어떤 단서로 판단을 내리는지에 대한 이해에 있음을 체득
+        - Learned that in similarity-related problems, the core issue is not the marginal precision of the algorithm, but understanding the cues users rely on when making judgments.
+    - 모델 결과를 “정답”으로 제시하는 대신, 판단을 돕는 구조로 설계할 때 분석 결과가 실제 업무 흐름에 자연스럽게 흡수된다는 관점 확립
+        - By designing the system to support interpretation rather than presenting the model output as a definitive answer, analytical results were more naturally integrated into the actual research workflow.
+    - 데이터 기반 기능 역시 하나의 ‘프로덕트’로 보고, 사용자 행동 흐름을 중심으로 설계해야 한다는 사고 확장
+        - This experience reinforced the perspective that data-driven features should be treated as products, designed around user behavior and decision flow.
 --- 
 
 ## 프로젝트명
