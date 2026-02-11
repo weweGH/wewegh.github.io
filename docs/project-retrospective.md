@@ -5,7 +5,13 @@
 
 - '프로젝트 회고' 작성 규칙
     - `html` 파일 내의 위치에 본 문서의 특정 프로젝트에 대한 내용을 그대로 복사 붙여넣기 할 것
-    - 본 문서에는 한글과 영어가 함께 작성되어있음. 영어도 그대로 복사 붙여넣기 할 것
+    - 본 문서에는 한글과 영어가 함께 작성되어있음. 영어도 그대로 복사 붙여넣기하여 data-i18n 속성 재구성 할 것
+    - 1개의 문장만 있을 때는 불릿(`-`, `‣`)을 사용하지 말 것
+    - 2개 이상의 문장일 때는 각 문장 앞에 `‣`를 붙이고 `<br>`로 줄바꿈할 것
+    - 프로젝트 메타 정보(Snapshot, ROLE, Tech Stack)에는 불릿을 사용하지 말 것
+    - 프로젝트 타이틀 규칙
+        - `## 프로젝트 한글명 프로젝트 영문명 | 기간` 형식을 유지할 것
+        - HTML 배너의 `data-i18n`(ko)에는 한글명을, `window.pageTranslations.en`에는 문서상 영문명을 동일하게 기입할 것
     - 매핑 정보는 다음과 같음
         - Snapshot: `meta-label`이 Snapshot인 `meta-value`
         - ROLE: `meta-label`이 ROLE인 `meta-value`
@@ -16,6 +22,9 @@
         4. INSIGHT: `step-title`이 INSIGHT인 `step-desc`
         5. OUTCOME: `step-title`이 OUTCOME인 `step-desc`
         6. LEARNING: `step-title`이 LEARNING인 `step-desc`
+    - 다국어 토글 규칙
+        - HTML 본문에는 한국어만 배치하고, 영어 문장은 `window.pageTranslations.en`에 정의할 것
+        - `data-i18n`/`data-i18n-html`을 사용해 토글 시 한 언어만 화면에 노출되도록 구현할 것
 
 ---
 
@@ -78,11 +87,11 @@
         - Developed and visualized a logic to identify the impact of specific ingredients on microbial preservative performance.
                 
 - ROLE
-    - PCA 공간 축소 및 시각화를 활용한 위험 영역 식별 로직 설계·구현
-        - Designed and implemented a risk-zone identification framework using PCA-based dimensionality reduction and visualization.
-                
+    - 방부 테스트 위험 영역 식별 로직 설계·구현
+        - Designed and implemented logic to identify high-risk regions in preservative efficacy testing.
+
 - Tech Stack
-    - PCA, Time-series Analysis, Contour Visualization
+    - Time-series Analysis, PCA, Contour Visualization
 
 1. CONTEXT
     - 2025년 4월 기준 유화 립 틴트 방부력 시험 의뢰 건수가 전년 총 건수를 이미 초과한 상황 존재
@@ -111,8 +120,8 @@
         - Reduced annual preservative testing volume by more than 80%, saving approximately ₩30 million in external testing costs.
 
 6. LEARNING
-    - 복잡한 실험 데이터를 단순한 수치 비교가 아닌 공간적 패턴으로 표현할 때, 판단 기준이 명확해지고 조직 내 합의가 훨씬 빠르게 형성된다는 관점을 얻게 됨
-        - Learned that representing complex experimental data as spatial patterns—rather than isolated numerical comparisons—clarifies decision criteria and accelerates organizational alignment.
+    - 복잡한 실험 데이터를 단순한 수치 비교가 아닌 공간적 패턴으로 시각화할 때, 판단 기준이 명확해지고 조직 내 합의가 훨씬 빠르게 형성된다는 통찰 정립
+        - Established the insight that visualizing complex experimental data as spatial patterns—rather than relying on simple numerical comparisons—clarifies decision criteria and accelerates organizational alignment.
     - 결국 의사결정에 있어 중요한 것은 “얼마나 정확한 수치인가”보다 이해관계자가 직관적으로 받아들일 수 있는 방식으로 어떻게 보여주는가라는 인식으로 사고가 확장됨
         - Developed the perspective that effective decision-making depends less on numerical precision alone and more on how intuitively insights are communicated to stakeholders.
 
