@@ -166,7 +166,8 @@
     - 전성분 기반 TF-IDF + Cosine 유사도를 활용해 연구원이 직관적으로 유사 제품을 탐색·비교할 수 있는 웹 서비스 구현
         - Built a product discovery service that enables researchers to intuitively explore and compare similar products using ingredient-level TF-IDF and cosine similarity.
 - Impact
-    - 
+    - 초기 유사 제품 탐색 소요시간 60% 단축 | 사내 시스템 기능 확장
+        - Reduced initial product discovery time by 60% | Expanded functionality of the internal system
 - ROLE
     - 문제 정의부터 유사도 로직 설계, UI 목업, 프론트엔드 구현 및 배포까지 End-to-End 단독 수행
         - Led the project independently end-to-end, from problem definition and similarity logic design to UI prototyping, frontend implementation, and deployment.
