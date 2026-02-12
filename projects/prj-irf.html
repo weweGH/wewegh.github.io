@@ -1,0 +1,356 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="icon" href="/img/wewegh_logo.png" type="image/png">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | IRF</title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 200px !important; margin-top: 0; }
+        .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            margin-top: 18px;
+        }
+        .meta-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #111827;
+            margin: 60px 0 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading + .details-grid {
+            border-top: 3px solid #4f46e5;
+            padding-top: 12px;
+        }
+        .meta-card-single {
+            border-top: 3px solid #4f46e5;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+            padding: 12px 0 12px;
+            display: grid;
+            gap: 16px;
+        }
+        .meta-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .meta-row:first-child {
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+        }
+        .meta-section-label {
+            font-size: 13px;
+            color: #4f46e5;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+        .meta-info-block p,
+        .impact-list {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .impact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* 프로젝트 상세 내용 (1열 그리드) */
+        .section-heading {
+            margin-top: 60px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        .step-box {
+            padding: 16px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 4px solid rgba(118, 109, 255, 0.2);
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .step-box:hover {
+            background: #faf9ff;
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(118, 109, 255, 0.15);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 56px;
+        }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card-single { grid-template-columns: 1fr; }
+            .meta-info-block { border-right: none; padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html menu_class="page_header" base="../" %}
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;" data-i18n="irf_banner_title">RAG 기반 원료 정보 검색 서비스</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="irf_banner_period">2025.4.9 ~ 2025.11.21</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="meta-container">
+            <div class="meta-title">Project Overview</div>
+            <div class="meta-card-single">
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Snapshot</span>
+                        <p data-i18n="irf_snapshot">원료 첨부파일 약 47만 건을 대상으로 한 RAG 기반 시맨틱 검색 시스템 구축</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label" data-i18n="irf_impact_title">Impact</span>
+                        <p data-i18n="irf_metric_combined">수작업 문서 탐색을 시맨틱 검색으로 대체 | 검색 리드타임 대폭 단축 | 사내 시스템 기능 확장</p>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Role</span>
+                        <p data-i18n="irf_role">원료 문서 텍스트 추출, 청킹 전략, 임베딩·벡터 저장 구조 설계 및 시맨틱 검색 로직 구현</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label">Tech Stack</span>
+                        <p data-i18n="irf_stack">AWS Bedrock, PostgreSQL(pgvector), AWS S3, AWS Lambda, OpenSearch, RAG Architecture</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading">Decision Narrative</div>
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">CONTEXT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="irf_step_1">
+                    ‣ 사내에는 PDF, Word, Excel 등 다양한 형식의 원료 관련 첨부파일이 약 47만 건 이상 축적되어 있었음<br>
+                    ‣ 기존 검색은 파일명 또는 단순 키워드 매칭 기반으로 동작하여, 동일 의미라도 표현이 다르면 검색되지 않는 구조<br>
+                    ‣ 연구원 및 RA 담당자는 필요한 정보를 찾기 위해 문서를 직접 열람하며 반복 탐색을 수행
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">DECISION</div>
+                </div>
+                <p class="step-desc" data-i18n-html="irf_step_2">
+                    ‣ 원료 안전성, 규제 대응, 고객 대응 과정에서 정확한 문서 근거 확보는 필수적이었음<br>
+                    ‣ 그러나 검색 정확도가 낮아 자료 탐색에 과도한 시간이 소요되고 정보 누락 리스크가 상존<br>
+                    ‣ 단순 기능 개선이 아니라 “검색 체계를 어떻게 재정의할 것인가”에 대한 판단 필요
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">FRAMING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="irf_step_3">
+                    ‣ “문서를 더 잘 찾을 수 있을까?”가 아니라, “사용자의 질문 의도를 이해하고 문서 내 의미 단위로 답을 반환할 수 있는가?”로 문제 재정의<br>
+                    ‣ 검색 결과를 파일 단위가 아닌 ‘문서 청크 + 맥락 정보’ 단위로 제공하는 구조를 목표로 설정
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">INSIGHT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="irf_step_4">
+                    ‣ 문서를 일정 길이로 청킹하고 임베딩했을 때, 동일 원료에 대한 표현 차이에도 의미적으로 근접한 벡터 공간에 분포함을 확인<br>
+                    ‣ 파일 단위 검색 대비 청크 단위 검색이 질의-응답 정확도와 맥락 전달력 측면에서 구조적으로 우위<br>
+                    ‣ 메타데이터(원료코드, 문서명, 페이지 번호)를 함께 반환할 때 사용자의 신뢰도가 크게 향상
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc" data-i18n-html="irf_step_5">
+                    ‣ AWS S3에 문서를 저장하고 OpenDataLoader로 텍스트를 추출한 뒤 AWS Lambda 기반 전처리 파이프라인 구축<br>
+                    ‣ AWS Bedrock 임베딩 모델로 문서 청크를 벡터화하고 PostgreSQL(pgvector)에 저장<br>
+                    ‣ OpenSearch와 연동하여 Top-5 유사 청크와 메타 정보를 반환하는 검색 API 구현<br>
+                    ‣ 기존 키워드 검색 체계를 의미 기반 RAG 검색 구조로 확장
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">06</div>
+                    <div class="step-title">LEARNING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="irf_step_6">
+                    ‣ 검색 문제는 “더 많은 데이터를 색인하느냐”가 아니라, “사용자 질문을 어떤 단위로 해석·반환할 것인가”의 설계 문제라는 관점 정립<br>
+                    ‣ LLM·임베딩 기술은 기존 업무 흐름에 결합될 때 조직의 판단 구조를 재설계하는 도구가 될 수 있다는 인식 확장<br>
+                    ‣ 데이터 파이프라인·인프라·검색 UX를 하나의 의사결정 구조로 통합 설계하는 사고로 확장
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% include footer.html %}
+
+    <script>
+        window.pageTranslations = {
+            ko: {
+                irf_banner_title: "RAG 기반 원료 정보 검색 서비스",
+                irf_banner_period: "2025.4.9 ~ 2025.11.21",
+                irf_snapshot: "원료 첨부파일 약 47만 건을 대상으로 한 RAG 기반 시맨틱 검색 시스템 구축",
+                irf_impact_title: "Impact",
+                irf_metric_combined: "수작업 문서 탐색을 시맨틱 검색으로 대체 | 검색 리드타임 대폭 단축 | 사내 시스템 기능 확장",
+                irf_role: "원료 문서 텍스트 추출, 청킹 전략, 임베딩·벡터 저장 구조 설계 및 시맨틱 검색 로직 구현",
+                irf_stack: "AWS Bedrock, PostgreSQL(pgvector), AWS S3, AWS Lambda, OpenSearch, RAG Architecture",
+                irf_step_1: "‣ 사내에는 PDF, Word, Excel 등 다양한 형식의 원료 관련 첨부파일이 약 47만 건 이상 축적되어 있었음<br>‣ 기존 검색은 파일명 또는 단순 키워드 매칭 기반으로 동작하여, 동일 의미라도 표현이 다르면 검색되지 않는 구조<br>‣ 연구원 및 RA 담당자는 필요한 정보를 찾기 위해 문서를 직접 열람하며 반복 탐색을 수행",
+                irf_step_2: "‣ 원료 안전성, 규제 대응, 고객 대응 과정에서 정확한 문서 근거 확보는 필수적이었음<br>‣ 그러나 검색 정확도가 낮아 자료 탐색에 과도한 시간이 소요되고 정보 누락 리스크가 상존<br>‣ 단순 기능 개선이 아니라 “검색 체계를 어떻게 재정의할 것인가”에 대한 판단 필요",
+                irf_step_3: "‣ “문서를 더 잘 찾을 수 있을까?”가 아니라, “사용자의 질문 의도를 이해하고 문서 내 의미 단위로 답을 반환할 수 있는가?”로 문제 재정의<br>‣ 검색 결과를 파일 단위가 아닌 ‘문서 청크 + 맥락 정보’ 단위로 제공하는 구조를 목표로 설정",
+                irf_step_4: "‣ 문서를 일정 길이로 청킹하고 임베딩했을 때, 동일 원료에 대한 표현 차이에도 의미적으로 근접한 벡터 공간에 분포함을 확인<br>‣ 파일 단위 검색 대비 청크 단위 검색이 질의-응답 정확도와 맥락 전달력 측면에서 구조적으로 우위<br>‣ 메타데이터(원료코드, 문서명, 페이지 번호)를 함께 반환할 때 사용자의 신뢰도가 크게 향상",
+                irf_step_5: "‣ AWS S3에 문서를 저장하고 OpenDataLoader로 텍스트를 추출한 뒤 AWS Lambda 기반 전처리 파이프라인 구축<br>‣ AWS Bedrock 임베딩 모델로 문서 청크를 벡터화하고 PostgreSQL(pgvector)에 저장<br>‣ OpenSearch와 연동하여 Top-5 유사 청크와 메타 정보를 반환하는 검색 API 구현<br>‣ 기존 키워드 검색 체계를 의미 기반 RAG 검색 구조로 확장",
+                irf_step_6: "‣ 검색 문제는 “더 많은 데이터를 색인하느냐”가 아니라, “사용자 질문을 어떤 단위로 해석·반환할 것인가”의 설계 문제라는 관점 정립<br>‣ LLM·임베딩 기술은 기존 업무 흐름에 결합될 때 조직의 판단 구조를 재설계하는 도구가 될 수 있다는 인식 확장<br>‣ 데이터 파이프라인·인프라·검색 UX를 하나의 의사결정 구조로 통합 설계하는 사고로 확장"
+            },
+            en: {
+                irf_banner_title: "RAG-powered Ingredient Retrieval Service",
+                irf_banner_period: "Apr 9, 2025 – Nov 21, 2025",
+                irf_snapshot: "Built a RAG-based semantic search system covering roughly 470,000 ingredient-related attachments.",
+                irf_impact_title: "Impact",
+                irf_metric_combined: "Replaced manual document lookup with semantic search | Greatly reduced retrieval lead time | Expanded internal system capabilities",
+                irf_role: "Handled document text extraction, chunking strategy, embedding/vector storage design, and the semantic retrieval logic.",
+                irf_stack: "AWS Bedrock, PostgreSQL (pgvector), AWS S3, AWS Lambda, OpenSearch, RAG Architecture",
+                irf_step_1: "‣ Internally, more than 470K ingredient attachments existed across PDF, Word, Excel, and other formats.<br>‣ Legacy search depended on file names or keywords, so semantically similar phrases often failed to match.<br>‣ Researchers and RA teams repeatedly opened documents manually to hunt for the needed details.",
+                irf_step_2: "‣ Accurate documentary evidence was critical for ingredient safety, regulatory, and customer-facing work.<br>‣ Low search precision wasted time and created constant risk of missing key information.<br>‣ The challenge required redefining the retrieval paradigm, not incremental tweaks.",
+                irf_step_3: "‣ Reframed the question from “Can we find documents faster?” to “Can we understand intent and return meaning-level answers from within documents?”<br>‣ Targeted a results model centered on “document chunk + context” rather than whole files.",
+                irf_step_4: "‣ Chunking and embedding revealed that semantically similar descriptions of the same ingredient clustered near each other despite wording differences.<br>‣ Chunk-level retrieval outperformed file-level search in QA precision and contextual clarity.<br>‣ Returning metadata (ingredient code, document title, page) significantly boosted trust.",
+                irf_step_5: "‣ Stored documents in AWS S3, extracted text via OpenDataLoader, and built a preprocessing pipeline on AWS Lambda.<br>‣ Embedded document chunks with AWS Bedrock and stored vectors in PostgreSQL/pgvector.<br>‣ Integrated with OpenSearch to serve the top 5 relevant chunks plus metadata through an API.<br>‣ Transitioned the internal system from keyword lookup to a RAG-based semantic retrieval workflow.",
+                irf_step_6: "‣ Concluded that retrieval problems hinge on how user intent is interpreted and returned—not on indexing more data.<br>‣ Saw LLM/embedding tech as a lever to redesign organizational reasoning when tied to real workflows.<br>‣ Began designing data pipelines, infrastructure, and search UX as a unified decision-support stack."
+            }
+        };
+    </script>
+    <script src="/js/lang-toggle.js"></script>
+</body>
+</html>

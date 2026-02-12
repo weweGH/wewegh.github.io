@@ -134,27 +134,70 @@
 
 ---
 
-## RAG 기반 원료 정보 검색 기능 개발 RAG-powered Ingredient Retrieval Feature  | 2025.4.9 ~ 2025.11.21
+## RAG 기반 원료 정보 검색 서비스 | RAG-powered Ingredient Retrieval Service  | 2025.4.9 ~ 2025.11.21
+
+> `projects/prj-irf.html`
+
+- Snapshot
+    - 원료 첨부파일 약 47만 건을 대상으로 한 RAG 기반 시맨틱 검색 시스템 구축
+        - Built a RAG-based semantic search system covering approximately 470,000 ingredient-related documents.
+- Impact
+    - 수작업 문서 탐색 방식 대체 및 검색 리드타임 대폭 단축 | 사내 시스템 기능 확장
+        - Replaced manual document lookup with a semantic search workflow, significantly reducing search lead time | Expanded functionality of the internal system
+- ROLE
+    - 원료 문서 텍스트 추출, 청킹 전략 설계, 임베딩 생성, 벡터 저장 구조 설계 및 시맨틱 검색 로직 구현 담당
+        - Responsible for text extraction from ingredient documents, chunking strategy design, embedding generation, vector storage schema design, and implementation of the semantic retrieval logic.
+
+- Tech Stack
+    - AWS Bedrock Embedding, PostgreSQL (pgvector), AWS S3, AWS Lambda, OpenSearch, RAG Architecture
 
 1. CONTEXT
-    - 연구원 및 규제 담당자가 성분 정보 확인 시, 다수의 PDF 문서를 개별적으로 열람해야 하는 구조로 인한 검색 비효율 발생
+    - 사내에는 PDF, Word, Excel 등 다양한 형식의 원료 관련 첨부파일이 약 47만 건 이상 축적되어 있었음
+        - Over 470,000 ingredient-related files had accumulated internally in diverse formats such as PDF, Word, and Excel.
+    - 기존 검색은 파일명 또는 단순 키워드 매칭 기반으로 동작하여, 동일 의미라도 표현이 다르면 검색되지 않는 구조
+        - The existing search relied on file names or keyword matching, often failing when semantically similar content was phrased differently.
+    - 연구원 및 RA 담당자는 필요한 정보를 찾기 위해 문서를 직접 열람하며 반복 탐색을 수행
+        - Researchers and RA staff frequently had to open and manually scan multiple documents to locate relevant information.
 
 2. DECISION
-    - 성분 검색 비용 증가로 인한 의사결정 지연 및 중복 검토 발생
-    - R&D 생산성 저하 및 규제 대응 속도 감소로 이어지는 구조적 문제 인식
+    - 원료 안전성, 규제 대응, 고객 대응 과정에서 정확한 문서 근거 확보는 필수적이었음
+        - Accurate document references were essential for ingredient safety validation, regulatory 대응, and client communication.
+    - 그러나 검색 정확도가 낮아 자료 탐색에 과도한 시간이 소요되고, 정보 누락 리스크가 상존
+        - Low search precision led to excessive time spent on retrieval and persistent risks of missing critical information.
+    - 단순 기능 개선이 아니라, “검색 체계 자체를 어떻게 재정의할 것인가”에 대한 판단이 필요한 상황
+        - The issue required not incremental improvement but a fundamental redesign of the retrieval paradigm.
 
 3. FRAMING
-    - 사용자의 핵심 니즈가 ‘정확한 문서 탐색’인지, 혹은 ‘의사결정에 필요한 핵심 정보와 규제 맥락의 빠른 파악’인지에 대한 문제 재정의
+    - “문서를 더 잘 찾을 수 있을까?”가 아니라, “사용자의 질문 의도를 이해하고, 문서 내 의미 단위로 답을 반환할 수 있는가?”로 재정의
+        - Reframed the problem from “How can we improve document search?” to “Can we understand user intent and return meaning-level answers from within documents?”
+    - 검색 결과를 파일 단위가 아닌 ‘문서 청크 + 맥락 정보’ 단위로 제공하는 구조를 목표로 설정
+        - Defined the goal as returning results at the chunk level with contextual metadata rather than at the file level.
 
 4. INSIGHT
-    - 검색 로그 및 문서 열람 패턴 분석을 통해, 사용자가 문서 원본보다 성분 요약 정보와 규제 맥락 확인에 더 많은 시간을 사용하는 경향 확인
+    - 문서를 일정 길이로 청킹하고 임베딩했을 때, 동일 원료에 대한 표현 차이에도 불구하고 의미적으로 근접한 벡터 공간에 분포함을 확인
+        - By chunking documents and embedding them, I observed that semantically similar descriptions of the same ingredient clustered closely in vector space despite lexical differences.
+    - 파일 단위 검색 대비 청크 단위 검색이 질의-응답 정확도와 맥락 전달력 측면에서 구조적으로 우위
+        - Chunk-level retrieval demonstrated structural advantages over file-level search in both query relevance and contextual clarity.
+    - 메타데이터(원료코드, 문서명, 페이지 번호)를 함께 반환할 때 사용자의 신뢰도가 크게 향상
+        - Returning metadata such as ingredient code, document name, and page number significantly improved user trust and interpretability.
 
 5. OUTCOME
-    - 단순 키워드 검색 개선이 아닌, 의사결정 지원을 위한 정보 요약·맥락화 방향으로 문제 해결 전략 설정
-    - 시멘틱 서치 기반 RAG 구조 도입을 통한 검색 경험 개선
+    - AWS S3에 문서를 저장하고, OpenDataLoader로 텍스트를 추출한 뒤 AWS Lambda 기반 전처리 파이프라인 구축
+        - Stored documents in AWS S3 and built a preprocessing pipeline using OpenDataLoader and AWS Lambda.
+    - AWS Bedrock 임베딩 모델을 활용해 문서 청크를 벡터화하고, PostgreSQL(pgvector)에 저장
+        - Vectorized document chunks using AWS Bedrock embeddings and stored them in PostgreSQL with pgvector.
+    - OpenSearch와 연동하여 Top-5 유사 청크를 반환하고, 메타 정보를 포함한 검색 API 구현
+        - Integrated OpenSearch to return the Top-5 most relevant chunks along with metadata via a search API.
+    - 기존 키워드 기반 검색 체계를 의미 기반 RAG 검색 구조로 확장
+        - Expanded the internal system from keyword-based retrieval to a RAG-powered semantic search architecture.
 
 6. LEARNING
-    - 검색 문제의 핵심은 기술적 정확도 자체가 아니라, 사용자가 어떤 결정을 위해 검색하고 있는지를 이해하는 문제라는 인식 강화
+    - 검색 문제는 “더 많은 데이터를 색인하는 문제”가 아니라, “사용자의 질문을 어떤 단위로 해석하고 반환할 것인가”의 설계 문제라는 관점 정립
+        - Established the perspective that retrieval is not about indexing more data, but about designing how user intent is interpreted and returned.
+    - LLM·임베딩 기술은 단순 적용이 아니라, 기존 업무 흐름과 결합될 때 조직의 판단 구조를 재설계하는 도구가 될 수 있다는 인식 확장
+        - Recognized that LLM and embedding technologies become transformative not by adoption alone, but by being embedded into existing decision workflows to reshape how the organization reasons with information.
+    - 데이터 파이프라인, 인프라, 검색 UX를 하나의 의사결정 구조로 통합적으로 설계하는 사고로 확장
+        - Expanded my thinking toward integrating data pipelines, infrastructure, and search UX as a unified decision-support architecture.
 
 ---
 
