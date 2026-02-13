@@ -35,25 +35,74 @@
 
 # 프로젝트 회고
 
-## GTX 영향권 통행 패턴 분석 | 2023.1.10 ~ 2023.6.8
+## GTX 통행 패턴 분석 GTX Travel Pattern Analysis | 2023.1.10 ~ 2023.6.8
+
+> `projects/prj-tpa.html`
+
+- Snapshot
+    - 공공·민간 이동 데이터를 통합해 GTX 영향권의 통행 구조를 정량화하고, 노선 연장 및 신규 노선 검토를 위한 분석 기준을 설계
+        - Integrated public and private mobility data to quantify travel structures within the GTX influence area and design analytical criteria for route extension and new line evaluation.
+
+- Impact
+    - GTX 영향권 내·외 통행 흐름을 행정구·OD·시간대 단위로 구조화하여 노선 적합성 판단 기준 체계화
+        - Structured travel flows within and beyond the GTX influence area by administrative unit, OD pair, and time band, establishing criteria for route suitability assessment.
+    - 이질적인 이동 데이터를 통합 분석 가능한 데이터 마트 구조로 정비하여 향후 GTX 영향 분석의 표준 프레임 구축
+        - Consolidated heterogeneous mobility datasets into a unified data mart framework, creating a standard foundation for future GTX impact analyses.
+    - 통행 구조 기반 해석 체계를 마련함으로써 단순 수요 규모 중심 논의에서 생활권 연결성 중심 평가로 전환
+        - Shifted evaluation from raw demand volume to functional living-zone connectivity based on structural travel interpretation.
+
+- ROLE
+    - 데이터 마트 설계, 전처리 파이프라인 설계, 통행 지표 정의 및 GTX 영향권 패턴 분석 수행
+        - Designed the data mart architecture, built preprocessing pipelines, and defined travel indicators to analyze GTX influence-area patterns.
+
+- Tech Stack
+    - Python, SQL, Time-Series Aggregation, OD Matrix Modeling, RNN (통행 패턴 예측), Geospatial Analysis
 
 1. CONTEXT
-    - GTX 노선 개통·연장에 따른 수도권 교통 수요 변화를 사전에 설명해야 했으나, 기존 통행 분석은 단편적 지표 중심으로 구조적 변화 파악에 한계 존재
+    - GTX A·B·C 노선은 수도권 주요 거점을 30분대로 연결하는 것을 목표로 추진되고 있었음
+        - The GTX A, B, and C lines were being developed to connect major metropolitan hubs within 30 minutes.
+    - 그러나 GTX 영향권 내·외의 실제 통행 구조에 대한 통합적 분석 근거는 제한적이었음
+        - However, integrated analytical evidence on actual travel structures within and beyond the GTX influence area was limited.
+    - 교통카드, 티맵 내비게이션, 기지국 데이터 등 다양한 이동 데이터가 존재했으나, 단위·공간 기준·집계 방식이 상이하여 직접 비교 및 통합 해석이 어려운 상황
+        - Although transport card, TMAP navigation, and telecom base-station datasets were available, differences in units, spatial definitions, and aggregation standards made direct comparison and integration difficult.
 
 2. DECISION
-    - 대규모 교통 인프라 사업의 효과를 정량적으로 설명하지 못할 경우, 정책 판단과 대외 커뮤니케이션의 설득력 저하 문제 인식
+    - GTX 노선 연장 및 신규 노선 발굴은 대규모 재정이 수반되는 정책적 판단이었음
+        - Extending or introducing new GTX lines required large-scale public investment decisions.
+    - 단순 통행량 합계만으로는 노선 적합성을 설명하기 어려웠으며, 실제 생활권 연결 구조를 반영한 해석이 필요했음
+        - Total travel volume alone was insufficient to explain route suitability; interpretations needed to reflect functional living-zone connectivity.
+    - 영향권을 어떻게 정의하고 해석하느냐에 따라 정책 방향과 투자 우선순위가 달라질 수 있는 상황이었음
+        - The way the influence area was defined and interpreted could directly affect policy direction and investment priorities.
 
 3. FRAMING
-    - 문제를 “통행량이 얼마나 변하는가”가 아닌, “GTX 도입이 수도권 내부·외부 통행 구조를 어떻게 재편하는가”라는 질문으로 재정의
+    - “GTX는 단순히 통행량이 많은 구간을 연결하는 사업인가, 아니면 기존 생활권 구조를 재편하는 사업인가?”
+        - “Is GTX merely connecting high-volume corridors, or is it reshaping existing living-zone structures?”
+    - “GTX 영향권은 행정 경계 기준인가, 실제 OD 흐름 기준인가?”
+        - “Should the GTX influence area be defined by administrative boundaries or by actual OD flows?”
 
 4. INSIGHT
-    - 노선 인접 여부보다, 행정구역·OD·시간대에 따라 GTX 영향이 상이하게 분화되는 통행 패턴 확인
+    - 교통카드 데이터는 정기적 출퇴근 흐름을, 티맵 데이터는 차량 기반 중장거리 이동을, 기지국 데이터는 체류 중심의 생활권 범위를 보여주며 서로 다른 이동 층위를 형성함을 확인
+        -  Transport card data captured regular commuting flows, TMAP data reflected long-distance vehicle movements, and telecom data represented residence-centered living zones—each forming a distinct mobility layer.
+    - 일부 외곽 지역은 행정구 경계를 넘는 OD 흐름이 강하게 형성되어 있어, GTX 영향권을 행정 단위가 아닌 ‘통행 연결 구조’ 기준으로 해석해야 함을 확인
+        - Certain outer areas exhibited strong cross-boundary OD flows, indicating that the GTX influence area should be interpreted based on structural connectivity rather than administrative borders.
+    - 시간대별 분석 결과, 출퇴근 집중형 축과 주말·비정기 이동 중심 축이 구분되며, 노선별 기능적 성격이 상이하게 나타나는 패턴 발견
+        - Time-band analysis revealed distinct corridor types—peak-hour commuter axes versus weekend and irregular travel axes—highlighting functional differences across lines.
 
 5. OUTCOME
-    - GTX 영향권을 공간·통행 단위로 구조화하여, 노선별·구간별 통행 변화와 확산 범위를 설명 가능한 분석 체계로 정리
+    - GTX 영향권을 단일 통행량 기준이 아닌, 통행 규모·OD 연결성·시간대 집중도 등 다층 지표로 평가하는 구조로 전환
+        - Shifted evaluation of the GTX influence area from a single-volume metric to a multi-layered framework incorporating travel magnitude, OD connectivity, and temporal concentration.
+    - 노선 연장 및 신규 노선 검토 시, 생활권 연결성과 구조적 수요 패턴을 반영한 분석 체계 수립
+        - Established a route evaluation approach that reflects structural demand patterns and functional living-zone connectivity.
+    - 해당 데이터 마트 구조를 기반으로 GTX 통행 예측 모델(RNN 기반) 개발의 기초 데이터로 확장
+        - Extended the resulting data mart framework as foundational input for RNN-based GTX travel prediction modeling.
 
-6. LEARNING
-    - 교통 데이터 분석의 핵심이 수치 비교가 아니라, 정책 판단에 필요한 구조적 변화 서사를 만드는 데 있음을 인식
+6. OUTCOME
+    - 대규모 교통 인프라 사업에서 중요한 것은 “수요의 크기”가 아니라 “연결 구조의 방향성”임을 체득
+        - Learned that in large-scale transport infrastructure projects, structural connectivity matters more than raw demand magnitude.
+    - 서로 다른 이동 데이터를 정합시키는 과정이 단순 전처리가 아니라, 정책 해석 단위를 정의하는 전략적 설계 행위임을 인식
+        - Recognized that aligning heterogeneous mobility datasets is not merely preprocessing but a strategic act of defining policy interpretation units.
+    - 이후 모든 프로젝트에서 지표를 설계할 때, 먼저 “이 지표가 구조를 설명하는가?”를 판단 기준으로 삼는 사고 습관 형성
+        - Since then, I consistently evaluate whether a metric explains structural patterns before adopting it as a decision criterion.
 
 --- 
 
