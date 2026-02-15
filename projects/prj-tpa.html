@@ -1,0 +1,369 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="icon" href="/img/wewegh_logo.png" type="image/png">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | TPA</title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 200px !important; margin-top: 0; }
+        .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            margin-top: 18px;
+        }
+        .meta-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #111827;
+            margin: 60px 0 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading + .details-grid {
+            border-top: 3px solid #4f46e5;
+            padding-top: 12px;
+        }
+        .meta-card-single {
+            border-top: 3px solid #4f46e5;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+            padding: 12px 0 12px;
+            display: grid;
+            gap: 16px;
+        }
+        .meta-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .meta-row:first-child {
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+        }
+        .meta-section-label {
+            font-size: 13px;
+            color: #4f46e5;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+        .meta-info-block p,
+        .impact-list {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .impact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* 프로젝트 상세 내용 (1열 그리드) */
+        .section-heading {
+            margin-top: 60px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        .step-box {
+            padding: 16px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 4px solid rgba(118, 109, 255, 0.2);
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .step-box:hover {
+            background: #faf9ff;
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(118, 109, 255, 0.15);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 56px;
+        }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card-single { grid-template-columns: 1fr; }
+            .meta-info-block { border-right: none; padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html menu_class="page_header" base="../" %}
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;" data-i18n="tpa_banner_title">GTX 통행 패턴 분석</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="tpa_banner_period">2023.1.10 ~ 2023.6.8</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="meta-container">
+            <div class="meta-title">Project Overview</div>
+            <div class="meta-card-single">
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Snapshot</span>
+                        <p data-i18n="tpa_snapshot">공공·민간 이동 데이터를 통합해 GTX 영향권의 통행 구조를 정량화하고, 노선 연장 및 신규 노선 검토를 위한 분석 기준을 설계</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label" data-i18n="tpa_impact_title">Impact</span>
+                        <p data-i18n="tpa_metric_combined">GTX 영향권 내·외 통행 흐름을 행정구·OD·시간대 단위로 구조화하여 노선 적합성 판단 기준 체계화 | 이질적인 이동 데이터를 통합 분석 가능한 데이터 마트 구조로 정비하여 향후 GTX 영향 분석의 표준 프레임 구축 | 통행 구조 기반 해석 체계를 마련함으로써 단순 수요 규모 중심 논의에서 생활권 연결성 중심 평가로 전환</p>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Role</span>
+                        <p data-i18n="tpa_role">데이터 마트 설계, 전처리 파이프라인 설계, 통행 지표 정의 및 GTX 영향권 패턴 분석 수행</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label">Tech Stack</span>
+                        <p data-i18n="tpa_stack">Python, SQL, Time-Series Aggregation, OD Matrix Modeling, RNN (통행 패턴 예측), Geospatial Analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading">Decision Narrative</div>
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">CONTEXT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tpa_step_1">
+                    ‣ GTX A·B·C 노선은 수도권 주요 거점을 30분대로 연결하는 것을 목표로 추진되고 있었음<br>
+                    ‣ 그러나 GTX 영향권 내·외의 실제 통행 구조에 대한 통합적 분석 근거는 제한적이었음<br>
+                    ‣ 교통카드, 티맵 내비게이션, 기지국 데이터 등 다양한 이동 데이터가 존재했으나, 단위·공간 기준·집계 방식이 상이하여 직접 비교 및 통합 해석이 어려운 상황
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">DECISION</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tpa_step_2">
+                    ‣ GTX 노선 연장 및 신규 노선 발굴은 대규모 재정이 수반되는 정책적 판단이었음<br>
+                    ‣ 단순 통행량 합계만으로는 노선 적합성을 설명하기 어려웠으며, 실제 생활권 연결 구조를 반영한 해석이 필요했음<br>
+                    ‣ 영향권을 어떻게 정의하고 해석하느냐에 따라 정책 방향과 투자 우선순위가 달라질 수 있는 상황이었음
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">FRAMING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tpa_step_3">
+                    ‣ “GTX는 단순히 통행량이 많은 구간을 연결하는 사업인가, 아니면 기존 생활권 구조를 재편하는 사업인가?”<br>
+                    ‣ “GTX 영향권은 행정 경계 기준인가, 실제 OD 흐름 기준인가?”
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">INSIGHT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tpa_step_4">
+                    ‣ 교통카드 데이터는 정기적 출퇴근 흐름을, 티맵 데이터는 차량 기반 중장거리 이동을, 기지국 데이터는 체류 중심의 생활권 범위를 보여주며 서로 다른 이동 층위를 형성함을 확인<br>
+                    ‣ 일부 외곽 지역은 행정구 경계를 넘는 OD 흐름이 강하게 형성되어 있어, GTX 영향권을 행정 단위가 아닌 ‘통행 연결 구조’ 기준으로 해석해야 함을 확인<br>
+                    ‣ 시간대별 분석 결과, 출퇴근 집중형 축과 주말·비정기 이동 중심 축이 구분되며, 노선별 기능적 성격이 상이하게 나타나는 패턴 발견
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tpa_step_5">
+                    ‣ GTX 영향권을 단일 통행량 기준이 아닌, 통행 규모·OD 연결성·시간대 집중도 등 다층 지표로 평가하는 구조로 전환<br>
+                    ‣ 노선 연장 및 신규 노선 검토 시, 생활권 연결성과 구조적 수요 패턴을 반영한 분석 체계 수립<br>
+                    ‣ 해당 데이터 마트 구조를 기반으로 GTX 통행 예측 모델(RNN 기반) 개발의 기초 데이터로 확장
+                </p>
+            </div>
+
+            <div class="step-box" style="border-bottom-color: var(--primary-color);">
+                <div class="step-heading">
+                    <div class="step-tag">06</div>
+                    <div class="step-title">LEARNING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tpa_step_6">
+                    ‣ 대규모 교통 인프라 사업에서 중요한 것은 “수요의 크기”가 아니라 “연결 구조의 방향성”임을 체득<br>
+                    ‣ 서로 다른 이동 데이터를 정합시키는 과정이 단순 전처리가 아니라, 정책 해석 단위를 정의하는 전략적 설계 행위임을 인식<br>
+                    ‣ 이후 모든 프로젝트에서 지표를 설계할 때, 먼저 “이 지표가 구조를 설명하는가?”를 판단 기준으로 삼는 사고 습관 형성
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <section class="image-section">
+        <div class="container">
+            <h3 class="text-center mb-5" style="font-weight: 700; color: #222;">Project Showcase</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+            </div>
+        </div>
+    </section> -->
+
+    {% include footer.html %}
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                tpa_banner_title: "GTX 통행 패턴 분석",
+                tpa_banner_period: "2023.1.10 ~ 2023.6.8",
+                tpa_snapshot: "공공·민간 이동 데이터를 통합해 GTX 영향권의 통행 구조를 정량화하고, 노선 연장 및 신규 노선 검토를 위한 분석 기준을 설계",
+                tpa_role: "데이터 마트 설계, 전처리 파이프라인 설계, 통행 지표 정의 및 GTX 영향권 패턴 분석 수행",
+                tpa_stack: "Python, SQL, Time-Series Aggregation, OD Matrix Modeling, RNN (통행 패턴 예측), Geospatial Analysis",
+                tpa_impact_title: "Impact",
+                tpa_metric_combined: "GTX 영향권 내·외 통행 흐름을 행정구·OD·시간대 단위로 구조화하여 노선 적합성 판단 기준 체계화 | 이질적인 이동 데이터를 통합 분석 가능한 데이터 마트 구조로 정비하여 향후 GTX 영향 분석의 표준 프레임 구축 | 통행 구조 기반 해석 체계를 마련함으로써 단순 수요 규모 중심 논의에서 생활권 연결성 중심 평가로 전환",
+                tpa_step_1: "‣ GTX A·B·C 노선은 수도권 주요 거점을 30분대로 연결하는 것을 목표로 추진되고 있었음<br>‣ 그러나 GTX 영향권 내·외의 실제 통행 구조에 대한 통합적 분석 근거는 제한적이었음<br>‣ 교통카드, 티맵 내비게이션, 기지국 데이터 등 다양한 이동 데이터가 존재했으나, 단위·공간 기준·집계 방식이 상이하여 직접 비교 및 통합 해석이 어려운 상황",
+                tpa_step_2: "‣ GTX 노선 연장 및 신규 노선 발굴은 대규모 재정이 수반되는 정책적 판단이었음<br>‣ 단순 통행량 합계만으로는 노선 적합성을 설명하기 어려웠으며, 실제 생활권 연결 구조를 반영한 해석이 필요했음<br>‣ 영향권을 어떻게 정의하고 해석하느냐에 따라 정책 방향과 투자 우선순위가 달라질 수 있는 상황이었음",
+                tpa_step_3: "‣ “GTX는 단순히 통행량이 많은 구간을 연결하는 사업인가, 아니면 기존 생활권 구조를 재편하는 사업인가?”<br>‣ “GTX 영향권은 행정 경계 기준인가, 실제 OD 흐름 기준인가?”",
+                tpa_step_4: "‣ 교통카드 데이터는 정기적 출퇴근 흐름을, 티맵 데이터는 차량 기반 중장거리 이동을, 기지국 데이터는 체류 중심의 생활권 범위를 보여주며 서로 다른 이동 층위를 형성함을 확인<br>‣ 일부 외곽 지역은 행정구 경계를 넘는 OD 흐름이 강하게 형성되어 있어, GTX 영향권을 행정 단위가 아닌 ‘통행 연결 구조’ 기준으로 해석해야 함을 확인<br>‣ 시간대별 분석 결과, 출퇴근 집중형 축과 주말·비정기 이동 중심 축이 구분되며, 노선별 기능적 성격이 상이하게 나타나는 패턴 발견",
+                tpa_step_5: "‣ GTX 영향권을 단일 통행량 기준이 아닌, 통행 규모·OD 연결성·시간대 집중도 등 다층 지표로 평가하는 구조로 전환<br>‣ 노선 연장 및 신규 노선 검토 시, 생활권 연결성과 구조적 수요 패턴을 반영한 분석 체계 수립<br>‣ 해당 데이터 마트 구조를 기반으로 GTX 통행 예측 모델(RNN 기반) 개발의 기초 데이터로 확장",
+                tpa_step_6: "‣ 대규모 교통 인프라 사업에서 중요한 것은 “수요의 크기”가 아니라 “연결 구조의 방향성”임을 체득<br>‣ 서로 다른 이동 데이터를 정합시키는 과정이 단순 전처리가 아니라, 정책 해석 단위를 정의하는 전략적 설계 행위임을 인식<br>‣ 이후 모든 프로젝트에서 지표를 설계할 때, 먼저 “이 지표가 구조를 설명하는가?”를 판단 기준으로 삼는 사고 습관 형성"
+            },
+            en: {
+                tpa_banner_title: "GTX Travel Pattern Analysis",
+                tpa_banner_period: "Jan 10, 2023 – Jun 8, 2023",
+                tpa_snapshot: "Integrated public and private mobility data to quantify travel structures within the GTX influence area and design analytical criteria for route extension and new line evaluation.",
+                tpa_role: "Designed the data mart architecture, built preprocessing pipelines, and defined travel indicators to analyze GTX influence-area patterns.",
+                tpa_stack: "Python, SQL, Time-Series Aggregation, OD Matrix Modeling, RNN (travel pattern prediction), Geospatial Analysis",
+                tpa_impact_title: "Impact",
+                tpa_metric_combined: "Structured travel flows within and beyond the GTX influence area by administrative unit, OD pair, and time band, establishing criteria for route suitability assessment | Consolidated heterogeneous mobility datasets into a unified data mart framework, creating a standard foundation for future GTX impact analyses | Shifted evaluation from raw demand volume to functional living-zone connectivity based on structural travel interpretation",
+                tpa_step_1: "‣ The GTX A, B, and C lines were being developed to connect major metropolitan hubs within 30 minutes.<br>‣ However, integrated analytical evidence on actual travel structures within and beyond the GTX influence area was limited.<br>‣ Although transport card, TMAP navigation, and telecom base-station datasets were available, differences in units, spatial definitions, and aggregation standards made direct comparison and integration difficult.",
+                tpa_step_2: "‣ Extending or introducing new GTX lines required large-scale public investment decisions.<br>‣ Total travel volume alone was insufficient to explain route suitability; interpretations needed to reflect functional living-zone connectivity.<br>‣ The way the influence area was defined and interpreted could directly affect policy direction and investment priorities.",
+                tpa_step_3: "‣ “Is GTX merely connecting high-volume corridors, or is it reshaping existing living-zone structures?”<br>‣ “Should the GTX influence area be defined by administrative boundaries or by actual OD flows?”",
+                tpa_step_4: "‣ Transport card data captured regular commuting flows, TMAP data reflected long-distance vehicle movements, and telecom data represented residence-centered living zones—each forming a distinct mobility layer.<br>‣ Certain outer areas exhibited strong cross-boundary OD flows, indicating that the GTX influence area should be interpreted based on structural connectivity rather than administrative borders.<br>‣ Time-band analysis revealed distinct corridor types—peak-hour commuter axes versus weekend and irregular travel axes—highlighting functional differences across lines.",
+                tpa_step_5: "‣ Shifted evaluation of the GTX influence area from a single-volume metric to a multi-layered framework incorporating travel magnitude, OD connectivity, and temporal concentration.<br>‣ Established a route evaluation approach that reflects structural demand patterns and functional living-zone connectivity.<br>‣ Extended the resulting data mart framework as foundational input for RNN-based GTX travel prediction modeling.",
+                tpa_step_6: "‣ Learned that in large-scale transport infrastructure projects, structural connectivity matters more than raw demand magnitude.<br>‣ Recognized that aligning heterogeneous mobility datasets is not merely preprocessing but a strategic act of defining policy interpretation units.<br>‣ Since then, I consistently evaluate whether a metric explains structural patterns before adopting it as a decision criterion."
+            }
+        };
+    </script>
+    <script src="/js/lang-toggle.js"></script>
+</body>
+</html>
