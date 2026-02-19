@@ -106,29 +106,76 @@
 
 --- 
 
-## 교통예보시스템 기능 개선 | 2023.6.19 ~ 2023.12.5
+## 교통예보시스템 기능 개선 Functional Enhancement of Traffic Forecasting System | 2023.6.19 ~ 2023.12.5
+
+> `projects/prj-fe-tfs.html`
 
 - Snapshot
-    - 한국도로공사 교통예보시스템 개발 및 구축
+    - 한국도로공사 전국 고속도로 교통예보 시스템 고도화 및 교통안전 예보 체계 구축
+        - Enhanced the nationwide highway traffic forecasting system of Korea Expressway Corporation and established a traffic safety forecasting framework.
+
+- Impact
+    - 머신러닝 기반 예측 체계로 전환하여 정체길이·소요시간 예측 정확도 및 일관성 개선
+        - Improved accuracy and consistency of congestion length and travel time predictions by transitioning to ML-based forecasting models.
+    - 위험 수준 단계화 지표 도입을 통해 대외 브리핑 및 대국민 안내에 활용 가능한 안전 예보 체계 구축
+        - Introduced a tiered risk-level index, enabling direct use in public communication and media briefings.
+    - 주말·비정상 상황까지 예측 범위를 확장하고, 데이터 수집·제공 체계를 정비하여 시스템 신뢰도 강화
+        - Expanded coverage to weekends and irregular conditions while restructuring data collection and delivery pipelines to enhance system reliability.
+
+- ROLE
+    - 예측 모델 고도화 (CNN, XGBoost, Random Forest) 및 교통안전지수 알고리즘 설계
+        - Led model enhancement (CNN, XGBoost, Random Forest) and designed the traffic safety index algorithm.
+    - 교통량·기상·사고·작업 데이터 통합 전처리 및 예측 파이프라인 설계
+        - Designed preprocessing and prediction pipelines integrating traffic volume, weather, incident, and roadwork data.
+    - 예보 결과가 대시보드 및 외부 커뮤니케이션에 활용될 수 있도록 지표 체계 구조화
+        - Structured forecasting outputs into interpretable indicators for dashboards and external communication.
+
+- Tech Stack
+    - CNN, XGBoost, Random Forest, Time-Series Forecasting, Feature Engineering, Dashboard Integration
 
 1. CONTEXT
-    - 기존 교통 예측이 단순 룰 기반 방식에 의존하며, 시간대·기상·교통 흐름 변화가 충분히 반영되지 않는 상황 존재
+    - 기존 교통예측은 일부 구간에 대해 룰 기반 또는 제한된 통계 모델에 의존하고 있었음
+        - Existing traffic forecasting relied on rule-based logic or limited statistical models for certain sections.
+    - 시간대·기상·사고·작업 등 복합 요인이 충분히 반영되지 않아 예측 변동성 대응에 한계 존재
+        - Complex factors such as time-of-day, weather, incidents, and roadwork were not fully reflected, limiting responsiveness to variability.
+    - 교통예보정보 수집·제공 체계 역시 확장성과 안정성 측면에서 개선 여지 존재
+        - The data collection and delivery framework also showed room for improvement in scalability and operational stability.
 
 2. DECISION
-    - 예측 신뢰도 한계로 인해 도로 위 안전 리스크를 사전에 전달할 수 있는 정량적이고 직관적인 지표 부재 문제 인식
+    - 전국 단위 공공 교통예보 시스템이라는 특성상, 예측 신뢰도는 곧 대외 신뢰와 직결되는 문제였음
+        - As a nationwide public forecasting system, predictive reliability was directly tied to public trust.
+    - 단순 수치 제공만으로는 이용자가 위험을 이해하고 대비하기 어려운 구조
+        - Providing raw numerical predictions alone made it difficult for users to understand and act on risk information.
+    - 머신러닝 적용 확대와 서비스 범위 확장이 필요한 시점에서, 예측 체계 전환 여부에 대한 판단 필요
+        - With increasing demand for ML adoption and service expansion, it became necessary to determine whether a structural transition in the forecasting framework was required.
 
 3. FRAMING
-    - 문제를 “사고를 얼마나 정확히 예측할 것인가”가 아닌, “도로 이용자가 위험 수준을 직관적으로 이해하고 대비할 수 있는가”라는 질문으로 재정의
+    - “사고나 정체를 얼마나 정확히 예측할 것인가”가 아니라 “도로 이용자가 위험 수준을 직관적으로 이해하고, 사전에 대비할 수 있는 구조를 만들 수 있는가?”
+    - Rather than asking, “How precisely can we predict accidents or congestion?” The reframed question became: “Can we design a structure that allows road users to intuitively understand risk levels and prepare in advance?”
 
 4. INSIGHT
-    - 단일 수치 예측보다, 위험 수준을 단계화해 전달할 때 예보 결과의 이해도와 활용 가능성 증가
+    - 소요시간 예측에서는 CNN 기반 시계열 구조가 비선형 변동 구간에서 안정적인 패턴을 포착
+        - In travel time prediction, CNN-based time-series models captured nonlinear fluctuation patterns more robustly.
+    - 정체길이 예측에서는 XGBoost가 기상·사고·교통량 상호작용 변수를 반영할 때 설명력 향상
+        - For congestion length prediction, XGBoost improved explanatory power when incorporating interaction features among weather, incidents, and traffic volume.
+    - 단일 연속 수치보다, 예측 결과를 구간화·등급화했을 때 이해도와 활용 가능성이 높아짐
+        - Converting continuous outputs into categorized risk levels significantly increased interpretability and practical usability.
 
 5. OUTCOME
-    - 시계열 기반 예측 모델과 해석 가능한 안전 등급 체계를 결합한 교통 안전 예보 시스템 구축
-    - 예측 결과를 대외 커뮤니케이션에 바로 활용 가능한 지표 형태로 제공
+    - CNN·XGBoost 기반 예측 모델을 고도화하여 운영 시스템에 적용
+        - Enhanced CNN and XGBoost models were deployed into the operational system.
+    - Random Forest 기반 교통안전지수 알고리즘을 구현하여 일일 교통안전 예보 서비스 구축
+        - A Random Forest-based traffic safety index algorithm was implemented to establish a daily safety forecasting service.
+    - 예측 결과를 위험 단계로 구조화하여 대시보드 및 대외 브리핑에 활용 가능한 형태로 제공
+        - Forecast outputs were structured into tiered risk indicators for integration into dashboards and public communication channels.
 
 6. LEARNING
-    - 예측 시스템의 가치는 정확도 자체보다, 판단과 행동으로 연결되는 전달 구조에 있음을 인식
+    - 예측 시스템의 가치는 모델 정확도 자체가 아니라, 사회적 의사결정에 연결되는 전달 구조에 있다는 관점 확립
+        - I established the perspective that the value of a forecasting system lies not in model accuracy alone, but in how effectively it connects to societal decision-making.
+    - 복잡한 수치 결과를 등급·지표 체계로 재구성하는 것이 공공 서비스에서 신뢰 형성에 핵심이라는 통찰 축적
+        - Translating complex numerical outputs into structured indicators proved essential for building trust in public services.
+    - 이후 프로젝트에서도 “모델 성능”보다 “판단 가능성”을 우선 설계하는 기준을 갖게 됨
+        - Since then, I prioritize “decision usability” over pure model performance when designing analytical systems.
 
 ---
 

@@ -1,0 +1,368 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="icon" href="/img/wewegh_logo.png" type="image/png">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | TFS</title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 200px !important; margin-top: 0; }
+        .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            margin-top: 18px;
+        }
+        .meta-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #111827;
+            margin: 60px 0 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading + .details-grid {
+            border-top: 3px solid #4f46e5;
+            padding-top: 12px;
+        }
+        .meta-card-single {
+            border-top: 3px solid #4f46e5;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+            padding: 12px 0 12px;
+            display: grid;
+            gap: 16px;
+        }
+        .meta-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .meta-row:first-child {
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+        }
+        .meta-section-label {
+            font-size: 13px;
+            color: #4f46e5;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+        .meta-info-block p,
+        .impact-list {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .impact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* 프로젝트 상세 내용 (1열 그리드) */
+        .section-heading {
+            margin-top: 60px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        .step-box {
+            padding: 16px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 4px solid rgba(118, 109, 255, 0.2);
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .step-box:hover {
+            background: #faf9ff;
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(118, 109, 255, 0.15);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 56px;
+        }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card-single { grid-template-columns: 1fr; }
+            .meta-info-block { border-right: none; padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html menu_class="page_header" base="../" %}
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;" data-i18n="tfs_banner_title">교통예보시스템 기능 개선</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="tfs_banner_period">2023.6.19 ~ 2023.12.5</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="meta-container">
+            <div class="meta-title">Project Overview</div>
+            <div class="meta-card-single">
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Snapshot</span>
+                        <p data-i18n="tfs_snapshot">한국도로공사 전국 고속도로 교통예보 시스템 고도화 및 교통안전 예보 체계 구축</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label" data-i18n="tfs_impact_title">Impact</span>
+                        <p data-i18n="tfs_metric_combined">정체길이·소요시간 예측 정확도 및 일관성 개선 | 위험 수준 단계화 지표 도입으로 안전 예보 체계 구축 | 주말·비정상 상황 예측 범위 확장 및 데이터 제공 체계 정비</p>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Role</span>
+                        <p data-i18n="tfs_role">예측 모델 고도화, 교통안전지수 알고리즘 설계, 교통·기상·사고·작업 데이터 통합 파이프라인 설계</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label">Tech Stack</span>
+                        <p data-i18n="tfs_stack">CNN, XGBoost, Random Forest, Time-Series Forecasting, Feature Engineering, Dashboard Integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading">Decision Narrative</div>
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">CONTEXT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tfs_step_1">
+                    ‣ 기존 교통예측은 일부 구간에 대해 룰 기반 또는 제한된 통계 모델에 의존하고 있었음<br>
+                    ‣ 시간대·기상·사고·작업 등 복합 요인이 충분히 반영되지 않아 예측 변동성 대응에 한계 존재<br>
+                    ‣ 교통예보정보 수집·제공 체계 역시 확장성과 안정성 측면에서 개선 여지 존재
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">DECISION</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tfs_step_2">
+                    ‣ 전국 단위 공공 교통예보 시스템이라는 특성상, 예측 신뢰도는 곧 대외 신뢰와 직결되는 문제였음<br>
+                    ‣ 단순 수치 제공만으로는 이용자가 위험을 이해하고 대비하기 어려운 구조<br>
+                    ‣ 머신러닝 적용 확대와 서비스 범위 확장이 필요한 시점에서, 예측 체계 전환 여부에 대한 판단 필요
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">FRAMING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tfs_step_3">
+                    “사고나 정체를 얼마나 정확히 예측할 것인가”가 아니라 “도로 이용자가 위험 수준을 직관적으로 이해하고, 사전에 대비할 수 있는 구조를 만들 수 있는가?”
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">INSIGHT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tfs_step_4">
+                    ‣ 소요시간 예측에서는 CNN 기반 시계열 구조가 비선형 변동 구간에서 안정적인 패턴을 포착<br>
+                    ‣ 정체길이 예측에서는 XGBoost가 기상·사고·교통량 상호작용 변수를 반영할 때 설명력 향상<br>
+                    ‣ 단일 연속 수치보다, 예측 결과를 구간화·등급화했을 때 이해도와 활용 가능성이 높아짐
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tfs_step_5">
+                    ‣ CNN·XGBoost 기반 예측 모델을 고도화하여 운영 시스템에 적용<br>
+                    ‣ Random Forest 기반 교통안전지수 알고리즘을 구현하여 일일 교통안전 예보 서비스 구축<br>
+                    ‣ 예측 결과를 위험 단계로 구조화하여 대시보드 및 대외 브리핑에 활용 가능한 형태로 제공
+                </p>
+            </div>
+
+            <div class="step-box" style="border-bottom-color: var(--primary-color);">
+                <div class="step-heading">
+                    <div class="step-tag">06</div>
+                    <div class="step-title">LEARNING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="tfs_step_6">
+                    ‣ 예측 시스템의 가치는 모델 정확도 자체가 아니라, 사회적 의사결정에 연결되는 전달 구조에 있다는 관점 확립<br>
+                    ‣ 복잡한 수치 결과를 등급·지표 체계로 재구성하는 것이 공공 서비스에서 신뢰 형성에 핵심이라는 통찰 축적<br>
+                    ‣ 이후 프로젝트에서도 “모델 성능”보다 “판단 가능성”을 우선 설계하는 기준을 갖게 됨
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <section class="image-section">
+        <div class="container">
+            <h3 class="text-center mb-5" style="font-weight: 700; color: #222;">Project Showcase</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+            </div>
+        </div>
+    </section> -->
+
+    {% include footer.html %}
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                tfs_banner_title: "교통예보시스템 기능 개선",
+                tfs_banner_period: "2023.6.19 ~ 2023.12.5",
+                tfs_snapshot: "한국도로공사 전국 고속도로 교통예보 시스템 고도화 및 교통안전 예보 체계 구축",
+                tfs_role: "예측 모델 고도화, 교통안전지수 알고리즘 설계, 교통·기상·사고·작업 데이터 통합 파이프라인 설계",
+                tfs_stack: "CNN, XGBoost, Random Forest, Time-Series Forecasting, Feature Engineering, Dashboard Integration",
+                tfs_impact_title: "Impact",
+                tfs_metric_combined: "정체길이·소요시간 예측 정확도 및 일관성 개선 | 위험 수준 단계화 지표 도입으로 안전 예보 체계 구축 | 주말·비정상 상황 예측 범위 확장 및 데이터 제공 체계 정비",
+                tfs_step_1: "‣ 기존 교통예측은 일부 구간에 대해 룰 기반 또는 제한된 통계 모델에 의존하고 있었음<br>‣ 시간대·기상·사고·작업 등 복합 요인이 충분히 반영되지 않아 예측 변동성 대응에 한계 존재<br>‣ 교통예보정보 수집·제공 체계 역시 확장성과 안정성 측면에서 개선 여지 존재",
+                tfs_step_2: "‣ 전국 단위 공공 교통예보 시스템이라는 특성상, 예측 신뢰도는 곧 대외 신뢰와 직결되는 문제였음<br>‣ 단순 수치 제공만으로는 이용자가 위험을 이해하고 대비하기 어려운 구조<br>‣ 머신러닝 적용 확대와 서비스 범위 확장이 필요한 시점에서, 예측 체계 전환 여부에 대한 판단 필요",
+                tfs_step_3: "“사고나 정체를 얼마나 정확히 예측할 것인가”가 아니라 “도로 이용자가 위험 수준을 직관적으로 이해하고, 사전에 대비할 수 있는 구조를 만들 수 있는가?”",
+                tfs_step_4: "‣ 소요시간 예측에서는 CNN 기반 시계열 구조가 비선형 변동 구간에서 안정적인 패턴을 포착<br>‣ 정체길이 예측에서는 XGBoost가 기상·사고·교통량 상호작용 변수를 반영할 때 설명력 향상<br>‣ 단일 연속 수치보다, 예측 결과를 구간화·등급화했을 때 이해도와 활용 가능성이 높아짐",
+                tfs_step_5: "‣ CNN·XGBoost 기반 예측 모델을 고도화하여 운영 시스템에 적용<br>‣ Random Forest 기반 교통안전지수 알고리즘을 구현하여 일일 교통안전 예보 서비스 구축<br>‣ 예측 결과를 위험 단계로 구조화하여 대시보드 및 대외 브리핑에 활용 가능한 형태로 제공",
+                tfs_step_6: "‣ 예측 시스템의 가치는 모델 정확도 자체가 아니라, 사회적 의사결정에 연결되는 전달 구조에 있다는 관점 확립<br>‣ 복잡한 수치 결과를 등급·지표 체계로 재구성하는 것이 공공 서비스에서 신뢰 형성에 핵심이라는 통찰 축적<br>‣ 이후 프로젝트에서도 “모델 성능”보다 “판단 가능성”을 우선 설계하는 기준을 갖게 됨"
+            },
+            en: {
+                tfs_banner_title: "Functional Enhancement of Traffic Forecasting System",
+                tfs_banner_period: "Jun 19, 2023 – Dec 5, 2023",
+                tfs_snapshot: "Enhanced the nationwide highway traffic forecasting system of Korea Expressway Corporation and established a traffic safety forecasting framework.",
+                tfs_role: "Led model enhancement, designed the traffic safety index algorithm, and built integrated pipelines for traffic, weather, incident, and roadwork data.",
+                tfs_stack: "CNN, XGBoost, Random Forest, Time-Series Forecasting, Feature Engineering, Dashboard Integration",
+                tfs_impact_title: "Impact",
+                tfs_metric_combined: "Improved accuracy and consistency of congestion length and travel time predictions | Introduced a tiered risk-level index to establish a safety forecasting framework | Expanded coverage to weekends and irregular conditions while restructuring data delivery",
+                tfs_step_1: "‣ Existing traffic forecasting relied on rule-based logic or limited statistical models for certain sections.<br>‣ Complex factors such as time-of-day, weather, incidents, and roadwork were not fully reflected, limiting responsiveness to variability.<br>‣ The data collection and delivery framework also showed room for improvement in scalability and operational stability.",
+                tfs_step_2: "‣ As a nationwide public forecasting system, predictive reliability was directly tied to public trust.<br>‣ Providing raw numerical predictions alone made it difficult for users to understand and act on risk information.<br>‣ With increasing demand for ML adoption and service expansion, it became necessary to determine whether a structural transition in the forecasting framework was required.",
+                tfs_step_3: "Rather than asking, “How precisely can we predict accidents or congestion?” The reframed question became: “Can we design a structure that allows road users to intuitively understand risk levels and prepare in advance?”",
+                tfs_step_4: "‣ In travel time prediction, CNN-based time-series models captured nonlinear fluctuation patterns more robustly.<br>‣ For congestion length prediction, XGBoost improved explanatory power when incorporating interaction features among weather, incidents, and traffic volume.<br>‣ Converting continuous outputs into categorized risk levels significantly increased interpretability and practical usability.",
+                tfs_step_5: "‣ Enhanced CNN and XGBoost models were deployed into the operational system.<br>‣ A Random Forest-based traffic safety index algorithm was implemented to establish a daily safety forecasting service.<br>‣ Forecast outputs were structured into tiered risk indicators for integration into dashboards and public communication channels.",
+                tfs_step_6: "‣ I established the perspective that the value of a forecasting system lies not in model accuracy alone, but in how effectively it connects to societal decision-making.<br>‣ Translating complex numerical outputs into structured indicators proved essential for building trust in public services.<br>‣ Since then, I prioritize decision usability over pure model performance when designing analytical systems."
+            }
+        };
+    </script>
+    <script src="/js/lang-toggle.js"></script>
+</body>
+</html>
