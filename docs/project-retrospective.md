@@ -35,6 +35,73 @@
 
 # 프로젝트 회고
 
+## 교통예보시스템 고정밀화 용역 Precision Enhancement of Traffic Forecasting System | 2022.6.20 ~ 2022.12.16
+
+> `projects/prj-hp-tfs.html`
+
+- Snapshot
+    - 한국도로공사 전국 고속도로 교통예보 시스템의 예측 정밀도 고도화 및 모델 구조 개선
+        - Enhanced predictive precision and model architecture of the nationwide highway traffic forecasting system operated by the Korea Expressway Corporation.
+
+- Impact
+    - 요일·기상 조건별 평균 예측 오차 3%대 수준으로 안정화 (전체 평균 약 3.36%)
+        - Stabilized average prediction error to approximately 3% across weekdays and weather conditions (overall average ~3.36%).
+    - 교통량 예측 결과를 대내·외 화면에 직접 제공 가능한 표준 데이터 구조로 정비
+        - Standardized forecast outputs into a structured format directly consumable by internal and public-facing interfaces.
+    - 시공도 기반 모델링 체계를 도입하여 비정상 구간 및 시간대 변동성에 대한 설명력 강화
+        - Introduced a time-space image-based modeling approach, improving explanatory power for irregular segments and temporal volatility.
+
+- ROLE
+    - 교통량·소요시간 예측 모델 설계 및 성능 검증 체계 구축
+        - Designed traffic volume and travel time prediction models and built validation frameworks.
+    - 시공도 생성 로직 설계 및 CNN 기반 소요시간 예측 모델 개발
+        - Developed time-space diagram generation logic and CNN-based travel time forecasting models.
+    - Python·Oracle SQL 기반 데이터 전처리 및 학습 데이터 마트 설계
+        - Designed preprocessing pipelines and training data marts using Python and Oracle SQL.
+
+- Tech Stack
+    - Python, Oracle SQL, XGBoost, CNN, Time-Space Diagram Modeling
+
+1. CONTEXT
+    - 기존 전국 고속도로 교통예보 시스템은 구간별 통계 기반 예측에 의존하고 있었으며, 시간·공간적 연속성이 충분히 반영되지 못한 구조 존재
+        - The existing nationwide highway forecasting system relied largely on segment-level statistical predictions, with limited representation of spatiotemporal continuity.
+    - 특정 요일·기상 조건·비정상 상황에서 예측 변동성이 확대되며 결과 해석 및 활용에 제약 발생
+        - Under specific weekday, weather, and irregular conditions, predictive volatility increased, limiting interpretability and practical usability.
+
+2. DECISION
+    - 공공 교통예보 시스템으로서 대외 제공 신뢰도를 유지하기 위해, 단순 정확도 개선을 넘어 모델 구조 자체의 정밀화가 필요한 상황
+        - As a public-facing forecasting system, improving reliability required more than incremental accuracy gains; the model structure itself needed refinement.
+    - 예측 결과를 내부 검증용 수치가 아닌, 실제 화면과 브리핑에 활용 가능한 형태로 제공할 수 있을지에 대한 판단 필요
+        - It became necessary to determine whether forecasts could be delivered in a format directly usable for operational dashboards and public briefings.
+
+3. FRAMING
+    - “구간 단위 예측 정확도를 높일 것인가”가 아니라, “시간과 공간의 흐름을 반영한 구조로 재구성할 수 있는가?”로 질문을 재정의
+        - Rather than asking, “How can we improve segment-level accuracy?”, I reframed the problem as: “Can we reconstruct the model to reflect the continuous flow of time and space?”
+
+4. INSIGHT
+    - 개별 구간 데이터를 시공도(Time-Space Diagram) 형태의 이미지로 변환하자, 정체 확산 패턴이 선형·대각선 형태로 구조화되어 나타남
+        - When segment data were transformed into time-space diagram images, congestion propagation patterns emerged in structured linear and diagonal forms.
+    - 이러한 패턴은 단일 시점 예측보다, 연속적 흐름을 학습하는 CNN 구조에서 더 안정적으로 포착됨을 확인
+        - These patterns were more stably captured by CNN architectures that learn continuous flows, compared to single-point statistical models.
+    - 요일·기상 조건별 오차 분포를 분석한 결과, 변동성은 존재하되 특정 조건에서 체계적 편향이 반복되는 구조는 제한적임을 확인
+        - Error distribution analysis by weekday and weather condition showed variability but limited systematic bias under specific conditions.
+
+5. OUTCOME
+    - 시공도 기반 CNN 소요시간 예측 모델을 구축하고, 기존 회귀 기반 모델과 비교 검증하여 안정적 오차 범위 확보
+        - Built a CNN-based travel time forecasting model using time-space diagrams and validated it against regression baselines to secure stable error ranges.
+    - 평균 오차 약 3%대 수준으로 관리 가능한 예측 체계 정립
+        - Established a controllable prediction framework with average error maintained in the ~3% range.
+    - 교통량 예측 결과를 표준화된 테이블 구조로 정비하여 대내·외 화면(UI) 제공 체계에 직접 연계
+        - Standardized forecast outputs into structured tables directly linked to internal and external UI systems.
+
+6. LEARNING
+    - 예측 문제는 단순히 알고리즘을 교체하는 것이 아니라, 데이터를 어떻게 구조화하느냐에 따라 모델의 해석 가능성과 안정성이 결정된다는 관점을 확립
+        - I reinforced the perspective that forecasting performance depends not only on algorithm choice but on how data are structurally represented.
+    - 특히 공공 시스템에서는 “더 높은 정확도”보다 “일관되고 설명 가능한 구조”가 신뢰를 만든다는 기준을 갖게 됨
+        - In public systems, I learned that trust is built less on marginal accuracy gains and more on consistency and structural explainability.
+
+---
+
 ## GTX 통행 패턴 분석 GTX Travel Pattern Analysis | 2023.1.10 ~ 2023.6.8
 
 > `projects/prj-tpa.html`

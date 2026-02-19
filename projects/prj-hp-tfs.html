@@ -1,0 +1,365 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="icon" href="/img/wewegh_logo.png" type="image/png">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Detail | HP-TFS</title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --primary-color: #766dff;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Pretendard', sans-serif; background-color: #fff; }
+
+        /* 배너 영역 슬림화 */
+        .banner_area { min-height: 200px !important; margin-top: 0; }
+        .banner_inner { min-height: 200px !important; }
+
+        /* 독립 페이지 헤더 오버라이드 */
+        .page_header {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .page_header .navbar {
+            background: #fff;
+        }
+        .page_header .navbar .nav .nav-item .nav-link {
+            line-height: 70px;
+            color: var(--text-dark) !important;
+        }
+        .page_header .navbar .nav .nav-item .nav-link:hover,
+        .page_header .navbar .nav .nav-item.active .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+        /* 프로젝트 메타 정보 섹션 (상단 가로형) */
+        .meta-container {
+            margin-top: 18px;
+        }
+        .meta-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #111827;
+            margin: 60px 0 16px;
+            text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading + .details-grid {
+            border-top: 3px solid #4f46e5;
+            padding-top: 12px;
+        }
+        .meta-card-single {
+            border-top: 3px solid #4f46e5;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+            padding: 12px 0 12px;
+            display: grid;
+            gap: 16px;
+        }
+        .meta-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .meta-row:first-child {
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(15,23,42,0.08);
+        }
+        .meta-section-label {
+            font-size: 13px;
+            color: #4f46e5;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+        .meta-info-block p,
+        .impact-list {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .impact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* 프로젝트 상세 내용 (1열 그리드) */
+        .section-heading {
+            margin-top: 60px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        .step-box {
+            padding: 16px 20px;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 4px solid rgba(118, 109, 255, 0.2);
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .step-heading {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .step-box:hover {
+            background: #faf9ff;
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+        .step-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(118, 109, 255, 0.15);
+            padding: 2px 9px;
+            border-radius: 999px;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            min-width: 48px;
+            text-align: center;
+        }
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: #1f1f1f;
+            line-height: 1.85;
+            word-break: keep-all;
+            margin-left: 56px;
+        }
+        .highlight { color: var(--text-dark); font-weight: 600; }
+
+        /* 이미지 그리드 */
+        .image-section { background: #fafafa; padding: 80px 0; margin-top: 60px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .meta-card-single { grid-template-columns: 1fr; }
+            .meta-info-block { border-right: none; padding-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    {% include header.html menu_class="page_header" base="../" %}
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2 style="font-size: 40px;" data-i18n="hp_tfs_banner_title">교통예보시스템 고정밀화 용역</h2>
+                    <p style="margin-top: 10px; font-size: 14px; color: #444444; letter-spacing: 1px;" data-i18n="hp_tfs_banner_period">2022.6.20 ~ 2022.12.16</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="lang_toggle" role="group" aria-label="Language toggle">
+            <button type="button" class="lang_btn active" data-lang="ko" aria-pressed="true">KR</button>
+            <button type="button" class="lang_btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="meta-container">
+            <div class="meta-title">Project Overview</div>
+            <div class="meta-card-single">
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Snapshot</span>
+                        <p data-i18n="hp_tfs_snapshot">한국도로공사 전국 고속도로 교통예보 시스템의 예측 정밀도 고도화 및 모델 구조 개선</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label" data-i18n="hp_tfs_impact_title">Impact</span>
+                        <p data-i18n="hp_tfs_metric_combined">요일·기상 조건별 평균 예측 오차 3%대 수준으로 안정화 | 교통량 예측 결과 표준 데이터 구조 정비 | 시공도 기반 모델링 도입으로 비정상 구간 설명력 강화</p>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <div class="meta-info-block" style="border-right: 1px solid rgba(15,23,42,0.08); padding-right: 18px;">
+                        <span class="meta-section-label">Role</span>
+                        <p data-i18n="hp_tfs_role">교통량·소요시간 예측 모델 설계 및 검증 체계 구축, 시공도 생성 로직 및 CNN 모델 개발, Python·Oracle SQL 기반 데이터 마트 설계</p>
+                    </div>
+                    <div class="meta-info-block" style="border-right: none; padding-right: 0;">
+                        <span class="meta-section-label">Tech Stack</span>
+                        <p data-i18n="hp_tfs_stack">Python, Oracle SQL, XGBoost, CNN, Time-Space Diagram Modeling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading">Decision Narrative</div>
+        <div class="details-grid">
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">01</div>
+                    <div class="step-title">CONTEXT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="hp_tfs_step_1">
+                    ‣ 기존 전국 고속도로 교통예보 시스템은 구간별 통계 기반 예측에 의존하고 있었으며, 시간·공간적 연속성이 충분히 반영되지 못한 구조 존재<br>
+                    ‣ 특정 요일·기상 조건·비정상 상황에서 예측 변동성이 확대되며 결과 해석 및 활용에 제약 발생
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">02</div>
+                    <div class="step-title">DECISION</div>
+                </div>
+                <p class="step-desc" data-i18n-html="hp_tfs_step_2">
+                    ‣ 공공 교통예보 시스템으로서 대외 제공 신뢰도를 유지하기 위해, 단순 정확도 개선을 넘어 모델 구조 자체의 정밀화가 필요한 상황<br>
+                    ‣ 예측 결과를 내부 검증용 수치가 아닌, 실제 화면과 브리핑에 활용 가능한 형태로 제공할 수 있을지에 대한 판단 필요
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">03</div>
+                    <div class="step-title">FRAMING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="hp_tfs_step_3">
+                    “구간 단위 예측 정확도를 높일 것인가”가 아니라, “시간과 공간의 흐름을 반영한 구조로 재구성할 수 있는가?”로 질문을 재정의
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">04</div>
+                    <div class="step-title">INSIGHT</div>
+                </div>
+                <p class="step-desc" data-i18n-html="hp_tfs_step_4">
+                    ‣ 개별 구간 데이터를 시공도(Time-Space Diagram) 형태의 이미지로 변환하자, 정체 확산 패턴이 선형·대각선 형태로 구조화되어 나타남<br>
+                    ‣ 이러한 패턴은 단일 시점 예측보다, 연속적 흐름을 학습하는 CNN 구조에서 더 안정적으로 포착됨을 확인<br>
+                    ‣ 요일·기상 조건별 오차 분포를 분석한 결과, 변동성은 존재하되 특정 조건에서 체계적 편향이 반복되는 구조는 제한적임을 확인
+                </p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-heading">
+                    <div class="step-tag">05</div>
+                    <div class="step-title">OUTCOME</div>
+                </div>
+                <p class="step-desc" data-i18n-html="hp_tfs_step_5">
+                    ‣ 시공도 기반 CNN 소요시간 예측 모델을 구축하고, 기존 회귀 기반 모델과 비교 검증하여 안정적 오차 범위 확보<br>
+                    ‣ 평균 오차 약 3%대 수준으로 관리 가능한 예측 체계 정립<br>
+                    ‣ 교통량 예측 결과를 표준화된 테이블 구조로 정비하여 대내·외 화면(UI) 제공 체계에 직접 연계
+                </p>
+            </div>
+
+            <div class="step-box" style="border-bottom-color: var(--primary-color);">
+                <div class="step-heading">
+                    <div class="step-tag">06</div>
+                    <div class="step-title">LEARNING</div>
+                </div>
+                <p class="step-desc" data-i18n-html="hp_tfs_step_6">
+                    ‣ 예측 문제는 단순히 알고리즘을 교체하는 것이 아니라, 데이터를 어떻게 구조화하느냐에 따라 모델의 해석 가능성과 안정성이 결정된다는 관점을 확립<br>
+                    ‣ 특히 공공 시스템에서는 “더 높은 정확도”보다 “일관되고 설명 가능한 구조”가 신뢰를 만든다는 기준을 갖게 됨
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <section class="image-section">
+        <div class="container">
+            <h3 class="text-center mb-5" style="font-weight: 700; color: #222;">Project Showcase</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+                <div class="gallery-item"><img src="/img/gallery/portfolio_details.jpg" alt=""></div>
+            </div>
+        </div>
+    </section> -->
+
+    {% include footer.html %}
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/theme.js"></script>
+    <script>
+        window.pageTranslations = {
+            ko: {
+                hp_tfs_banner_title: "교통예보시스템 고정밀화 용역",
+                hp_tfs_banner_period: "2022.6.20 ~ 2022.12.16",
+                hp_tfs_snapshot: "한국도로공사 전국 고속도로 교통예보 시스템의 예측 정밀도 고도화 및 모델 구조 개선",
+                hp_tfs_role: "교통량·소요시간 예측 모델 설계 및 검증 체계 구축, 시공도 생성 로직 및 CNN 모델 개발, Python·Oracle SQL 기반 데이터 마트 설계",
+                hp_tfs_stack: "Python, Oracle SQL, XGBoost, CNN, Time-Space Diagram Modeling",
+                hp_tfs_impact_title: "Impact",
+                hp_tfs_metric_combined: "요일·기상 조건별 평균 예측 오차 3%대 수준으로 안정화 | 교통량 예측 결과 표준 데이터 구조 정비 | 시공도 기반 모델링 도입으로 비정상 구간 설명력 강화",
+                hp_tfs_step_1: "‣ 기존 전국 고속도로 교통예보 시스템은 구간별 통계 기반 예측에 의존하고 있었으며, 시간·공간적 연속성이 충분히 반영되지 못한 구조 존재<br>‣ 특정 요일·기상 조건·비정상 상황에서 예측 변동성이 확대되며 결과 해석 및 활용에 제약 발생",
+                hp_tfs_step_2: "‣ 공공 교통예보 시스템으로서 대외 제공 신뢰도를 유지하기 위해, 단순 정확도 개선을 넘어 모델 구조 자체의 정밀화가 필요한 상황<br>‣ 예측 결과를 내부 검증용 수치가 아닌, 실제 화면과 브리핑에 활용 가능한 형태로 제공할 수 있을지에 대한 판단 필요",
+                hp_tfs_step_3: "“구간 단위 예측 정확도를 높일 것인가”가 아니라, “시간과 공간의 흐름을 반영한 구조로 재구성할 수 있는가?”로 질문을 재정의",
+                hp_tfs_step_4: "‣ 개별 구간 데이터를 시공도(Time-Space Diagram) 형태의 이미지로 변환하자, 정체 확산 패턴이 선형·대각선 형태로 구조화되어 나타남<br>‣ 이러한 패턴은 단일 시점 예측보다, 연속적 흐름을 학습하는 CNN 구조에서 더 안정적으로 포착됨을 확인<br>‣ 요일·기상 조건별 오차 분포를 분석한 결과, 변동성은 존재하되 특정 조건에서 체계적 편향이 반복되는 구조는 제한적임을 확인",
+                hp_tfs_step_5: "‣ 시공도 기반 CNN 소요시간 예측 모델을 구축하고, 기존 회귀 기반 모델과 비교 검증하여 안정적 오차 범위 확보<br>‣ 평균 오차 약 3%대 수준으로 관리 가능한 예측 체계 정립<br>‣ 교통량 예측 결과를 표준화된 테이블 구조로 정비하여 대내·외 화면(UI) 제공 체계에 직접 연계",
+                hp_tfs_step_6: "‣ 예측 문제는 단순히 알고리즘을 교체하는 것이 아니라, 데이터를 어떻게 구조화하느냐에 따라 모델의 해석 가능성과 안정성이 결정된다는 관점을 확립<br>‣ 특히 공공 시스템에서는 “더 높은 정확도”보다 “일관되고 설명 가능한 구조”가 신뢰를 만든다는 기준을 갖게 됨"
+            },
+            en: {
+                hp_tfs_banner_title: "High-Precision Traffic Forecasting System Development",
+                hp_tfs_banner_period: "Jun 20, 2022 – Dec 16, 2022",
+                hp_tfs_snapshot: "Enhanced predictive precision and model architecture of the nationwide highway traffic forecasting system operated by the Korea Expressway Corporation.",
+                hp_tfs_role: "Designed traffic volume and travel time prediction models, built validation frameworks, developed time-space diagram logic and CNN models, and designed data marts using Python and Oracle SQL.",
+                hp_tfs_stack: "Python, Oracle SQL, XGBoost, CNN, Time-Space Diagram Modeling",
+                hp_tfs_impact_title: "Impact",
+                hp_tfs_metric_combined: "Stabilized average prediction error to ~3% across weekdays and weather conditions | Standardized forecast outputs for internal and public-facing interfaces | Introduced time-space image modeling to improve explainability for irregular segments",
+                hp_tfs_step_1: "‣ The existing nationwide highway forecasting system relied largely on segment-level statistical predictions, with limited representation of spatiotemporal continuity.<br>‣ Under specific weekday, weather, and irregular conditions, predictive volatility increased, limiting interpretability and practical usability.",
+                hp_tfs_step_2: "‣ As a public-facing forecasting system, improving reliability required more than incremental accuracy gains; the model structure itself needed refinement.<br>‣ It became necessary to determine whether forecasts could be delivered in a format directly usable for operational dashboards and public briefings.",
+                hp_tfs_step_3: "Rather than asking, “How can we improve segment-level accuracy?”, I reframed the problem as: “Can we reconstruct the model to reflect the continuous flow of time and space?”",
+                hp_tfs_step_4: "‣ When segment data were transformed into time-space diagram images, congestion propagation patterns emerged in structured linear and diagonal forms.<br>‣ These patterns were more stably captured by CNN architectures that learn continuous flows, compared to single-point statistical models.<br>‣ Error distribution analysis by weekday and weather condition showed variability but limited systematic bias under specific conditions.",
+                hp_tfs_step_5: "‣ Built a CNN-based travel time forecasting model using time-space diagrams and validated it against regression baselines to secure stable error ranges.<br>‣ Established a controllable prediction framework with average error maintained in the ~3% range.<br>‣ Standardized forecast outputs into structured tables directly linked to internal and external UI systems.",
+                hp_tfs_step_6: "‣ I reinforced the perspective that forecasting performance depends not only on algorithm choice but on how data are structurally represented.<br>‣ In public systems, I learned that trust is built less on marginal accuracy gains and more on consistency and structural explainability."
+            }
+        };
+    </script>
+    <script src="/js/lang-toggle.js"></script>
+</body>
+</html>
