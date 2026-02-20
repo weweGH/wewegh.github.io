@@ -183,13 +183,26 @@
             color: var(--text-light);
         }
         .section-heading {
+            position: relative;
             font-size: 20px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #111827;
             margin: 60px 0 16px;
+            padding-left: 14px;
             text-shadow: 0 4px 12px rgba(15,23,42,0.25);
+        }
+        .section-heading::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 22px;
+            border-radius: 999px;
+            background: var(--primary-color);
         }
 
         .image-section {
