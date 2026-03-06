@@ -270,7 +270,7 @@
         - As testing expanded to all color variants, the demand on testing resources and time increased substantially, with some client cases taking over six months to reach conclusions.
 
 2. DECISION
-    - 시험 대상 증가 증가와 함께 품질 이슈 발생률 및 최종 부적합률이 동반 상승하며, 기존 전수 시험 방식의 지속 가능성에 대한 판단 필요성 대두
+    - 시험 대상 증가와 함께 품질 이슈 발생률 및 최종 부적합률이 동반 상승하며, 기존 전수 시험 방식의 지속 가능성에 대한 판단 필요성 대두
         - With both testing volume and quality issue rates rising simultaneously—including higher final non-conformance rates—it became necessary to reassess the sustainability of the existing full-coverage testing approach.
 
 3. FRAMING
