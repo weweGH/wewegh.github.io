@@ -308,11 +308,11 @@
     - 수작업 문서 탐색 방식 대체 및 검색 리드타임 대폭 단축 | 사내 시스템 기능 확장
         - Replaced manual document lookup with a semantic search workflow, significantly reducing search lead time | Expanded functionality of the internal system
 - ROLE
-    - 원료 문서 텍스트 추출, 청킹 전략 설계, 임베딩 생성, 벡터 저장 구조 설계 및 시맨틱 검색 로직 구현 담당
-        - Responsible for text extraction from ingredient documents, chunking strategy design, embedding generation, vector storage schema design, and implementation of the semantic retrieval logic.
+    - 문서 전처리 파이프라인 구현, 청킹 전략 설계, 임베딩/벡터 저장 구조 설계 및 시맨틱 검색 로직 구현 담당
+        - Implemented the document preprocessing pipeline, designed chunking strategies, and built the embedding and vector storage architecture along with the semantic retrieval logic.
 
 - Tech Stack
-    - AWS Bedrock Embedding, PostgreSQL (pgvector), AWS S3, AWS Lambda, OpenSearch, RAG Architecture
+    - AWS(Bedrock Embedding, S3, Lambda), PostgreSQL(pgvector), RAG Architecture
 
 1. CONTEXT
     - 사내에는 PDF, Word, Excel 등 다양한 형식의 원료 관련 첨부파일이 약 47만 건 이상 축적되어 있었음
@@ -349,10 +349,10 @@
         - Stored documents in AWS S3 and built a preprocessing pipeline using OpenDataLoader and AWS Lambda.
     - AWS Bedrock 임베딩 모델을 활용해 문서 청크를 벡터화하고, PostgreSQL(pgvector)에 저장
         - Vectorized document chunks using AWS Bedrock embeddings and stored them in PostgreSQL with pgvector.
-    - OpenSearch와 연동하여 Top-5 유사 청크를 반환하고, 메타 정보를 포함한 검색 API 구현
-        - Integrated OpenSearch to return the Top-5 most relevant chunks along with metadata via a search API.
-    - 기존 키워드 기반 검색 체계를 의미 기반 RAG 검색 구조로 확장
-        - Expanded the internal system from keyword-based retrieval to a RAG-powered semantic search architecture.
+    - Top-5 유사 청크를 반환하고, 메타 정보를 포함한 검색 API 구현
+        - Implemented a search API that retrieves the top-5 most relevant document chunks along with contextual metadata.
+    - 기존 수작업 탐색 체계를 의미 기반 RAG 검색 구조로 확장
+        - Transformed the manual document exploration workflow into a semantic RAG-based retrieval system.
 
 6. LEARNING
     - 검색 문제는 “더 많은 데이터를 색인하는 문제”가 아니라, “사용자의 질문을 어떤 단위로 해석하고 반환할 것인가”의 설계 문제라는 관점 정립
